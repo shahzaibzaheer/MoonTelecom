@@ -1,0 +1,109 @@
+body {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.btn {
+  background: #1E2838;
+  color: #fff;
+  font-size: 1.2em;
+  border-radius: 100px;
+  padding: 12px 32px;
+  border: none;
+  min-width: 150px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: #C32A00;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: #3EA900;
+}
+
+.login-container {
+  background: #1E2838;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  padding-top: 100px;
+}
+
+.login-container h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.login-container .logo img {
+  width: 250px;
+  margin-bottom: 8px;
+}
+
+.login-container form {
+  background: #fff;
+  border-radius: 2px;
+  padding: 50px;
+  width: 100%;
+  max-width: 400px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.login-container label {
+  display: block;
+  padding: 4px 8px;
+}
+
+.login-container .input-group {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: 8px 0;
+}
+
+.login-container input {
+  padding: 12px 16px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 1.2em;
+}
+
+.login-container .btn {
+  display: block;
+  margin: 16px auto;
+}
+
+.login-container .link {
+  text-align: center;
+}
+

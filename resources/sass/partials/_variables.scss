@@ -1,0 +1,24 @@
+
+$primary-color: #1E2838;
+$accent-color: #C32A00;
+$white: #fff;
+$danger: red;
+$success: #3EA900;
+
+
+
+@function gap($x : 1){
+    @return  $x * 8px;
+}
+
+@mixin border-radius(){
+
+    border-radius: 2px;
+}
+
+
+@mixin round-border(){
+    border-radius: 100px;
+}
+
+

@@ -1,0 +1,116 @@
+@import "partials/variables";
+
+body{
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+}
+*{
+    box-sizing: border-box;
+}
+*:before, *:after{
+    box-sizing: border-box;
+}
+
+
+// *************************
+// Elements
+// ************************
+.btn{
+    background: $primary-color;
+    color:$white;
+    font-size: 1.2em;
+    @include round-border;
+    padding: gap(1.5) gap(4);
+    border: none;
+    min-width: 150px;
+
+    &:hover{
+        cursor: pointer;
+        background: $accent-color;
+    }
+}
+
+
+.error{
+    color: $danger;
+}
+.success{
+    color: $success;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// *************************
+//  Login Form Container
+// ************************
+.login-container{
+    background: $primary-color;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+
+    h1{
+        text-align: center;
+        color: $white;
+    }
+
+    .logo img{
+        width: 250px;
+        margin-bottom: gap(1);
+    }
+
+
+
+    form{
+        background: $white;
+        @include border-radius;
+        padding: 50px;
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    label{
+        display: block;
+        padding:  gap(.5) gap(1);
+    }
+    .input-group{
+        display: flex;
+        flex-direction: column;
+        margin: gap(1) 0;
+    }
+    input{
+        padding: gap(1.5) gap(2);
+        @include border-radius;
+        border: 1px solid rgba(black, 0.4);
+        font-size: 1.2em;
+    }
+
+    .btn{
+        display: block;
+        margin: gap(2) auto;
+    }
+
+    .link{
+        text-align: center;
+    }
+
+
+}
