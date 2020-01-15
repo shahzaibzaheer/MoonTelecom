@@ -11,10 +11,18 @@
 |
 */
 
+Route::group([ 'middleware'=>'auth'],function(){
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware('auth');
+    Route::get('/', function () {return view('dashboard');});
+
+    Route::resource('user', 'UserController');
+    Route::resource('villages', 'VillageController');
+    Route::resource('packages', 'PackageController');
+    Route::resource('connections', 'ConnectionController');
+
+
+
+});
 
 
 Auth::routes();

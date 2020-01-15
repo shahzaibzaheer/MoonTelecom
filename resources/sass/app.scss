@@ -1,4 +1,4 @@
-@import "partials/variables";
+@import "partials/variables_and_mixins";
 
 body{
     font-family: 'Muli', sans-serif;
@@ -41,7 +41,16 @@ body{
     color: $success;
 }
 
+.icon{
+    width: 25px;
+    height: 25px;
+    fill: $white;
+}
 
+
+a{
+    text-decoration: none;
+}
 
 
 
@@ -110,6 +119,186 @@ body{
 
     .link{
         text-align: center;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *************************
+//  Main Navigation
+// ************************
+.main_navigation_container{
+    background: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: gap(2) 0;
+    @include shadow;
+    //transition: width 0.3s ease-in;
+    width: 300px;
+
+
+    &.collapsed{
+        width: 80px;
+        span{
+            display: none;
+        }
+        .icon{
+            //width: 25px;
+            //height: 25px;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    a{
+        color: $white;
+        font-size: 1.2em;
+    }
+
+
+
+    //********* Nav Header
+    .nav_logo_container img{
+
+        height: 80px;
+        margin: 0 auto;
+        display: block;
+    }
+    .nav_logo_container .logo{
+        padding-right: gap(3);
+    }
+
+
+
+    //**************** Nav items
+    .nav_items {
+        list-style: none;
+        padding: 0;
+    }
+    .nav_item{
+        display: flex;
+        align-items: center;
+        padding: gap(2);
+        span{
+            margin-left: gap(2);
+            margin-right: gap(10);
+        }
+
+        &.active{
+            background: rgba(#E3E5ED, 0.3);
+        }
+        &:hover{
+            background: rgba(#E3E5ED, 0.3);
+        }
+        &:active{
+            background: $accent-color;
+        }
+
+    }
+
+
+
+}
+
+
+
+.title_nav_toggle_container{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: gap(1);
+    left: 320px;
+
+    &.collapsed{
+        left: 100px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        .nav_toggler_container{
+            background: $accent-color;
+        }
+    }
+    .nav_toggler_container{
+        background: $primary-color;
+        padding: gap(1);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .title{
+        padding-left: gap(1);
+        font-size: 1.8em;
+        font-weight: 800;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//**********************
+//   Content Container   TEMP Styles
+//**********************
+
+.page_header{
+    display: flex;
+    justify-content: flex-end;
+
+
+
+}
+
+
+
+.content-container{
+    padding: gap(3) gap(1) 0 100px;
+
+    .page_header{
+        margin-bottom: gap(2);
     }
 
 
