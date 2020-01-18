@@ -526,3 +526,102 @@ select{
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//**********************
+//   Create Connections Form
+//**********************
+
+form.create_connection_container{
+    @include card_style;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+
+    margin-top: gap(10);
+    .heading{
+        font-size: 2em;
+        font-weight: $font-normal;
+        padding-left: gap(2);
+    }
+    .package_detail, .contact_detail{
+        flex-grow: 1;
+    }
+
+
+
+
+    .form_element_group{
+        display: flex;
+    }
+    .form_element{
+        margin: gap(1);
+        justify-content: center;
+        input{
+            padding: gap(1);
+            align-self: flex-start;
+        }
+    }
+
+    .form_element.checkbox{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        input {
+            width: 20px;
+            height: 20px;
+            &:hover{
+                cursor: inherit;
+            }
+        }
+        label{
+            padding-left: gap(2);
+            &::selection{
+                background: none;
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+
+    #billingAddress,#installationAddress{
+        align-self: stretch;
+        margin-right: gap(15);
+    }
+
+    .btn{
+        margin-top: gap(2);
+        align-self: flex-start;
+        display: inline-block;
+        font-size: 1.4em;
+        outline: none;
+    }
+
+}
+

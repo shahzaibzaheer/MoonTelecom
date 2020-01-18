@@ -24,6 +24,8 @@ const app = new Vue({
 
     data:{
         isCollapsed: true,
+        isBillingAddressSame: true,
+        isCustomPackage: false,
     },
 
 

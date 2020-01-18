@@ -28,8 +28,9 @@ class ConnectionController extends Controller
     public function create()
     {
 
-        $packages = Package::all();
+        $packages = Package::defaultPackages();
         $villages = Village::all();
+//        dd($packages,$villages);
         return view('connections.create', ['packages'=>$packages, 'villages'=>$villages]);
         
     }
@@ -42,12 +43,8 @@ class ConnectionController extends Controller
      */
     public function store(Request $request)
     {
-
-        //TODO: set state to new    $table->string('state')->default('new'); // new, active, block
-        //      set user id
-
-
         dd($request->all());
+        return response("abc");
     }
 
     /**

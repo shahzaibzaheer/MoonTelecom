@@ -45691,7 +45691,9 @@ Vue.component('packages', _components_packages__WEBPACK_IMPORTED_MODULE_2__["def
 var app = new Vue({
   el: '#app',
   data: {
-    isCollapsed: true
+    isCollapsed: true,
+    isBillingAddressSame: true,
+    isCustomPackage: false
   }
 });
 

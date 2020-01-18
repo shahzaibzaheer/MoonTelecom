@@ -452,3 +452,105 @@ select::placeholder {
   margin: 16px;
 }
 
+form.create_connection_container {
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 80px;
+}
+
+form.create_connection_container .heading {
+  font-size: 2em;
+  font-weight: 400;
+  padding-left: 16px;
+}
+
+form.create_connection_container .package_detail,
+form.create_connection_container .contact_detail {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+form.create_connection_container .form_element_group {
+  display: -webkit-box;
+  display: flex;
+}
+
+form.create_connection_container .form_element {
+  margin: 8px;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+form.create_connection_container .form_element input,
+form.create_connection_container .form_element select {
+  padding: 8px;
+  align-self: flex-start;
+}
+
+form.create_connection_container .form_element.checkbox {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+
+form.create_connection_container .form_element.checkbox input,
+form.create_connection_container .form_element.checkbox select {
+  width: 20px;
+  height: 20px;
+}
+
+form.create_connection_container .form_element.checkbox input:hover,
+form.create_connection_container .form_element.checkbox select:hover {
+  cursor: inherit;
+}
+
+form.create_connection_container .form_element.checkbox label {
+  padding-left: 16px;
+}
+
+form.create_connection_container .form_element.checkbox label::-moz-selection {
+  background: none;
+}
+
+form.create_connection_container .form_element.checkbox label::selection {
+  background: none;
+}
+
+form.create_connection_container .form_element.checkbox label:hover {
+  cursor: pointer;
+}
+
+form.create_connection_container .form_element.checkbox:hover {
+  cursor: pointer;
+}
+
+form.create_connection_container #billingAddress,
+form.create_connection_container #installationAddress {
+  align-self: stretch;
+  margin-right: 120px;
+}
+
+form.create_connection_container .btn {
+  margin-top: 16px;
+  align-self: flex-start;
+  display: inline-block;
+  font-size: 1.4em;
+  outline: none;
+}
+

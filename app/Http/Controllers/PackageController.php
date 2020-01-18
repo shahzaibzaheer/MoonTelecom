@@ -14,7 +14,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages = Package::where('isCustom',false)->get();
+        $packages = Package::defaultPackages();
         return view('packages.index', [ "packages"=>$packages]);
     }
 
