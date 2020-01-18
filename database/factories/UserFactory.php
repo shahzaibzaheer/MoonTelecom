@@ -18,17 +18,17 @@ use Illuminate\Support\Str;
 */
 
 $factory->defineAs(User::class,'admin', function(){
-    // return [
-    //     'name'=>'moon',
-    //     'email'=>'shahzaib.mughal02013@gmail.com',
-    //     'email_verified_at' => now(),
-    //     'isAdmin'=>true,
-    //     'password'=> bcrypt('Pakistan143143143'),
-    //     'remember_token' => Str::random(10),
-    // ];
+//     return [
+//         'name'=>'moon',
+//         'email'=>'admin@gmail.com',
+//         'email_verified_at' => now(),
+//         'isAdmin'=>true,
+//         'password'=> bcrypt('Pakistan143143143'),
+//         'remember_token' => Str::random(10),
+//     ];
     return [
         'name'=>'moon',
-        'email'=>'moon@gmail.com',
+        'email'=>'admin@gmail.com',
         'email_verified_at' => now(),
         'isAdmin'=>true,
         'password'=> bcrypt('admin'),

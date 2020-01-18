@@ -9,7 +9,7 @@ class VillageController extends Controller
 {
     public function index()
     {
-        $villages = Village::all();
+        $villages = Village::latest()->get();
         return view('villages.index', [ "villages"=>$villages]);
     }
 

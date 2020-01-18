@@ -18,7 +18,7 @@ class CreatePackagesTable extends Migration
             $table->string('name');
             $table->integer('bandwidth');
             $table->integer('fees');
-            $table->boolen('isCustom'); // set package is default or custom (only for that connection)
+            $table->boolean('isCustom'); // set package is default or custom ( custom means only for that connection)
             $table->timestamps();
         });
     }

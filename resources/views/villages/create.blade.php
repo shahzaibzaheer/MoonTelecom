@@ -2,17 +2,24 @@
 
 @section('content')
     <div id="app">
-        @include('components.navigation')
+        @include('components.navigation', ['title'=>'Villages'])
 
         <div class="content-container">
-            <h1>Create New Village</h1>
+            <div class="page_header"></div>
+            <div class="page_body">
+
+                <form action="{{route('villages.store')}}" method="POST">
+                    <span class="title">Create New Village</span>
+                    @csrf
+                    <div class="form_element">
+                        <label for="name">Village Name</label>
+                        <input id="name" type="text" name="name" placeholder="Enter Village Name" autofocus>
+                    </div>
+                    <input class="btn" type="submit" name="Submit" value="Create Village" >
+                </form>
+
+            </div>
+            <div class="page_footer"></div>
         </div>
-
-
-        <form action="{{route('villages.store')}}" method="POST">
-            @csrf
-            <input type="text" name="name" placeholder="Enter Name">
-            <input class="btn" type="submit" name="Submit" value="Create User" >
-        </form>
 
 @endsection

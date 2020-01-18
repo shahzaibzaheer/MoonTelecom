@@ -3,7 +3,7 @@
 @section('content')
     <div id="app">
 
-        @include('components.navigation', ['title'=>'Dashboard'])
+        @include('components.navigation', ['title'=>'Dashboard', 'link'=>url('/')])
 
 
        

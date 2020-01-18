@@ -15,16 +15,15 @@ class CreateConnectionsTable extends Migration
     {
         Schema::create('connections', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username')->uniqid();
+            $table->string('username')->unique();
             $table->string('name');
             $table->string('fathername')->nullable();
             $table->string('cnic')->nullable();
             $table->string('phone')->nullable();    
             $table->string('email')->nullable();
             $table->bigInteger('village_id');
-            $table->string('installationAddresss');
-            $table->string('billingAddresss')->nullable();
-            $table->integer('installationFees');
+            $table->string('installationAddress');
+            $table->string('billingAddress')->nullable();
             $table->bigInteger('package_id');
             $table->string('state')->default('new'); // new, active, block
             $table->bigInteger('user_id'); // kiss user ny create kiya

@@ -2,26 +2,42 @@
 
 @section('content')
     <div id="app">
-        @include('components.navigation')
-
-
+        @include('components.navigation', ['title'=>'Users'])
         <div class="content-container">
-            <h1>Create New User</h1>
+            <div class="page_header"></div>
+            <div class="page_body">
+
+                <form action="{{route('users.store')}}" method="POST">
+                    <span class="title">Create New User</span>
+                    @csrf
+                    <div class="form_element">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" name="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form_element">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form_element">
+                        <label for="role">Role</label>
+                        <select id="role" name="role">
+                            <option value="1">Admin</option>
+                            <option value="0" selected>Employee</option>
+                        </select>
+                    </div>
+                    <div class="form_element">
+                        <label for="password">Password</label>
+                        <input id="password" type="text" name="Password" placeholder="Enter Password">
+                    </div>
+
+                    <input class="btn" type="submit" name="Submit" value="Create User" >
+                </form>
+
+            </div>
+            <div class="page_footer"></div>
+
         </div>
 
 
-        <form action="{{route('user.store')}}" method="POST">
-            @csrf
-
-            <input type="text" name="name" placeholder="Enter Name">
-            <input type="email" name="email" placeholder="Enter Email">
-            <select name="role">
-                <option value="1">Admin</option>
-                <option value="0" selected>Employee</option>
-            </select>
-            <input type="password" name="Password" placeholder="Enter Password">
-            <input type="submit" name="Submit" value="Create User" >
-
-        </form>
 
 @endsection

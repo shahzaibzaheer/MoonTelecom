@@ -1,5 +1,5 @@
 <div class="title_nav_toggle_container" :class="{collapsed : isCollapsed }" @click="isCollapsed = !isCollapsed">
-<div class="nav_toggler_container">
+<div class="nav_toggler_container" >
     <svg  class="icon" version="1.1" viewBox="0 0 17.76 13.954"  v-show="isCollapsed" >
         <g>
             <path transform="translate(0 -195.92)" d="M1.9,201a1.835,1.835,0,0,0-1.348.555,1.914,1.914,0,0,0,0,2.7A1.836,1.836,0,0,0,1.9,204.8a1.836,1.836,0,0,0,1.348-.555,1.914,1.914,0,0,0,0-2.7A1.835,1.835,0,0,0,1.9,201Z"/>

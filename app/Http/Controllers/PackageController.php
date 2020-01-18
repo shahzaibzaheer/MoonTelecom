@@ -14,7 +14,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages = Package::all();
+        $packages = Package::where('isCustom',false)->get();
         return view('packages.index', [ "packages"=>$packages]);
     }
 
@@ -40,7 +40,7 @@ class PackageController extends Controller
         $package->name = $request->input('name');
         $package->bandwidth = $request->input('bandwidth');
         $package->fees = $request->input('fees');
-
+        $package->isCustom= false;      // this is default package
         $isSuccess= $package->save();
         if($isSuccess){
             // model created successfully

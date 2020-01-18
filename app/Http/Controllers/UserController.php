@@ -8,11 +8,50 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('users.index', [ "users"=>$users]);
+        $users = User::latest()->get();
+        return view('users.index', [
+            "users"=>$users,
+        ]);
+
+//
+//        $queryParams = $request->query;
+//
+//        if($queryParams->count() > 0 ){   // if has query params
+//            $dbQuery = User::query();
+//
+//            if($queryParams->has('blocked')){
+//                if($queryParams->get('blocked')=== "true"){
+//                    // grab all the blocked users
+//                    $dbQuery = $dbQuery->where('isBlocked','=',true);
+//                }elseif($queryParams->get('blocked')=== "false"){
+//                    // grab all the active users
+//                    $dbQuery = $dbQuery->where('isBlocked','=',false);
+//                }
+//            }
+//            if($queryParams->has('q')){
+//                $search = $queryParams->get('q');
+//                $dbQuery = $dbQuery->where(function($query) use ($search){
+//                    $query->where('name','like','%'.$search.'%');
+//                    $query->orWhere('email','like','%'.$search.'%');
+//                });
+//            }
+//            $users = $dbQuery->get();
+//
+//        }else{
+//            // get all users
+//        }
+
+//        dd($users);
+        // show all users
+
     }
+
+
+
+
+
 
     public function create()
     {

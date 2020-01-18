@@ -5,7 +5,8 @@ body{
     font-size: 16px;
     padding: 0;
     margin: 0;
-    width: 100vw;
+    width: 100%;
+    background: #f6f6f6;
 }
 *{
     box-sizing: border-box;
@@ -23,13 +24,16 @@ body{
     color:$white;
     font-size: 1.2em;
     @include round-border;
-    padding: gap(1.5) gap(4);
+    padding: gap(1.2) gap(4);
     border: none;
     min-width: 150px;
 
     &:hover{
         cursor: pointer;
         background: $accent-color;
+    }
+    &:active{
+        background: darken($accent-color, 10%);
     }
 }
 
@@ -51,6 +55,184 @@ body{
 a{
     text-decoration: none;
 }
+
+
+
+input{
+    padding: gap(1.5) gap(1.5) gap(1.5) gap(2.5);
+    @include light_border;
+    @include card-border;
+    margin: gap(0.5) 0;
+    font-size: 1.2em;
+    &::placeholder{
+        color: rgba(black,0.3);
+
+    }
+}
+select{
+    @extend input;
+}
+
+
+
+.search-filter-contianer{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.search-container{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include card_style;
+    margin-bottom: gap(3);
+    &:hover{
+        cursor: pointer;
+
+    }
+
+
+    .icon{
+        fill: rgba(#000,0.4);
+        cursor: pointer;
+        box-sizing: content-box;
+        padding: gap(2);
+        &:hover{
+            fill: rgba(#000,1);
+        }
+    }
+    input{
+        border: none;
+        outline: none;
+        &:hover{
+            cursor: text;
+        }
+    }
+
+}
+
+.filter-container{
+
+}
+
+
+
+
+
+
+
+//**********************
+//  Dialog
+//**********************
+.dialog{
+    background: $white;
+    @include shadow;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: gap(3) gap(5);
+
+
+    .title{
+        text-align: center;
+        font-size: 2em;
+        font-weight: $font-normal;
+    }
+
+
+
+}
+
+
+
+
+
+//************************
+//      Table
+//***********************
+.table_container{
+    margin-top: gap(10);
+    strong  {
+        font-weight: $font-bolder;
+        font-size: 1.2em;
+    }
+    .table_header{
+        font-size: 1.1em;
+    }
+
+    table{
+        background: $white;
+        @include shadow;
+        padding: gap(2) ;
+        text-align: left;
+        width: 100%;
+
+        th {
+            font-size: 1.1em;
+        }
+
+        td,th {
+            padding: gap(1) gap(2);
+        }
+
+        .icons-container{
+            .icon  {
+                fill: $primary-color ;
+                opacity: 0.7;
+                padding: gap(1);
+                box-sizing: content-box;
+                width: 20px;
+                height: 20px;
+
+
+                &:hover{
+                    opacity: 1;
+                    &.danger{
+                        fill: $danger;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,7 +270,7 @@ a{
 
     form{
         background: $white;
-        @include border-radius;
+        @include card-border;
         padding: 50px;
         width: 100%;
         max-width: 400px;
@@ -107,7 +289,7 @@ a{
     }
     input{
         padding: gap(1.5) gap(2);
-        @include border-radius;
+        @include card-border;
         border: 1px solid rgba(black, 0.4);
         font-size: 1.2em;
     }
@@ -235,11 +417,7 @@ a{
     &:hover{
         cursor: pointer;
     }
-    &:active{
-        .nav_toggler_container{
-            background: $accent-color;
-        }
-    }
+
     .nav_toggler_container{
         background: $primary-color;
         padding: gap(1);
@@ -249,11 +427,15 @@ a{
         display: flex;
         align-items: center;
         justify-content: center;
+        &:active{
+            background: $accent-color;
+        }
     }
     .title{
         padding-left: gap(1);
         font-size: 1.8em;
         font-weight: 800;
+        color: $text-primary-color;
     }
 }
 
@@ -295,11 +477,52 @@ a{
 
 
 .content-container{
-    padding: gap(3) gap(1) 0 100px;
-
+    padding: gap(2) gap(2.5) gap(2) gap(12);
+    min-height: 100vh;
+    width: 100%;
+    //background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: flex-start;
     .page_header{
-        margin-bottom: gap(2);
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    .page_body{
+        width: 100%;
+
+    }
+    .page_footer{
     }
 
+
+
+    form{
+        background: $white;
+        @include shadow;
+        padding: gap(3) gap(5);
+        display: block;
+        width: 40%;
+        margin: gap(10) auto;
+        .title{
+            font-size: 2em;
+            display: block;
+            text-align: center;
+            font-weight: $font-normal;
+            margin-bottom: gap(4);
+        }
+        .btn{
+            margin: 0 auto;
+            display: block;
+        }
+        .form_element{
+            display: flex;
+            flex-direction: column;
+            margin: gap(2);
+        }
+    }
 
 }

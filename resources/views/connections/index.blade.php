@@ -2,38 +2,19 @@
 
 @section('content')
     <div id="app">
-        @include('components.navigation')
+        @include('components.navigation', ['title'=>"Connections"])
 
         <div class="content-container">
-            <div class="header">
-                <h1>Connections</h1>
+            <div class="page_header">
                 <a href="{{route('connections.create')}}" class="btn">Create New Connection</a>
             </div>
 
-            <table>
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <td>Name</td>
-                    <td>Bandwidth</td>
-                    <td>Monthly Fees</td>
-                </tr>
-                </thead>
-                <tbody>
-                    @forelse($connections as $connection)
-                        <tr>
-                            <td>{{ $connection->id  }}</td>
-                            <td>{{ $connection->name  }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td>
-                                No Record Found
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+            <div class="page_body">
+{{--                <packages :pkgs="{{json_encode($packages)}}"> </packages>--}}
+
+            </div>
+
+            <div class="page_footer"></div>
         </div>
     </div>
 @endsection

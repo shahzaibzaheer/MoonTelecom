@@ -2,38 +2,20 @@
 
 @section('content')
     <div id="app">
-        @include('components.navigation')
+        @include('components.navigation',['title'=>'Villages'])
 
 
         <div class="content-container">
-            <div class="header">
-                <h1>Villages</h1>
-                <a href="{{route('villages.create')}}" class="btn">Add New Village</a>
+            <div class="page_header">
+                <a href="{{route('villages.create')}}" class="btn">Create New Village</a>
             </div>
 
-            <table>
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <td>Name</td>
-                </tr>
-                </thead>
-                <tbody>
-                    @forelse($villages as $village)
-                        <tr>
-                            <td>{{ $village->id  }}</td>
-                            <td>{{ $village->name  }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            No Record Found
-                        </tr>
+            <div class="page_body">
+                <villages :villages="{{json_encode($villages)}}"> </villages>
 
-                    @endforelse
+            </div>
 
-                </tbody>
-            </table>
-
+            <div class="page_footer"></div>
         </div>
     </div>
 
