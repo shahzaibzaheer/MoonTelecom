@@ -9,11 +9,15 @@ window.Vue = require('vue');
 import users from './components/users';
 import villages from './components/villages';
 import packages from './components/packages';
+import connections from './components/connections';
+import recoveries from './components/recoveries';
 
 
 Vue.component('users', users);
 Vue.component('villages', villages);
 Vue.component('packages', packages);
+Vue.component('connections', connections);
+Vue.component('recoveries', recoveries);
 
 
 
@@ -21,7 +25,6 @@ Vue.component('packages', packages);
 
 const app = new Vue({
     el: '#app',
-
     data:{
         isCollapsed: true,
         isBillingAddressSame: true,

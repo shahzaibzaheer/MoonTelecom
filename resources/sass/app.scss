@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Muli', sans-serif;
+    //font-size: 16px;
     font-size: 16px;
     padding: 0;
     margin: 0;
@@ -47,7 +48,9 @@ body{
 
 .icon{
     width: 25px;
+    //width: 35px;
     height: 25px;
+    //height: 35px;
     fill: $white;
 }
 
@@ -174,6 +177,7 @@ select{
 
         th {
             font-size: 1.1em;
+            //text-align: center;
         }
 
         td,th {
@@ -480,6 +484,8 @@ select{
     padding: gap(2) gap(2.5) gap(2) gap(12);
     min-height: 100vh;
     width: 100%;
+    //max-width: 1400px;
+    //margin: 0 auto;
     //background: red;
     display: flex;
     flex-direction: column;
@@ -489,6 +495,7 @@ select{
     .page_header{
         display: flex;
         justify-content: flex-end;
+        padding-top: gap(1);
         width: 100%;
     }
     .page_body{
@@ -622,6 +629,135 @@ form.create_connection_container{
         font-size: 1.4em;
         outline: none;
     }
-
 }
 
+form.invoice_container{
+    width: 50%;
+
+    .contact_data{
+        margin-bottom: gap(4);
+    }
+    .bill_data{
+        margin-bottom: gap(4);
+    }
+    .data_item{
+        margin-top: gap(1);
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        span,strong{
+            text-align: left;
+            width: 50%;
+        }
+    }
+
+    .form_element{
+        margin: 0;
+        input{
+            padding: gap(1);
+        }
+    }
+    .btn{
+        margin: gap(2) auto;
+    }
+}
+
+
+
+
+
+
+.connection_detail_container{
+    @include card_style;
+    width: 95%;
+    margin: gap(10) auto;
+    padding: gap(5) gap(10);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .connection_detail{
+        width: 70%;
+    }
+
+    .data_item{
+        margin-top: gap(1);
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        span,strong{
+            text-align: left;
+            width: 50%;
+        }
+    }
+
+    .title{
+        font-size: 2em;
+        font-weight: $font-normal;
+    }
+    .contact_info{
+        margin-bottom: gap(8);
+    }
+
+    .bill_detail{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+
+        .bill_summary{
+            @include card_style;
+            padding: gap(1);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .title{
+                text-align: center;
+            }
+            .data{
+                width: 100%;
+                margin: gap(1) auto;
+                padding-left: gap(3);
+            }
+            a{
+                margin: gap(1) 0;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .btn{
+        margin: gap(1);
+    }
+    .buttons_container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+td.icons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+.filters-container{
+    display: flex;
+
+    .filter{
+        margin: gap(1);
+    }
+}

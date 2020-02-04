@@ -414,6 +414,7 @@ select::placeholder {
   display: flex;
   -webkit-box-pack: end;
           justify-content: flex-end;
+  padding-top: 8px;
   width: 100%;
 }
 
@@ -552,5 +553,164 @@ form.create_connection_container .btn {
   display: inline-block;
   font-size: 1.4em;
   outline: none;
+}
+
+form.invoice_container {
+  width: 50%;
+}
+
+form.invoice_container .contact_data {
+  margin-bottom: 32px;
+}
+
+form.invoice_container .bill_data {
+  margin-bottom: 32px;
+}
+
+form.invoice_container .data_item {
+  margin-top: 8px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+}
+
+form.invoice_container .data_item span,
+form.invoice_container .data_item strong {
+  text-align: left;
+  width: 50%;
+}
+
+form.invoice_container .form_element {
+  margin: 0;
+}
+
+form.invoice_container .form_element input,
+form.invoice_container .form_element select {
+  padding: 8px;
+}
+
+form.invoice_container .btn {
+  margin: 16px auto;
+}
+
+.connection_detail_container {
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  width: 95%;
+  margin: 80px auto;
+  padding: 40px 80px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.connection_detail_container .connection_detail {
+  width: 70%;
+}
+
+.connection_detail_container .data_item {
+  margin-top: 8px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+}
+
+.connection_detail_container .data_item span,
+.connection_detail_container .data_item strong {
+  text-align: left;
+  width: 50%;
+}
+
+.connection_detail_container .title {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.connection_detail_container .contact_info {
+  margin-bottom: 64px;
+}
+
+.connection_detail_container .bill_detail {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  width: 30%;
+}
+
+.connection_detail_container .bill_detail .bill_summary {
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  padding: 8px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  width: 100%;
+}
+
+.connection_detail_container .bill_detail .bill_summary .title {
+  text-align: center;
+}
+
+.connection_detail_container .bill_detail .bill_summary .data {
+  width: 100%;
+  margin: 8px auto;
+  padding-left: 24px;
+}
+
+.connection_detail_container .bill_detail .bill_summary a {
+  margin: 8px 0;
+  text-align: center;
+}
+
+.connection_detail_container .btn {
+  margin: 8px;
+}
+
+.connection_detail_container .buttons_container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+td.icons-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.filters-container {
+  display: -webkit-box;
+  display: flex;
+}
+
+.filters-container .filter {
+  margin: 8px;
 }
 

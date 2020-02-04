@@ -73,7 +73,7 @@ class UserController extends Controller
         $isSuccess= $user->save();
         if($isSuccess){
             // model created successfully
-            return redirect()->route('user.index');
+            return redirect()->route('users.index');
         }else{
             dd($isSuccess);
             return "Saving Fails";

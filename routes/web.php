@@ -14,13 +14,25 @@
 Route::group([ 'middleware'=>'auth'],function(){
 
     Route::get('/', function () {return view('dashboard');});
-
     Route::resource('users', 'UserController');
     Route::resource('villages', 'VillageController');
     Route::resource('packages', 'PackageController');
+    Route::get('/connections/{connection}/history', 'ConnectionController@showBillsHistory')->name('connections.history');
+    Route::get('/connections/{connection}/invoice', 'ConnectionController@invoice')->name('connections.invoice');
     Route::resource('connections', 'ConnectionController');
 
 
+    // save users's payments
+    Route::post('/recoveries','RecoveryController@store')->name('recoveries.store');
+
+
+    // specific bill's recoveries history,     show specific bill recoveries
+    Route::get('/bills/{bill}/recoveries', 'BillController@showBillRecoveries')->name('bills.bill.recoveries');
+
+
+
+    // temp
+    Route::get('/generateBills', 'ConnectionController@generateBills');
 
 });
 

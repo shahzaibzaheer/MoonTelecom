@@ -8,23 +8,20 @@ class CreateBillsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *v
      * @return void
      */
     public function up()
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamp('billingMonth');
             $table->bigInteger('connection_id');
-            $table->bigInteger('user_id');
-            $table->integer('amount_paid');
-            $table->boolean('isPaid')->default(false);
-            $table->timestamp('recovered_at');
             $table->integer('bandwidth');
-            $table->integer('monthBill');
             $table->integer('due');
-            $table->string('comments');
-            $table->timestamp('month')->nullable();
+            $table->integer('billAmount');
+            $table->integer('amountPaid')->default(0);
+            $table->integer('status')->default(0);  // 0 not recovered, 1 not paid (if user pay 0) , 2 paid
             $table->timestamps();
         });
     }
