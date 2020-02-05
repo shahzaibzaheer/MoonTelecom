@@ -6,7 +6,6 @@
 
 
         <div class="content-container">
-
             <div class="page_body">
                     <recoveries :recoveries="{{ json_encode($recoveries) }}"></recoveries>
             </div>
