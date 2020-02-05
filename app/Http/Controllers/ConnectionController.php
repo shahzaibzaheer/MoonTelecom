@@ -67,18 +67,11 @@ class ConnectionController extends Controller
      */
     public function store(Request $request)
     {
-
-
         // create connection
         // generate bill for the connection and save that bill id into conenction's current_bill_id
         // show the invoice   (save recoveries into recovery table)
 
-
-
-
 //        dd($request->all());
-
-
 
         /*************** Create connection
         ***********************************************/
@@ -167,9 +160,10 @@ class ConnectionController extends Controller
 
     public function showBillsHistory(connection $connection){
         // bill & invoice is the same thing
-        return $connection->bills()->latest()->get();
 
-
+        $bills = $connection->bills()->latest()->get();
+//        return $bills;
+        return view('connections.bills',['bills'=>$bills]);
     }
 
 
