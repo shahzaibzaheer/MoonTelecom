@@ -15,6 +15,7 @@ class PackageController extends Controller
     public function index()
     {
         $packages = Package::defaultPackages();
+//        return $packages;
         return view('packages.index', [ "packages"=>$packages]);
     }
 

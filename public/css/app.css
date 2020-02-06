@@ -714,3 +714,57 @@ td.icons-container {
   margin: 8px;
 }
 
+.meta_info_container {
+  margin-top: 80px;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.meta_info_container .card {
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  display: block;
+  background: #fff;
+  margin: 16px;
+  width: 45%;
+  color: #000;
+  max-width: 400px;
+}
+
+.meta_info_container .card-body {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.meta_info_container .card-body .icon {
+  fill: #1E2838;
+  width: 6em;
+  height: 6em;
+  margin: 16px;
+}
+
+.meta_info_container .card-body .content {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: 16px;
+  text-align: right;
+}
+
+.meta_info_container .card-body .content .heading {
+  font-size: 1.5em;
+}
+
+.meta_info_container .card-body .content .data {
+  font-size: 4em;
+}
+

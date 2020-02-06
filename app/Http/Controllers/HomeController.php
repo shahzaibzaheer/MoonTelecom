@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\connection;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+
+
+        $activeConnections =  connection::activeConnectionsCount();
+        $connectionsBillNotRecovered = connection::connectionsBillNotRecovered();
+        $connectionsBillRecovered = connection::connectionsBillRecovered();
+        $netRecovery = connection::netRecovery();  // this month
+
+        return view('dashboard',[
+            'activeConnections' => $activeConnections,
+            'connectionsBillNotRecovered' => $connectionsBillNotRecovered,
+            'connectionsBillRecovered' => $connectionsBillRecovered,
+            'netRecovery' => $netRecovery,
+        ]);
     }
 }

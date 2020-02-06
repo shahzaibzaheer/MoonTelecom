@@ -761,3 +761,73 @@ td.icons-container{
         margin: gap(1);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *************************
+//  Dashboard Container
+// ************************
+.meta_info_container{
+    margin-top: gap(10);
+    display: flex;
+    flex-wrap: wrap;
+
+    .card{
+        @include card_style;
+        display: block;
+        background: $white;
+        margin: gap(2);
+        width: 45%;
+        color: $text-primary-color;
+        max-width: 400px;
+    }
+
+    .card-body{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon{
+            fill: $primary-color;
+            width: 6em;
+            height: 6em;
+            margin: gap(2);
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            margin: gap(2);
+            text-align: right;
+            .heading{
+                font-size: 1.5em;
+            }
+            .data{
+                font-size: 4em;
+            }
+        }
+    }
+}

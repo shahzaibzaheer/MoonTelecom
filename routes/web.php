@@ -13,7 +13,8 @@
 
 Route::group([ 'middleware'=>'auth'],function(){
 
-    Route::get('/', function () {return view('dashboard');});
+//    Route::get('/', function () {return view('dashboard');});
+    Route::get('/', 'HomeController@index');
     Route::resource('users', 'UserController');
     Route::resource('villages', 'VillageController');
     Route::resource('packages', 'PackageController');

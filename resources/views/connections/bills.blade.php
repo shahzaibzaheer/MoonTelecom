@@ -4,7 +4,7 @@
     <div id="app">
         @include('components.navigation',['title'=>'Bill History'])
 
-        <div class="content-container">
+        <div class="content-contaisner">
 
             <div class="page_body">
                 <bills :bills="{{ json_encode($bills) }}"></bills>
