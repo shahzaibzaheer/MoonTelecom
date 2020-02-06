@@ -158,6 +158,10 @@ select{
 //************************
 //      Table
 //***********************
+.page_body{
+    //margin-left: gap(6);
+}
+
 .table_container{
     margin-top: gap(10);
     strong  {
@@ -172,6 +176,7 @@ select{
         background: $white;
         @include shadow;
         padding: gap(2) ;
+
         text-align: left;
         width: 100%;
 
@@ -794,12 +799,15 @@ td.icons-container{
     margin-top: gap(10);
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
     .card{
         @include card_style;
         display: block;
         background: $white;
         margin: gap(2);
+        padding: gap(2);
         width: 45%;
         color: $text-primary-color;
         max-width: 400px;
@@ -823,10 +831,10 @@ td.icons-container{
             margin: gap(2);
             text-align: right;
             .heading{
-                font-size: 1.5em;
+                font-size: 1.1em;
             }
             .data{
-                font-size: 4em;
+                font-size: 3em;
             }
         }
     }

@@ -17,6 +17,7 @@ class CreateRecoveriesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('bill_id');
             $table->bigInteger('user_id');
+            $table->bigInteger('connection_id');
             $table->bigInteger('amount');
             $table->string('comments');
             $table->timestamps();

@@ -719,6 +719,10 @@ td.icons-container {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .meta_info_container .card {
@@ -729,6 +733,7 @@ td.icons-container {
   display: block;
   background: #fff;
   margin: 16px;
+  padding: 16px;
   width: 45%;
   color: #000;
   max-width: 400px;
@@ -761,10 +766,10 @@ td.icons-container {
 }
 
 .meta_info_container .card-body .content .heading {
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 .meta_info_container .card-body .content .data {
-  font-size: 4em;
+  font-size: 3em;
 }
 

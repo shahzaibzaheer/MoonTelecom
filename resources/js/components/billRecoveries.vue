@@ -19,44 +19,24 @@
 
 <!--        </div>-->
 
+
         <table>
             <thead>
             <tr>
                 <th>Recover By</th>
                 <th>Recover At</th>
-                <th>Username</th>
-                <th>Name</th>
-<!--                <th>Total</th>-->
                 <th>Amount Recovered</th>
                 <th>Comments</th>
+
+
             </tr>
             </thead>
             <tbody>
             <tr v-for="recovery in filteredRecoveries">
                 <td>{{recovery.user.name}}</td>
                 <td>{{recovery.created_at}}</td>
-                <td>{{recovery.connection.username}}</td>
-                <td>{{recovery.connection.name}}</td>
                 <td>{{recovery.amount}}</td>
                 <td>{{recovery.comments}}</td>
-                <td class="icons-container">
-                    <a :href="'connections/'+recovery.connection.id" >
-                        <svg class="icon" version="1.1" viewBox="0 0 23.486 14" >
-                            <path d="M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z" transform="translate(0 -98.725)" />
-                        </svg>
-                    </a>
-                    <a :href="'connections/'+recovery.connection.id +'/history' " >
-                        <svg class="icon" version="1.1" viewBox="0 0 23.486 14" >
-                            <path d="M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z" transform="translate(0 -98.725)" />
-                        </svg>
-                    </a>
-                    <a href="Delete Recovery" >
-                        <svg class="icon" version="1.1" viewBox="0 0 23.486 14" >
-                            <path d="M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z" transform="translate(0 -98.725)" />
-                        </svg>
-                    </a>
-                </td>
-
             </tr>
             </tbody>
         </table>

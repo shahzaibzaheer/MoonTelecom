@@ -1923,6 +1923,92 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/billRecoveries.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/billRecoveries.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
+  props: ['recoveries'],
+  data: function data() {
+    return {
+      searchQuery: "",
+      selectedState: ''
+    };
+  },
+  methods: {},
+  computed: {
+    filteredRecoveries: function filteredRecoveries() {
+      var _this = this;
+
+      var recoveriesList = [];
+      recoveriesList = this.recoveries.filter(function (recovery) {
+        if (recovery.user.name.match(_this.searchQuery)) {
+          return true;
+        }
+      });
+      return recoveriesList;
+    },
+    total: function total() {
+      return this.filteredRecoveries.length;
+    }
+  }
+}, "methods", {}));
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bills.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bills.vue?vue&type=script&lang=js& ***!
@@ -1932,20 +2018,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2406,6 +2478,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ['recoveries'],
   data: function data() {
@@ -2444,6 +2536,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -33482,6 +33576,67 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/billRecoveries.vue?vue&type=template&id=470ed736&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/billRecoveries.vue?vue&type=template&id=470ed736& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "table_container" }, [
+    _c("table", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.filteredRecoveries, function(recovery) {
+          return _c("tr", [
+            _c("td", [_vm._v(_vm._s(recovery.user.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(recovery.created_at))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(recovery.amount))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(recovery.comments))])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Recover By")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Recover At")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Amount Recovered")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Comments")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bills.vue?vue&type=template&id=6f499fde&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bills.vue?vue&type=template&id=6f499fde& ***!
@@ -33551,86 +33706,6 @@ var render = function() {
                               }
                             })
                           ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            bill.status === 0
-              ? _c("td", { staticClass: "icons-container" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: "/connections/" + bill.connection_id + "/invoice"
-                      }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "icon",
-                          attrs: {
-                            version: "1.1",
-                            viewBox: "0 0 21.246 25.279"
-                          }
-                        },
-                        [
-                          _c(
-                            "g",
-                            { attrs: { transform: "translate(-0.359 0)" } },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M104.008,125.9a5.413,5.413,0,1,0,5.413-5.413A5.413,5.413,0,0,0,104.008,125.9Zm5.413.342a1.779,1.779,0,0,1-.452-3.5v-.458a.375.375,0,0,1,.75,0v.435a1.761,1.761,0,0,1,1.467,1.748.371.371,0,1,1-.741,0,1.026,1.026,0,1,0-1.024,1.027,1.776,1.776,0,0,1,.3,3.525v.447a.375.375,0,0,1-.75,0V129a1.8,1.8,0,0,1-1.337-1.725.38.38,0,0,1,.759,0,1.029,1.029,0,0,0,.917,1.021.391.391,0,0,1,.059,0,.378.378,0,0,1,.084.01,1.026,1.026,0,0,0-.03-2.052Zm0,0",
-                                  transform: "translate(-98.094 -114.035)"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M80.48,352.822l-.009,0-3.482,1.645a2.691,2.691,0,0,1,.049.585.375.375,0,0,1-.375.365h-.011l-5.1-.14a.375.375,0,0,1,.021-.75l4.685.129a1.934,1.934,0,0,0-1.85-1.607l-3.1-.085a4.083,4.083,0,0,1-1.757-.454l-.315-.163a4.766,4.766,0,0,0-4.865.274l-.124,4.51.533-.285a2.317,2.317,0,0,1,1.727-.189l5.261,1.477a4.914,4.914,0,0,0,3.011-.337l7.289-4.715a1.363,1.363,0,0,0-1.591-.264Zm0,0",
-                                  transform: "translate(-60.467 -332.958)"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M.359,347.261l.185-6.71,2.65.073-.185,6.71Zm0,0",
-                                  transform: "translate(0 -322.301)"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M198.336,4.448V.375a.375.375,0,0,0-.75,0V4.448a.375.375,0,0,0,.75,0Zm0,0",
-                                  transform: "translate(-186.657)"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M258.336,42.3V40.375a.375.375,0,0,0-.75,0V42.3a.375.375,0,1,0,.75,0Zm0,0",
-                                  transform: "translate(-243.442 -37.856)"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M138.336,42.3V40.375a.375.375,0,0,0-.75,0V42.3a.375.375,0,1,0,.75,0Zm0,0",
-                                  transform: "translate(-129.873 -37.856)"
-                                }
-                              })
-                            ]
-                          )
                         ]
                       )
                     ]
@@ -34234,9 +34309,84 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(recovery.created_at))]),
             _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(recovery.connection.username))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(recovery.connection.name))]),
+            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(recovery.amount))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.comments))])
+            _c("td", [_vm._v(_vm._s(recovery.comments))]),
+            _vm._v(" "),
+            _c("td", { staticClass: "icons-container" }, [
+              _c(
+                "a",
+                { attrs: { href: "connections/" + recovery.connection.id } },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "icon",
+                      attrs: { version: "1.1", viewBox: "0 0 23.486 14" }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z",
+                          transform: "translate(0 -98.725)"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "connections/" + recovery.connection.id + "/history"
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "icon",
+                      attrs: { version: "1.1", viewBox: "0 0 23.486 14" }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z",
+                          transform: "translate(0 -98.725)"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "Delete Recovery" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "icon",
+                    attrs: { version: "1.1", viewBox: "0 0 23.486 14" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z",
+                        transform: "translate(0 -98.725)"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
           ])
         }),
         0
@@ -34254,6 +34404,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("Recover By")]),
         _vm._v(" "),
         _c("th", [_vm._v("Recover At")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Username")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Amount Recovered")]),
         _vm._v(" "),
@@ -34407,6 +34561,8 @@ var render = function() {
               ? _c("td", { staticClass: "error" }, [_vm._v("Blocked")])
               : _c("td", { staticClass: "success" }, [_vm._v("Active")]),
             _vm._v(" "),
+            _c("td", [_vm._v("50")]),
+            _vm._v(" "),
             _c("td", { staticClass: "icons-container" }, [
               !user.isBlocked
                 ? _c("a", { attrs: { href: "#" } }, [
@@ -34476,7 +34632,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Role")]),
         _vm._v(" "),
-        _c("th", [_vm._v("State")])
+        _c("th", [_vm._v("State")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Recoveries")])
       ])
     ])
   }
@@ -46806,8 +46964,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_villages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/villages */ "./resources/js/components/villages.vue");
 /* harmony import */ var _components_packages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/packages */ "./resources/js/components/packages.vue");
 /* harmony import */ var _components_connections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/connections */ "./resources/js/components/connections.vue");
-/* harmony import */ var _components_recoveries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/recoveries */ "./resources/js/components/recoveries.vue");
+/* harmony import */ var _components_billRecoveries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/billRecoveries */ "./resources/js/components/billRecoveries.vue");
 /* harmony import */ var _components_bills__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/bills */ "./resources/js/components/bills.vue");
+/* harmony import */ var _components_recoveries__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/recoveries */ "./resources/js/components/recoveries.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -46822,11 +46981,13 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
+
 Vue.component('users', _components_users__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Vue.component('villages', _components_villages__WEBPACK_IMPORTED_MODULE_1__["default"]);
 Vue.component('packages', _components_packages__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.component('connections', _components_connections__WEBPACK_IMPORTED_MODULE_3__["default"]);
-Vue.component('recoveries', _components_recoveries__WEBPACK_IMPORTED_MODULE_4__["default"]);
+Vue.component('billRecoveries', _components_billRecoveries__WEBPACK_IMPORTED_MODULE_4__["default"]);
+Vue.component('recoveries', _components_recoveries__WEBPACK_IMPORTED_MODULE_6__["default"]);
 Vue.component('bills', _components_bills__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var app = new Vue({
   el: '#app',
@@ -46879,6 +47040,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/billRecoveries.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/billRecoveries.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _billRecoveries_vue_vue_type_template_id_470ed736___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./billRecoveries.vue?vue&type=template&id=470ed736& */ "./resources/js/components/billRecoveries.vue?vue&type=template&id=470ed736&");
+/* harmony import */ var _billRecoveries_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./billRecoveries.vue?vue&type=script&lang=js& */ "./resources/js/components/billRecoveries.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _billRecoveries_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _billRecoveries_vue_vue_type_template_id_470ed736___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _billRecoveries_vue_vue_type_template_id_470ed736___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/billRecoveries.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/billRecoveries.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/billRecoveries.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_billRecoveries_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./billRecoveries.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/billRecoveries.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_billRecoveries_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/billRecoveries.vue?vue&type=template&id=470ed736&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/billRecoveries.vue?vue&type=template&id=470ed736& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_billRecoveries_vue_vue_type_template_id_470ed736___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./billRecoveries.vue?vue&type=template&id=470ed736& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/billRecoveries.vue?vue&type=template&id=470ed736&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_billRecoveries_vue_vue_type_template_id_470ed736___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_billRecoveries_vue_vue_type_template_id_470ed736___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

@@ -27,6 +27,7 @@ Route::group([ 'middleware'=>'auth'],function(){
 
     // save users's payments
     Route::post('/recoveries','RecoveryController@store')->name('recoveries.store');
+    Route::get('/recoveries','RecoveryController@index')->name('recoveries.index');
 
 
     // specific bill's recoveries history,     show specific bill recoveries

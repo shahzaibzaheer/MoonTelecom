@@ -7,9 +7,8 @@
 
         <div class="content-container">
             <div class="page_body">
-                    <recoveries :recoveries="{{ json_encode($recoveries) }}"></recoveries>
+                    <bill-recoveries :recoveries="{{ json_encode($recoveries) }}"></bill-recoveries>
             </div>
-
             <div class="page_footer"></div>
         </div>
     </div>

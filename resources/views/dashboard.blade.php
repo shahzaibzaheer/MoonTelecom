@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            {{ 'This '. now()->monthName }}
+                            {{  now()->monthName }}
                         </div>
                     </a>
                     <a href="#"  class="card">
@@ -50,7 +50,7 @@
 
                         </div>
                         <div class="card-footer">
-                            {{ 'This '. now()->monthName }}
+                            {{  now()->monthName }}
                         </div>
                     </a>
                     <a href="#"  class="card">
@@ -65,7 +65,7 @@
 
                         </div>
                         <div class="card-footer">
-                            {{ 'This '. now()->monthName }}
+                            {{ now()->monthName }}
                         </div>
                     </a>
                 </div>

@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class RecoveryController extends Controller
 {
+
+    public function index(){
+
+        $recentRecoveries =  Recovery::recentRecoveries();
+//        return $recentRecoveries;
+        return view('recoveries.index', ['recentRecoveries'=>$recentRecoveries]);
+    }
+
     public function store(Request $request){
 //        dd($request->all());
 
@@ -47,6 +55,7 @@ class RecoveryController extends Controller
             $recovery = new Recovery();
             $recovery->bill_id = $bill_id;
             $recovery->user_id = $user_id;
+            $recovery->connection_id = $connection_id;
             $recovery->amount = $amount;
             $recovery->comments = $comments;
             $isSaved = $recovery->save();

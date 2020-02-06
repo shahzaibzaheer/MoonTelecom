@@ -29,6 +29,7 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th>State</th>
+                <th>Recoveries</th>
             </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                 <td v-else>Employee</td>
                 <td v-if="user.isBlocked" class="error">Blocked</td>
                 <td v-else class="success">Active</td>
+                <td>50</td>
                 <td class="icons-container">
                     <a href="#" v-if="!user.isBlocked">
                         <svg class="icon danger" version="1.1" viewBox="0 0 23.441 23.441"   >

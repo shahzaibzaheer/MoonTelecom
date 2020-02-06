@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a20ba32-6245-4062-993d-30d2945ea819" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/billRecoveries.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/recoveries/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Recovery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Recovery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/bills.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/bills.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/recoveries.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/recoveries.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/users.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/bills/recoveries.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bills/recoveries.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_180525_create_connections_table.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="411">
+                    <caret line="28" column="37" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="37" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_071350_create_bills_table.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="146">
+                    <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="324">
+                    <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/connections/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ConnectionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <folding>
+                <element signature="e#263#320#0#PHP" />
+                <element signature="e#434#991#0#PHP" />
+                <element signature="e#671#702#0#PHP" />
+                <element signature="e#819#984#0#PHP" />
+                <element signature="e#845#983#0#PHP" />
+                <element signature="e#997#1106#0#PHP" />
+                <element signature="e#1111#1367#0#PHP" />
+                <element signature="e#1373#1532#0#PHP" />
+                <element signature="e#1537#4638#0#PHP" />
+                <element signature="e#1821#1912#0#PHP" />
+                <element signature="e#2635#2819#0#PHP" />
+                <element signature="e#2906#3469#0#PHP" />
+                <element signature="e#3003#3469#0#PHP" />
+                <element signature="e#3160#3400#0#PHP" />
+                <element signature="e#3195#3399#1#PHP" />
+                <element signature="e#3543#3646#0#PHP" />
+                <element signature="e#3655#4559#0#PHP" />
+                <element signature="e#3912#4191#0#PHP" />
+                <element signature="e#3944#4190#1#PHP" />
+                <element signature="e#4318#4416#0#PHP" />
+                <element signature="e#4429#4549#0#PHP" />
+                <element signature="e#4646#4895#0#PHP" />
+                <element signature="e#4903#5147#0#PHP" />
+                <element signature="e#5036#5140#0#PHP" />
+                <element signature="e#5063#5139#0#PHP" />
+                <element signature="e#5153#5290#0#PHP" />
+                <element signature="e#5300#5442#0#PHP" />
+                <element signature="e#5447#5574#0#PHP" />
+                <element signature="e#5580#5740#0#PHP" />
+                <element signature="e#5745#5812#0#PHP" />
+                <element signature="e#5818#6020#0#PHP" />
+                <element signature="e#6025#6112#0#PHP" />
+                <element signature="e#6118#6272#0#PHP" />
+                <element signature="e#6277#6347#0#PHP" />
+                <element signature="e#6358#8216#0#PHP" />
+                <element signature="e#6400#6876#0#PHP" />
+                <element signature="e#7011#8166#0#PHP" />
+                <element signature="e#7027#8165#2#PHP" />
+                <element signature="e#7072#8155#0#PHP" />
+                <element signature="e#7853#8140#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/connection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="35" column="90" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="87" column="21" selection-start-line="69" selection-start-column="16" selection-end-line="87" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/recoveries.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="60" column="20" lean-forward="true" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+              <folding>
+                <marker date="1581012906984" expanded="true" signature="1643:3909" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+              <folding>
+                <element signature="e#40#53#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Recovery.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="165" column="24" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
+              <folding>
+                <element signature="e#46#203#0" />
+                <element signature="e#205#236#0" />
+                <element signature="e#254#285#0" />
+                <element signature="e#361#681#0" />
+                <element signature="e#544#611#0" />
+                <element signature="e#624#679#0" />
+                <element signature="e#690#713#0" />
+                <element signature="e#722#746#0" />
+                <element signature="e#753#848#0" />
+                <element signature="e#852#882#0" />
+                <element signature="e#891#1102#0" />
+                <element signature="e#1060#1100#0" />
+                <element signature="e#1109#1131#0" />
+                <element signature="e#1159#1217#0" />
+                <element signature="e#1240#1727#0" />
+                <element signature="e#1385#1418#0" />
+                <element signature="e#1430#1609#0" />
+                <element signature="e#1560#1603#0" />
+                <element signature="e#1619#1724#0" />
+                <element signature="e#1681#1718#0" />
+                <element signature="e#1746#1750#0" />
+                <element signature="e#1826#2095#0" />
+                <element signature="e#1996#2090#0" />
+                <element signature="e#2223#2291#0" />
+                <element signature="e#2309#2342#0" />
+                <element signature="e#2493#2568#0" />
+                <element signature="e#2584#2631#0" />
+                <element signature="e#2657#3074#0" />
+                <element signature="e#2678#3064#0" />
+                <element signature="e#2907#3050#0" />
+                <element signature="e#2969#3031#0" />
+                <element signature="e#3223#4217#0" />
+                <element signature="e#3430#3488#0" />
+                <element signature="e#3503#3563#0" />
+                <element signature="e#3575#3765#0" />
+                <element signature="e#3776#3841#0" />
+                <element signature="e#3858#3946#0" />
+                <element signature="e#3956#4097#0" />
+                <element signature="e#4107#4167#0" />
+                <element signature="e#4178#4213#0" />
+                <element signature="e#4336#5628#0" />
+                <element signature="e#4634#4849#0" />
+                <element signature="e#4669#4707#0" />
+                <element signature="e#4721#4843#0" />
+                <element signature="e#4856#4912#0" />
+                <element signature="e#4970#5048#0" />
+                <element signature="e#5078#5116#0" />
+                <element signature="e#5168#5221#0" />
+                <element signature="e#5235#5623#0" />
+                <element signature="e#5326#5405#0" />
+                <element signature="e#5423#5478#0" />
+                <element signature="e#5494#5549#0" />
+                <element signature="e#5566#5616#0" />
+                <element signature="e#5659#6344#0" />
+                <element signature="e#5815#5843#0" />
+                <element signature="e#5855#5887#0" />
+                <element signature="e#5915#6206#0" />
+                <element signature="e#6150#6200#0" />
+                <element signature="e#6217#6342#0" />
+                <element signature="e#6469#6525#0" />
+                <element signature="e#6853#6968#0" />
+                <element signature="e#6983#7012#0" />
+                <element signature="e#7029#7036#0" />
+                <element signature="e#7048#7606#0" />
+                <element signature="e#7223#7396#0" />
+                <element signature="e#7409#7476#0" />
+                <element signature="e#7498#7600#0" />
+                <element signature="e#7740#9147#0" />
+                <element signature="e#7929#8025#0" />
+                <element signature="e#8062#8091#0" />
+                <element signature="e#8119#8149#0" />
+                <element signature="e#8167#8321#0" />
+                <element signature="e#8239#8315#0" />
+                <element signature="e#8349#8878#0" />
+                <element signature="e#8483#8613#0" />
+                <element signature="e#8555#8603#0" />
+                <element signature="e#8627#8815#0" />
+                <element signature="e#8687#8736#0" />
+                <element signature="e#8757#8805#0" />
+                <element signature="e#8832#8872#0" />
+                <element signature="e#8921#8988#0" />
+                <element signature="e#8998#9145#0" />
+                <element signature="e#9171#9669#0" />
+                <element signature="e#9207#9245#0" />
+                <element signature="e#9260#9298#0" />
+                <element signature="e#9313#9523#0" />
+                <element signature="e#9452#9517#0" />
+                <element signature="e#9542#9622#0" />
+                <element signature="e#9576#9616#0" />
+                <element signature="e#9631#9667#0" />
+                <element signature="e#9704#11138#0" />
+                <element signature="e#9905#9932#0" />
+                <element signature="e#9948#10158#0" />
+                <element signature="e#10087#10152#0" />
+                <element signature="e#10170#10236#0" />
+                <element signature="e#10254#10292#0" />
+                <element signature="e#10310#10952#0" />
+                <element signature="e#10478#10945#0" />
+                <element signature="e#10648#10699#0" />
+                <element signature="e#10717#10836#0" />
+                <element signature="e#10850#10935#0" />
+                <element signature="e#10962#10993#0" />
+                <element signature="e#11016#11136#0" />
+                <element signature="e#11158#11234#0" />
+                <element signature="e#11261#11327#0" />
+                <element signature="e#11294#11325#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/recoveries/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>content-con</find>
+      <find>table_container</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/resources/js/components/users.vue" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/bills.vue" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/components/navigation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/bills/recoveries.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/recoveries/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Recovery.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/recoveries.vue" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark-ext-table" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/moontoast/math" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="85" />
+    <option name="y" value="25" />
+    <option name="width" value="1750" />
+    <option name="height" value="970" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="bills" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="connections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="recoveries" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Laravel\MooonInternet\resources\js\components" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8967000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="npm" order="1" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" weight="0.23758389" />
+      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.81161475" />
+      <window_info anchor="bottom" id="Database Changes" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.3286119" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/billRecoveries.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/users.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="37" column="67" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="67" />
+          <folding>
+            <element signature="e#40#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6984">
+          <caret line="291" column="18" selection-start-line="291" selection-start-column="18" selection-end-line="291" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/bills.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/connections/bills.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/connections/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#276#315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="165" column="24" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
+          <folding>
+            <element signature="e#46#203#0" />
+            <element signature="e#205#236#0" />
+            <element signature="e#254#285#0" />
+            <element signature="e#361#681#0" />
+            <element signature="e#544#611#0" />
+            <element signature="e#624#679#0" />
+            <element signature="e#690#713#0" />
+            <element signature="e#722#746#0" />
+            <element signature="e#753#848#0" />
+            <element signature="e#852#882#0" />
+            <element signature="e#891#1102#0" />
+            <element signature="e#1060#1100#0" />
+            <element signature="e#1109#1131#0" />
+            <element signature="e#1159#1217#0" />
+            <element signature="e#1240#1727#0" />
+            <element signature="e#1385#1418#0" />
+            <element signature="e#1430#1609#0" />
+            <element signature="e#1560#1603#0" />
+            <element signature="e#1619#1724#0" />
+            <element signature="e#1681#1718#0" />
+            <element signature="e#1746#1750#0" />
+            <element signature="e#1826#2095#0" />
+            <element signature="e#1996#2090#0" />
+            <element signature="e#2223#2291#0" />
+            <element signature="e#2309#2342#0" />
+            <element signature="e#2493#2568#0" />
+            <element signature="e#2584#2631#0" />
+            <element signature="e#2657#3074#0" />
+            <element signature="e#2678#3064#0" />
+            <element signature="e#2907#3050#0" />
+            <element signature="e#2969#3031#0" />
+            <element signature="e#3223#4217#0" />
+            <element signature="e#3430#3488#0" />
+            <element signature="e#3503#3563#0" />
+            <element signature="e#3575#3765#0" />
+            <element signature="e#3776#3841#0" />
+            <element signature="e#3858#3946#0" />
+            <element signature="e#3956#4097#0" />
+            <element signature="e#4107#4167#0" />
+            <element signature="e#4178#4213#0" />
+            <element signature="e#4336#5628#0" />
+            <element signature="e#4634#4849#0" />
+            <element signature="e#4669#4707#0" />
+            <element signature="e#4721#4843#0" />
+            <element signature="e#4856#4912#0" />
+            <element signature="e#4970#5048#0" />
+            <element signature="e#5078#5116#0" />
+            <element signature="e#5168#5221#0" />
+            <element signature="e#5235#5623#0" />
+            <element signature="e#5326#5405#0" />
+            <element signature="e#5423#5478#0" />
+            <element signature="e#5494#5549#0" />
+            <element signature="e#5566#5616#0" />
+            <element signature="e#5659#6344#0" />
+            <element signature="e#5815#5843#0" />
+            <element signature="e#5855#5887#0" />
+            <element signature="e#5915#6206#0" />
+            <element signature="e#6150#6200#0" />
+            <element signature="e#6217#6342#0" />
+            <element signature="e#6469#6525#0" />
+            <element signature="e#6853#6968#0" />
+            <element signature="e#6983#7012#0" />
+            <element signature="e#7029#7036#0" />
+            <element signature="e#7048#7606#0" />
+            <element signature="e#7223#7396#0" />
+            <element signature="e#7409#7476#0" />
+            <element signature="e#7498#7600#0" />
+            <element signature="e#7740#9147#0" />
+            <element signature="e#7929#8025#0" />
+            <element signature="e#8062#8091#0" />
+            <element signature="e#8119#8149#0" />
+            <element signature="e#8167#8321#0" />
+            <element signature="e#8239#8315#0" />
+            <element signature="e#8349#8878#0" />
+            <element signature="e#8483#8613#0" />
+            <element signature="e#8555#8603#0" />
+            <element signature="e#8627#8815#0" />
+            <element signature="e#8687#8736#0" />
+            <element signature="e#8757#8805#0" />
+            <element signature="e#8832#8872#0" />
+            <element signature="e#8921#8988#0" />
+            <element signature="e#8998#9145#0" />
+            <element signature="e#9171#9669#0" />
+            <element signature="e#9207#9245#0" />
+            <element signature="e#9260#9298#0" />
+            <element signature="e#9313#9523#0" />
+            <element signature="e#9452#9517#0" />
+            <element signature="e#9542#9622#0" />
+            <element signature="e#9576#9616#0" />
+            <element signature="e#9631#9667#0" />
+            <element signature="e#9704#11138#0" />
+            <element signature="e#9905#9932#0" />
+            <element signature="e#9948#10158#0" />
+            <element signature="e#10087#10152#0" />
+            <element signature="e#10170#10236#0" />
+            <element signature="e#10254#10292#0" />
+            <element signature="e#10310#10952#0" />
+            <element signature="e#10478#10945#0" />
+            <element signature="e#10648#10699#0" />
+            <element signature="e#10717#10836#0" />
+            <element signature="e#10850#10935#0" />
+            <element signature="e#10962#10993#0" />
+            <element signature="e#11016#11136#0" />
+            <element signature="e#11158#11234#0" />
+            <element signature="e#11261#11327#0" />
+            <element signature="e#11294#11325#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/connections/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_071350_create_bills_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_180525_create_connections_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/bills/recoveries.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/recoveries/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="35" column="90" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ConnectionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="e#263#320#0#PHP" />
+            <element signature="e#434#991#0#PHP" />
+            <element signature="e#671#702#0#PHP" />
+            <element signature="e#819#984#0#PHP" />
+            <element signature="e#845#983#0#PHP" />
+            <element signature="e#997#1106#0#PHP" />
+            <element signature="e#1111#1367#0#PHP" />
+            <element signature="e#1373#1532#0#PHP" />
+            <element signature="e#1537#4638#0#PHP" />
+            <element signature="e#1821#1912#0#PHP" />
+            <element signature="e#2635#2819#0#PHP" />
+            <element signature="e#2906#3469#0#PHP" />
+            <element signature="e#3003#3469#0#PHP" />
+            <element signature="e#3160#3400#0#PHP" />
+            <element signature="e#3195#3399#1#PHP" />
+            <element signature="e#3543#3646#0#PHP" />
+            <element signature="e#3655#4559#0#PHP" />
+            <element signature="e#3912#4191#0#PHP" />
+            <element signature="e#3944#4190#1#PHP" />
+            <element signature="e#4318#4416#0#PHP" />
+            <element signature="e#4429#4549#0#PHP" />
+            <element signature="e#4646#4895#0#PHP" />
+            <element signature="e#4903#5147#0#PHP" />
+            <element signature="e#5036#5140#0#PHP" />
+            <element signature="e#5063#5139#0#PHP" />
+            <element signature="e#5153#5290#0#PHP" />
+            <element signature="e#5300#5442#0#PHP" />
+            <element signature="e#5447#5574#0#PHP" />
+            <element signature="e#5580#5740#0#PHP" />
+            <element signature="e#5745#5812#0#PHP" />
+            <element signature="e#5818#6020#0#PHP" />
+            <element signature="e#6025#6112#0#PHP" />
+            <element signature="e#6118#6272#0#PHP" />
+            <element signature="e#6277#6347#0#PHP" />
+            <element signature="e#6358#8216#0#PHP" />
+            <element signature="e#6400#6876#0#PHP" />
+            <element signature="e#7011#8166#0#PHP" />
+            <element signature="e#7027#8165#2#PHP" />
+            <element signature="e#7072#8155#0#PHP" />
+            <element signature="e#7853#8140#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Recovery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="87" column="21" selection-start-line="69" selection-start-column="16" selection-end-line="87" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/recoveries.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="60" column="20" lean-forward="true" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+          <folding>
+            <marker date="1581012906984" expanded="true" signature="1643:3909" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
