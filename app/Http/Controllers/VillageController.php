@@ -46,13 +46,21 @@ class VillageController extends Controller
    
     public function edit(Village $village)
     {
-        //
+        return view('villages.edit', ['village'=> $village]);
     }
 
    
     public function update(Request $request, Village $village)
     {
-        //
+        $village->name = $request->input('name');
+        $isSuccess= $village->save();
+        if($isSuccess){
+            // model created successfully
+            return redirect()->route('villages.index');
+        }else{
+            dd($isSuccess);
+            return "Updating Fails";
+        }
     }
 
    

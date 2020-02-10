@@ -72,7 +72,6 @@
             return{
                 searchQuery: "",
                 selectedState: '',
-
             }
         },
         methods:{
