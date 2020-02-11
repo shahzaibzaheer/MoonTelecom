@@ -88,19 +88,88 @@ class UserController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+//        dd($user->name);
+
+        $current_user_id = auth()->id();
+        return view('users.edit', ['user'=>$user, 'current_user_id'=>$current_user_id]);
+
+        // show edit user form
+//        return
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        if($request->has('Password')){
+            if( $request->input('Password') === $request->input('ConfirmPassword')){
+                $user->password = bcrypt($request->input('Password'));
+            }
+        }
+
+        // admin can't update his own role
+        $auth_user_id = auth()->id();
+        if($user->id !== $auth_user_id ){ // current authenticated admin can't update his own role  // check 1
+            if($request->has('role')){ // check 2, optional
+                $user->isAdmin = $request->input('role');
+            }else{
+                return "You can't change your role";
+            }
+        }
+
+        $isUpdated = $user->update();
+        if($isUpdated){
+            return redirect()->route('users.index');
+        }else{
+            return "There some problem while updating";
+        }
+
     }
 
-    public function destroy($id)
+
+    public function blockConfirm(User $user){
+        return view('users.block', ['user'=>$user]);
+    }
+
+
+    public function unblock(User $user)
     {
-        //
+        $user->isBlocked = false;
+        $isUpdate = $user->update();
+        if($isUpdate){
+            return redirect()->route("users.index");
+        }else{
+            return "Some problem occur while updating user";
+        }
+    }
+
+    public function destroy(Request $request, User $user)
+    {
+        // here we handle user blocking and unblocking
+        // don't let current admin to block himself
+
+        if($user->id === auth()->id()){
+            return "You can't block your self";
+        }
+
+        if( $request->has('block')){
+
+                $user->isBlocked = (bool) $request->input('block');  // block / unblock user
+                $isUpdated = $user->update();
+                if($isUpdated){
+                    return redirect()->route('users.index');
+                }
+                else{
+                    return "Some problem occur while updating user";
+                }
+
+        }else{
+            return redirect()->route('users.index');
+        }
+
     }
 }

@@ -71,7 +71,7 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
-        //
+        return view('packages.edit',['package'=>$package]);
     }
 
     /**
@@ -83,8 +83,37 @@ class PackageController extends Controller
      */
     public function update(Request $request, Package $package)
     {
-        //
+        $connectionsCount =  $package->connections()->count();
+        if( $connectionsCount === 0 ){
+
+        $package->name = $request->input('name');
+        $package->bandwidth = $request->input('bandwidth');
+        $package->fees = $request->input('fees');
+        $isUpdated = $package->update();
+
+            if($isUpdated) {
+                return redirect()->route('packages.index');
+            }else{
+                return "Can't update, some error occur";
+            }
+
+        }else{
+            return "Can't update because ".$connectionsCount." connections using this Package";
+        }
+
+
+
+//        dd($request->all());
     }
+
+
+
+    public function delete(Request $request, Package $package){
+    // show delete form
+        return view('packages.delete',['package'=>$package]);
+    }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -92,8 +121,30 @@ class PackageController extends Controller
      * @param  \App\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Package $package)
+    public function destroy(Request $request, Package $package)
     {
-        //
+        if($request->input('delete') === 'yes'){
+            $connectionsCount =  $package->connections()->count();
+            if( $connectionsCount === 0 ){
+                $isDeleteConfirmed = true;
+            }else{
+                return "Can't update because ".$connectionsCount." connections using this Package";
+            }
+        }else{
+            $isDeleteConfirmed = false;
+        }
+
+        if($isDeleteConfirmed){
+            try {
+
+                $package->delete();
+                return redirect()->route('packages.index');
+
+            } catch (\Exception $e) {
+                return "can't delete due to exception: ".$e->getMessage();
+            }
+        }else{
+            return redirect()->route('packages.index');
+        }
     }
 }

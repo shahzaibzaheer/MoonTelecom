@@ -15,8 +15,13 @@ Route::group([ 'middleware'=>'auth'],function(){
 
 //    Route::get('/', function () {return view('dashboard');});
     Route::get('/', 'HomeController@index');
+    Route::get('users/{user}/block', 'UserController@blockConfirm');
     Route::resource('users', 'UserController');
+
+    Route::get('villages/{village}/delete', 'VillageController@delete');
     Route::resource('villages', 'VillageController');
+
+    Route::get('packages/{package}/delete', 'PackageController@delete');
     Route::resource('packages', 'PackageController');
     Route::get('/connections/{connection}/history', 'ConnectionController@showBillsHistory')->name('connections.history');
     Route::get('/connections/{connection}/invoice', 'ConnectionController@invoice')->name('connections.invoice');

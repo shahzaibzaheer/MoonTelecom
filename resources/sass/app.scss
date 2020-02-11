@@ -190,6 +190,8 @@ select{
         }
 
         .icons-container{
+            display: flex;
+            justify-content: left;
             .icon  {
                 fill: $primary-color ;
                 opacity: 0.7;

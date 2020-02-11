@@ -178,6 +178,13 @@ select::placeholder {
   padding: 8px 16px;
 }
 
+.table_container table .icons-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: left;
+          justify-content: left;
+}
+
 .table_container table .icons-container .icon {
   fill: #1E2838;
   opacity: 0.7;

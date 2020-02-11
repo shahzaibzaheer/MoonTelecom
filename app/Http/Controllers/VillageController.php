@@ -63,9 +63,40 @@ class VillageController extends Controller
         }
     }
 
+    public function delete(Village $village){
+        // show delete form
+        return view('villages.delete',['village'=>$village]);
+    }
+
    
-    public function destroy(Village $village)
+    public function destroy(Request $request, Village $village)
     {
-        //
+
+
+        if($request->input('delete') === 'yes'){
+
+            $connectionsCount =  $village->connections()->count();
+            if( $connectionsCount === 0 ){
+                $isDeleteConfirmed = true;
+            }else{
+                return "Can't delete because ".$connectionsCount." connections is in this Village";
+            }
+        }else{
+            $isDeleteConfirmed = false;
+        }
+
+        if($isDeleteConfirmed){
+            try {
+
+                $village->delete();
+                return redirect()->route('villages.index');
+
+            } catch (\Exception $e) {
+                return "can't delete due to exception: ".$e->getMessage();
+            }
+        }else{
+            return redirect()->route('villages.index');
+        }
+
     }
 }
