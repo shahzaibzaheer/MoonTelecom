@@ -13,6 +13,7 @@
 
 Route::group([ 'middleware'=>'auth'],function(){
 
+
 //    Route::get('/', function () {return view('dashboard');});
     Route::get('/', 'HomeController@index');
     Route::get('users/{user}/block', 'UserController@blockConfirm');
@@ -28,17 +29,14 @@ Route::group([ 'middleware'=>'auth'],function(){
     Route::resource('connections', 'ConnectionController');
 
 
-
-
     // save users's payments
+    Route::get('/recoveries/{recovery}/delete','RecoveryController@deleteConfirm');
+    Route::delete('/recoveries/{recovery}','RecoveryController@delete')->name('recoveries.delete');
     Route::post('/recoveries','RecoveryController@store')->name('recoveries.store');
     Route::get('/recoveries','RecoveryController@index')->name('recoveries.index');
 
-
     // specific bill's recoveries history,     show specific bill recoveries
     Route::get('/bills/{bill}/recoveries', 'BillController@showBillRecoveries')->name('bills.bill.recoveries');
-
-
 
     // temp
     Route::get('/generateBills', 'ConnectionController@generateBills');

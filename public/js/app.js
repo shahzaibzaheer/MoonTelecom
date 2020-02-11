@@ -2516,6 +2516,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ['recoveries'],
   data: function data() {
@@ -34471,24 +34474,36 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("a", { attrs: { href: "Delete Recovery" } }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "icon",
-                    attrs: { version: "1.1", viewBox: "0 0 23.486 14" }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z",
-                        transform: "translate(0 -98.725)"
-                      }
-                    })
-                  ]
-                )
-              ])
+              _c(
+                "a",
+                { attrs: { href: "/recoveries/" + recovery.id + "/delete" } },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "icon",
+                      attrs: { version: "1.1", viewBox: "0 0 384 384" }
+                    },
+                    [
+                      _c("g", [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          attrs: {
+                            points:
+                              "266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 \t\t\t"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]
+              )
             ])
           ])
         }),

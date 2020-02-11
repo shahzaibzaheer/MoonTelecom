@@ -152,12 +152,12 @@ class UserController extends Controller
         // here we handle user blocking and unblocking
         // don't let current admin to block himself
 
-        if($user->id === auth()->id()){
-            return "You can't block your self";
-        }
 
         if( $request->has('block')){
 
+                if($user->id === auth()->id()){
+                    return "You can't block your self";
+                }
                 $user->isBlocked = (bool) $request->input('block');  // block / unblock user
                 $isUpdated = $user->update();
                 if($isUpdated){

@@ -6,6 +6,7 @@ use App\Bill;
 use App\Recovery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RecoveryController extends Controller
 {
@@ -72,4 +73,61 @@ class RecoveryController extends Controller
 
         }
     }
+
+
+
+    public function deleteConfirm(Recovery $recovery){
+        // show delete recovery confirmation box
+//        dd($recovery);
+        return view('recoveries.delete', ['recovery'=>$recovery]);
+    }
+
+
+    public function delete(Request $request, Recovery $recovery){
+        // ******* delete the recovery steps
+        // * subtract the recovery's amount from connection's current bill's amount paid
+        // * set current bill status to NOT RECOVERED
+        // * if bill updated, then delete that recovery
+
+
+//        dd($request->input('delete'));
+
+        $isDeleteConfirmed = (bool) $request->input('delete');
+
+        if($isDeleteConfirmed){
+
+            DB::transaction(function () use ($recovery) {
+                $PAID = 2;
+                $NOT_PAID = 1;
+                $NOT_RECOVERED = 0;
+
+
+                $current_bill_id = $recovery->connection->current_bill_id;
+                $current_bill = Bill::findOrFail($current_bill_id);
+
+                $current_bill->amountPaid = $current_bill->amountPaid - $recovery->amount;
+                $current_bill->status = $NOT_RECOVERED;
+                $isUpdated = $current_bill->update();
+                if($isUpdated){
+                    // delete the recovery and redirect to all recoveries
+                    $isRecoveryDeleted = $recovery->delete();
+
+                    if(!$isRecoveryDeleted){
+                        return "There's some problem while deleteing the recovery";
+                    }
+                }else{
+                    return "There's some problem while deleteing the recovery";
+                }
+
+            });
+
+        }
+
+
+        return redirect()->route('recoveries.index');
+
+
+
+    }
+
 }
