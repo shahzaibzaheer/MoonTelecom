@@ -2243,6 +2243,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['connections', 'villageNames', 'packageNames'],
   data: function data() {
@@ -2251,7 +2257,9 @@ __webpack_require__.r(__webpack_exports__);
       selectedPackage: '',
       selectedVillage: '',
       selectedStatus: '',
-      billStatus: ['Not Recovered', 'Not Paid', 'Paid']
+      billStatus: ['Not Recovered', 'Not Paid', 'Paid'],
+      selectedState: '',
+      states: ['Active', 'Blocked']
     };
   },
   methods: {},
@@ -2302,6 +2310,19 @@ __webpack_require__.r(__webpack_exports__);
             return connection.current_bill.status === PAID;
           }
         });
+      } // filter by State
+
+
+      if (this.selectedState.length > 0) {
+        if (this.selectedState === "Active") {
+          filteredConnectionsList = filteredConnectionsList.filter(function (connection) {
+            return !connection.isBlocked;
+          });
+        } else if (this.selectedState === "Blocked") {
+          filteredConnectionsList = filteredConnectionsList.filter(function (connection) {
+            return connection.isBlocked;
+          });
+        }
       }
 
       return filteredConnectionsList;
@@ -33859,6 +33880,47 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
+                  value: _vm.selectedState,
+                  expression: "selectedState"
+                }
+              ],
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.selectedState = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "", selected: "" } }, [
+                _vm._v("Select State")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.states, function(state) {
+                return _c("option", [_vm._v(" " + _vm._s(state))])
+              })
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "filter" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
                   value: _vm.selectedPackage,
                   expression: "selectedPackage"
                 }
@@ -47170,7 +47232,13 @@ var app = new Vue({
   data: {
     isCollapsed: true,
     isBillingAddressSame: true,
-    isCustomPackage: false
+    isCustomPackage: false,
+    changePackage: false
+  },
+  method: {
+    setCustomPackage: function setCustomPackage(customPackage) {
+      this.isCustomPackage = customPackage;
+    }
   }
 });
 

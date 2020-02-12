@@ -33,8 +33,14 @@ const app = new Vue({
         isCollapsed: true,
         isBillingAddressSame: true,
         isCustomPackage: false,
+        changePackage: false,
     },
 
+    method:{
+        setCustomPackage(customPackage){
+            this.isCustomPackage = customPackage;
+        }
+    },
 
 
 

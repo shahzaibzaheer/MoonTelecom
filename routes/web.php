@@ -24,8 +24,12 @@ Route::group([ 'middleware'=>'auth'],function(){
 
     Route::get('packages/{package}/delete', 'PackageController@delete');
     Route::resource('packages', 'PackageController');
+
     Route::get('/connections/{connection}/history', 'ConnectionController@showBillsHistory')->name('connections.history');
     Route::get('/connections/{connection}/invoice', 'ConnectionController@invoice')->name('connections.invoice');
+    Route::get('/connections/{connection}/block', 'ConnectionController@blockConfirm')->name('connections.block');
+    Route::delete('/connections/{connection}/block', 'ConnectionController@block')->name('connections.block');
+
     Route::resource('connections', 'ConnectionController');
 
 

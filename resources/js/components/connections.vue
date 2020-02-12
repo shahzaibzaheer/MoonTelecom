@@ -10,6 +10,12 @@
             </div>
             <div class="filters-container">
                     <div class="filter">
+                        <select v-model="selectedState" >
+                            <option value="" selected >Select State</option>
+                            <option v-for="state in states"> {{state}}</option>
+                        </select>
+                    </div>
+                    <div class="filter">
                         <select v-model="selectedPackage" >
                             <option value="" selected >Select Package</option>
                             <option v-for="packageName in packageNames"> {{packageName}}</option>
@@ -109,6 +115,11 @@
                     'Not Paid',
                     'Paid'
                 ],
+                selectedState: '',
+                states:[
+                    'Active',
+                    'Blocked'
+                ],
 
             }
         },
@@ -173,6 +184,22 @@
                         }
                     );
                 }
+
+
+                // filter by State
+                if(this.selectedState.length>0){
+                    if(this.selectedState === "Active"){
+                        filteredConnectionsList = filteredConnectionsList.filter(connection => {
+                            return  !connection.isBlocked;
+                        });
+                    }else if(this.selectedState === "Blocked"){
+                        filteredConnectionsList = filteredConnectionsList.filter(connection => {
+                            return connection.isBlocked;
+                        });
+                    }
+                }
+
+
 
 
                 return filteredConnectionsList;

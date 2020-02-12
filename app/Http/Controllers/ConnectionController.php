@@ -206,7 +206,10 @@ class ConnectionController extends Controller
      */
     public function edit(connection $connection)
     {
-        //
+
+        $packages = Package::defaultPackages();
+        $villages = Village::all();
+        return view('connections.edit', ['connection'=>$connection,'packages'=>$packages, 'villages'=>$villages]);
     }
 
     /**
@@ -218,7 +221,72 @@ class ConnectionController extends Controller
      */
     public function update(Request $request, connection $connection)
     {
-        //
+//        dd($connection);
+//          dd($request);
+
+
+            $connection->username = $request->input('username');
+            $connection->name = $request->input('name');
+            $connection->fathername = $request->input('fathername');
+            $connection->phone = $request->input('phone');
+            $connection->email = $request->input('email');
+            $connection->cnic = $request->input('cnic');
+            $connection->cnic = $request->input('cnic');
+            $connection->village_id = $request->input('village_id');
+            $connection->installationAddress = $request->input('installationAddress');
+            if($request->has('billingAddress')){
+                $connection->billingAddress = $request->input('billingAddress');
+            }
+
+
+            $isChangePackageBoxChecked = $request->has('changePackageCheckbox');
+
+            if($isChangePackageBoxChecked){
+                // change the package or create custom
+                // note:  only change package when data changes otherwise not
+
+                { // if package data changed, previous data is not matched with new
+
+                    $hasPackageId = $request->has('package_id');
+
+                    if($hasPackageId){  // if has package id, then change use that id
+                        $connection->package_id = $request->input('package_id');
+                    }
+                    else
+                    { // grab the bandwidth and monthly fees and create new custom package
+                        // create custom package and assign with our connection
+
+                        // only create new custom package if package data is changed.
+                        if(
+                            $connection->package->bandwidth !== $request->input('bandwidth') ||
+                            $connection->package->fees !== $request->input('monthPrice')
+                        ){
+
+                            $custom_package_id = DB::table('packages')->insertGetId([
+                                'name' => "CUSTOM",
+                                'bandwidth' => $request->input('bandwidth'),
+                                'fees' => $request->input('monthPrice'),
+                                'isCustom' => true
+                            ]);
+                            $connection->package_id = $custom_package_id;
+                        }
+
+
+                    }
+
+
+                }
+
+            }
+
+
+
+            $isUpdated = $connection->update();
+            if($isUpdated){
+                return redirect()->route('connections.show',$connection->id);
+            }else{
+                return "Some error happen while updating";
+            }
     }
 
     /**
@@ -293,6 +361,32 @@ class ConnectionController extends Controller
 
 
 
+
+    public function blockConfirm(Connection $connection){
+        return view('connections.block', ['connection'=>$connection]);
+    }
+
+    public function block(Request $request, Connection $connection){
+        // here we handle user blocking and unblocking
+//        dd($request->all());
+
+        if( $request->has('block')){
+
+            $connection->isBlocked = (bool) $request->input('block');  // block / unblock user
+            $isUpdated = $connection->update();
+            if($isUpdated){
+                return redirect()->route('connections.show', $connection->id);
+            }
+            else{
+                return "Some problem occur while updating user";
+            }
+
+        }else{
+            return redirect()->route('connections.show', $connection->id);
+        }
+
+
+    }
 
 
 

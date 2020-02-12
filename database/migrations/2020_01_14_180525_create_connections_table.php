@@ -26,7 +26,7 @@ class CreateConnectionsTable extends Migration
             $table->string('billingAddress')->nullable();
 //            $table->integer('installationFees');
             $table->bigInteger('package_id');
-            $table->string('isBlocked')->default(false); // also add state new, active, block ???
+            $table->boolean('isBlocked')->default(false); // also add state new, active, block ???
             $table->bigInteger('user_id'); // kiss user ny create kiya
             $table->bigInteger('current_bill_id')->nullable();
             $table->timestamps();

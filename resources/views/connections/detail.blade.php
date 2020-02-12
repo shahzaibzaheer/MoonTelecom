@@ -6,8 +6,10 @@
         <div class="content-container">
             <div class="page_header"></div>
             <div class="page_body">
+
                 <div class="connection_detail_container">
-                    <div class="connection_detail">
+                    <div class="connection_detail" >
+
                         <div class="contact_info">
                             <h2 class="title">Contact Detail</h2>
                             <div class="data">
@@ -127,15 +129,26 @@
 {{--                            <a href="{{route('connections.recoveries', $connection->id )}}">See All Recoveries</a>--}}
                         </div>
                         <div class="buttons_container">
-                            <a href="#" class="btn">Edit</a>
-                            <a href="#" class="btn">Block</a>
+                            <a href="{{ route('connections.edit', $connection->id) }}" class="btn">Edit Connection</a>
+                            <a href="{{ route('connections.block',$connection->id) }}" class="btn">
+                                @if($connection->isBlocked)
+                                    UnBlock
+                                @else
+                                    Block
+                                @endif
+
+                            </a>
+
+                            <div class="page_footer">
+                                @if($connection->isBlocked)
+                                    <h1 style="color:red">Blocked</h1>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="page_footer">
 
-            </div>
 
         </div>
     </div>
