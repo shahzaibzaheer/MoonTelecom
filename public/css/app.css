@@ -783,3 +783,18 @@ td.icons-container {
   font-size: 3em;
 }
 
+.circle {
+  display: block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.circle.block {
+  background: red;
+}
+
+.circle.active {
+  background: green;
+}
+

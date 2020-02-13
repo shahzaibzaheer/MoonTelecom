@@ -30,7 +30,7 @@
                     <div class="filter">
                         <select v-model="selectedVillage" >
                             <option value="" selected >Select Village</option>
-                            <option v-for="villageName in villageNames"> {{villageName}}</option>
+                            <option v-for="villageName in villageNames" :value="villageName.toLowerCase()">{{villageName}}</option>
                         </select>
                     </div>
             </div>
@@ -40,6 +40,7 @@
         <table>
             <thead>
             <tr>
+                <th></th>
                 <th>Username</th>
                 <th>Name</th>
                 <th>Fathername</th>
@@ -57,6 +58,8 @@
             </thead>
             <tbody>
             <tr v-for="connection in filteredConnections">
+                <td v-if="!connection.isBlocked" ><span class="active circle"></span></td>
+                <td v-else="connection.isBlocked"><span class="block circle"></span></td>
                 <td>{{connection.username}}</td>
                 <td>{{connection.name}}</td>
                 <td>{{connection.fathername}}</td>
@@ -104,6 +107,50 @@
     export default {
         props:['connections', 'villageNames', 'packageNames'],
 
+
+        created (){
+
+            let state = this.$route.query.state;
+            let village = this.$route.query.village;
+            let status = this.$route.query.status;
+
+            if(state != null){
+                // console.log('state is set');
+                state = state.toLowerCase();  // for case insensitive check
+                if(state.length > 0){
+                    if(state === 'active'){
+                        this.selectedState = "Active"
+                    }
+                    else if(state === 'blocked'){
+                        this.selectedState = "Blocked"
+                    }
+                }
+                console.log(state.toLowerCase().length);
+            }
+
+            if(village != null){
+                this.selectedVillage = village.toLowerCase();
+            }
+            if(status != null){
+                const NOT_RECOVERED =  "notrecovered";
+                const NOT_PAID =  "notpaid";
+                const PAID =  "paid";
+
+                status = status.toLowerCase();  // for case insensitive comparision
+                if(status === NOT_RECOVERED){  // not recovered
+                    this.selectedStatus = "Not Recovered";
+                }
+                else if(status === NOT_PAID){ // not paid
+                    this.selectedStatus = "Not Paid";
+                }else if(status === PAID){   // paid
+                    this.selectedStatus = "Paid";
+                }
+            }
+
+
+            console.log(state);
+        },
+
         data(){
             return{
                 searchQuery: "",
@@ -115,7 +162,7 @@
                     'Not Paid',
                     'Paid'
                 ],
-                selectedState: '',
+                selectedState: 'Active',
                 states:[
                     'Active',
                     'Blocked'
@@ -147,7 +194,7 @@
                 if(this.selectedVillage.length > 0){
                     console.log("Filter by village");
                     filteredConnectionsList = filteredConnectionsList.filter( connection => {
-                            if(connection.village.name.match( this.selectedVillage )){
+                            if(connection.village.name.toLowerCase().match( this.selectedVillage.toLowerCase() )){
                                 return true;
                             }
                     }

@@ -6,6 +6,22 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
+
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+let routes = [
+
+];
+
+const router = new VueRouter({
+    routes,
+    mode: 'history',
+
+});
+
+
+
 import users from './components/users';
 import villages from './components/villages';
 import packages from './components/packages';
@@ -29,6 +45,7 @@ Vue.component('bills', bills);
 
 const app = new Vue({
     el: '#app',
+    router,
     data:{
         isCollapsed: true,
         isBillingAddressSame: true,

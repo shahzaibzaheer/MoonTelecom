@@ -842,3 +842,19 @@ td.icons-container{
         }
     }
 }
+
+
+.circle{
+    display: block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+
+    &.block{
+        background: red;
+    }
+    &.active{
+        background: green;
+
+    }
+}
