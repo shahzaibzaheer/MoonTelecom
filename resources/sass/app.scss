@@ -339,7 +339,7 @@ select{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -347,10 +347,13 @@ select{
     @include shadow;
     //transition: width 0.3s ease-in;
     width: 300px;
+    //transform: translateX(10px);
 
 
     &.collapsed{
         width: 80px;
+        transform: translateX(-80px);
+
         span{
             display: none;
         }
@@ -364,7 +367,7 @@ select{
 
     a{
         color: $white;
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
 
@@ -384,13 +387,14 @@ select{
 
     //**************** Nav items
     .nav_items {
+
         list-style: none;
         padding: 0;
     }
     .nav_item{
         display: flex;
         align-items: center;
-        padding: gap(2);
+        padding:  gap(1) gap(2);
         span{
             margin-left: gap(2);
             margin-right: gap(10);
@@ -410,6 +414,35 @@ select{
 
 
 
+    .nav_close_btn{
+        position: absolute;
+        top: gap(1);
+        left: gap(1);
+        width: 48px;
+        height: 48px;
+        padding: gap(2);
+        fill: $white;
+
+        &:hover{
+            cursor: pointer;
+        }
+        &:active{
+            transform: scale(0.8);
+            fill: $accent-color;
+        }
+
+        @media (min-width: 600px)  {
+            display: none;
+
+        }
+    }
+
+
+    @media (min-width: 1000px) {
+        .nav_item{
+            padding:  gap(1.5) gap(2);
+        }
+    }
 }
 
 
@@ -423,7 +456,7 @@ select{
     left: 320px;
 
     &.collapsed{
-        left: 100px;
+        left: 20px;
     }
     &:hover{
         cursor: pointer;
@@ -433,8 +466,8 @@ select{
         background: $primary-color;
         padding: gap(1);
         border-radius: 50%;
-        width: 48px;
-        height: 48px;
+        width: 35px;
+        height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -444,10 +477,11 @@ select{
     }
     .title{
         padding-left: gap(1);
-        font-size: 1.8em;
+        font-size: 1.4em;
         font-weight: 800;
         color: $text-primary-color;
     }
+
 }
 
 
@@ -488,7 +522,7 @@ select{
 
 
 .content-container{
-    padding: gap(2) gap(2.5) gap(2) gap(12);
+    padding: gap(2);
     min-height: 100vh;
     width: 100%;
     //max-width: 1400px;
@@ -799,23 +833,27 @@ td.icons-container{
 //  Dashboard Container
 // ************************
 .meta_info_container{
-    margin-top: gap(10);
+    margin-top: gap(8);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
+
+
+
     .card{
         @include card_style;
+
         display: block;
         background: $white;
         margin: gap(2);
         padding: gap(2);
-        width: 45%;
+        //width: 45%;
         color: $text-primary-color;
         max-width: 400px;
+        min-width: 250px;
     }
-
     .card-body{
         display: flex;
         justify-content: space-between;
@@ -823,8 +861,8 @@ td.icons-container{
 
         .icon{
             fill: $primary-color;
-            width: 6em;
-            height: 6em;
+            width: 2em;
+            height: 2em;
             margin: gap(2);
         }
 
@@ -834,10 +872,57 @@ td.icons-container{
             margin: gap(2);
             text-align: right;
             .heading{
-                font-size: 1.1em;
+                font-size: 0.8em;
             }
             .data{
-                font-size: 3em;
+                font-size: 1.5em;
+            }
+        }
+    }
+    .card-footer{
+        color: rgba($text-primary-color, 0.6);
+        font-size: 0.8em;
+    }
+
+    @media (min-width: 400px){
+        .card{
+            min-width: 350px;
+        }
+        .card-body{
+
+            .icon{
+                width: 3em;
+                height: 3em;
+            }
+
+            .content{
+                .heading{
+                    font-size: 1em;
+                }
+                .data{
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 720px) {
+        .card{
+            min-width: 400px;
+        }
+        .card-body{
+            .icon{
+                width: 4em;
+                height: 4em;
+            }
+
+            .content{
+                .heading{
+                    font-size: 1em;
+                }
+                .data{
+                    font-size: 3em;
+                }
             }
         }
     }

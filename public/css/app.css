@@ -281,7 +281,7 @@ select::placeholder {
           flex-direction: column;
   -webkit-box-pack: justify;
           justify-content: space-between;
-  height: 100%;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -292,6 +292,8 @@ select::placeholder {
 
 .main_navigation_container.collapsed {
   width: 80px;
+  -webkit-transform: translateX(-80px);
+          transform: translateX(-80px);
 }
 
 .main_navigation_container.collapsed span {
@@ -305,7 +307,7 @@ select::placeholder {
 
 .main_navigation_container a {
   color: #fff;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .main_navigation_container .nav_logo_container img {
@@ -328,7 +330,7 @@ select::placeholder {
   display: flex;
   -webkit-box-align: center;
           align-items: center;
-  padding: 16px;
+  padding: 8px 16px;
 }
 
 .main_navigation_container .nav_item span {
@@ -348,6 +350,38 @@ select::placeholder {
   background: #F37129;
 }
 
+.main_navigation_container .nav_close_btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+  fill: #fff;
+}
+
+.main_navigation_container .nav_close_btn:hover {
+  cursor: pointer;
+}
+
+.main_navigation_container .nav_close_btn:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  fill: #F37129;
+}
+
+@media (min-width: 600px) {
+  .main_navigation_container .nav_close_btn {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .main_navigation_container .nav_item {
+    padding: 12px 16px;
+  }
+}
+
 .title_nav_toggle_container {
   display: -webkit-inline-box;
   display: inline-flex;
@@ -361,7 +395,7 @@ select::placeholder {
 }
 
 .title_nav_toggle_container.collapsed {
-  left: 100px;
+  left: 20px;
 }
 
 .title_nav_toggle_container:hover {
@@ -372,8 +406,8 @@ select::placeholder {
   background: #1E2838;
   padding: 8px;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -388,7 +422,7 @@ select::placeholder {
 
 .title_nav_toggle_container .title {
   padding-left: 8px;
-  font-size: 1.8em;
+  font-size: 1.4em;
   font-weight: 800;
   color: #000;
 }
@@ -401,7 +435,7 @@ select::placeholder {
 }
 
 .content-container {
-  padding: 16px 20px 16px 96px;
+  padding: 16px;
   min-height: 100vh;
   width: 100%;
   display: -webkit-box;
@@ -725,7 +759,7 @@ td.icons-container {
 }
 
 .meta_info_container {
-  margin-top: 80px;
+  margin-top: 64px;
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
@@ -744,9 +778,9 @@ td.icons-container {
   background: #fff;
   margin: 16px;
   padding: 16px;
-  width: 45%;
   color: #000;
   max-width: 400px;
+  min-width: 250px;
 }
 
 .meta_info_container .card-body {
@@ -760,8 +794,8 @@ td.icons-container {
 
 .meta_info_container .card-body .icon {
   fill: #1E2838;
-  width: 6em;
-  height: 6em;
+  width: 2em;
+  height: 2em;
   margin: 16px;
 }
 
@@ -776,11 +810,54 @@ td.icons-container {
 }
 
 .meta_info_container .card-body .content .heading {
-  font-size: 1.1em;
+  font-size: 0.8em;
 }
 
 .meta_info_container .card-body .content .data {
-  font-size: 3em;
+  font-size: 1.5em;
+}
+
+.meta_info_container .card-footer {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.8em;
+}
+
+@media (min-width: 400px) {
+  .meta_info_container .card {
+    min-width: 350px;
+  }
+
+  .meta_info_container .card-body .icon {
+    width: 3em;
+    height: 3em;
+  }
+
+  .meta_info_container .card-body .content .heading {
+    font-size: 1em;
+  }
+
+  .meta_info_container .card-body .content .data {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 720px) {
+  .meta_info_container .card {
+    min-width: 400px;
+  }
+
+  .meta_info_container .card-body .icon {
+    width: 4em;
+    height: 4em;
+  }
+
+  .meta_info_container .card-body .content .heading {
+    font-size: 1em;
+  }
+
+  .meta_info_container .card-body .content .data {
+    font-size: 3em;
+  }
 }
 
 .circle {

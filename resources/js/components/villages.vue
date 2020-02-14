@@ -58,8 +58,6 @@
                         </svg>
                     </a>
                 </td>
-
-
             </tr>
             </tbody>
         </table>

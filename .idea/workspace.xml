@@ -3,17 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0a20ba32-6245-4062-993d-30d2945ea819" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/bills.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/bills.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/connections.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/connections.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/packages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/packages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/recoveries.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/recoveries.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/users.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/villages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/villages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recoveries/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recoveries/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -134,107 +129,72 @@
     <expand />
     <select />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_180525_create_connections_table.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state>
-                    <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="180">
-                    <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="480">
-                    <caret line="22" column="27" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="27" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_073553_create_villages_table.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="336">
-                    <caret line="16" column="37" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="37" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/users.vue">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/recoveries.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state relative-caret-position="168">
+              <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
               <folding>
-                <marker date="1581672485640" expanded="true" signature="1120:5706" ph="..." />
+                <element signature="e#1555#2399#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/components/navigation.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="20" column="37" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="37" />
+              <folding>
+                <element signature="e#206#295#0#HTML" />
+                <element signature="e#201#497#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/components/nav_toggle_button.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="38" selection-start-column="12" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/villages.vue">
+        <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2256">
-              <caret line="112" column="23" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/packages.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="128">
+              <caret line="431" column="9" lean-forward="true" selection-start-line="431" selection-start-column="9" selection-end-line="431" selection-end-column="9" />
+              <folding>
+                <element signature="e#46#203#0" />
+                <element signature="e#205#236#0" />
+                <element signature="e#254#285#0" />
+                <element signature="e#361#681#0" />
+                <element signature="e#544#611#0" />
+                <element signature="e#624#679#0" />
+                <element signature="e#690#713#0" />
+                <element signature="e#722#746#0" />
+                <element signature="e#753#848#0" />
+                <element signature="e#852#882#0" />
+                <element signature="e#891#1102#0" />
+                <element signature="e#1060#1100#0" />
+                <element signature="e#1109#1131#0" />
+                <element signature="e#1159#1217#0" />
+                <element signature="e#1240#1727#0" />
+                <element signature="e#1385#1418#0" />
+                <element signature="e#1430#1609#0" />
+                <element signature="e#1560#1603#0" />
+                <element signature="e#1619#1724#0" />
+                <element signature="e#1681#1718#0" />
+                <element signature="e#1746#1750#0" />
+                <element signature="e#1826#2095#0" />
+                <element signature="e#1996#2090#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,6 +206,11 @@
       <find>content-con</find>
       <find>table_container</find>
       <find>buttons_container</find>
+      <find>ca</find>
+      <find>container</find>
+      <find>meta_info_container</find>
+      <find>main_navigation_container</find>
+      <find>title_nav_toggle_container</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,7 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/components/navigation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/bills/recoveries.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php" />
         <option value="$PROJECT_DIR$/resources/views/villages/edit.blade.php" />
@@ -273,10 +237,8 @@
         <option value="$PROJECT_DIR$/resources/views/connections/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ConnectionController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_14_180525_create_connections_table.php" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Recovery.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RecoveryController.php" />
@@ -288,6 +250,9 @@
         <option value="$PROJECT_DIR$/resources/js/components/connections.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/packages.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/villages.vue" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/components/navigation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
       </list>
     </option>
   </component>
@@ -448,12 +413,13 @@
       <workItem from="1581499051218" duration="14931000" />
       <workItem from="1581582425810" duration="1080000" />
       <workItem from="1581583522193" duration="11348000" />
-      <workItem from="1581668120842" duration="3540000" />
+      <workItem from="1581668120842" duration="4573000" />
+      <workItem from="1581684284924" duration="8544000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65936000" />
+    <option name="totallyTimeSpent" value="75513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -485,7 +451,7 @@
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Database" order="0" weight="0.3295302" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -742,38 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17688">
-          <caret line="841" column="9" selection-start-line="841" selection-start-column="9" selection-end-line="841" selection-end-column="9" />
-          <folding>
-            <element signature="e#46#203#0" />
-            <element signature="e#205#236#0" />
-            <element signature="e#254#285#0" />
-            <element signature="e#361#681#0" />
-            <element signature="e#544#611#0" />
-            <element signature="e#624#679#0" />
-            <element signature="e#690#713#0" />
-            <element signature="e#722#746#0" />
-            <element signature="e#753#848#0" />
-            <element signature="e#852#882#0" />
-            <element signature="e#891#1102#0" />
-            <element signature="e#1060#1100#0" />
-            <element signature="e#1109#1131#0" />
-            <element signature="e#1159#1217#0" />
-            <element signature="e#1240#1727#0" />
-            <element signature="e#1385#1418#0" />
-            <element signature="e#1430#1609#0" />
-            <element signature="e#1560#1603#0" />
-            <element signature="e#1619#1724#0" />
-            <element signature="e#1681#1718#0" />
-            <element signature="e#1746#1750#0" />
-            <element signature="e#1826#2095#0" />
-            <element signature="e#1996#2090#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -836,52 +770,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_180525_create_connections_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/bills.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/users.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -892,48 +784,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_073553_create_villages_table.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/users.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state>
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/packages.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state>
           <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_180525_create_connections_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_18_160025_create_recoveries_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_14_073553_create_villages_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/villages.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="49" column="30" lean-forward="true" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2256">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="23" />
+        <state relative-caret-position="240">
+          <caret line="121" column="47" lean-forward="true" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/recoveries.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="888">
+          <caret line="62" column="30" selection-start-line="48" selection-start-column="24" selection-end-line="62" selection-end-column="30" />
           <folding>
             <marker date="1581672485640" expanded="true" signature="1120:5706" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/villages.vue">
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="168">
+          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding>
+            <element signature="e#1555#2399#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/nav_toggle_button.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/components/navigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="37" />
+          <folding>
+            <element signature="e#206#295#0#HTML" />
+            <element signature="e#201#497#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="431" column="9" lean-forward="true" selection-start-line="431" selection-start-column="9" selection-end-line="431" selection-end-column="9" />
+          <folding>
+            <element signature="e#46#203#0" />
+            <element signature="e#205#236#0" />
+            <element signature="e#254#285#0" />
+            <element signature="e#361#681#0" />
+            <element signature="e#544#611#0" />
+            <element signature="e#624#679#0" />
+            <element signature="e#690#713#0" />
+            <element signature="e#722#746#0" />
+            <element signature="e#753#848#0" />
+            <element signature="e#852#882#0" />
+            <element signature="e#891#1102#0" />
+            <element signature="e#1060#1100#0" />
+            <element signature="e#1109#1131#0" />
+            <element signature="e#1159#1217#0" />
+            <element signature="e#1240#1727#0" />
+            <element signature="e#1385#1418#0" />
+            <element signature="e#1430#1609#0" />
+            <element signature="e#1560#1603#0" />
+            <element signature="e#1619#1724#0" />
+            <element signature="e#1681#1718#0" />
+            <element signature="e#1746#1750#0" />
+            <element signature="e#1826#2095#0" />
+            <element signature="e#1996#2090#0" />
+          </folding>
         </state>
       </provider>
     </entry>
