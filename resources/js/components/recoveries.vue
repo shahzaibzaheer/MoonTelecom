@@ -1,23 +1,23 @@
 <template>
 
     <div class="table_container">
-<!--        <div class="search-filter-contianer">-->
-<!--            <div class="search-container" >-->
-<!--                <input type="text"  placeholder="Search..." v-model="searchQuery" >-->
-<!--                <svg class="icon" version="1.1" viewBox="0 0 21.164 21.921" >-->
-<!--                    <path id="search" d="M21.826,19.967,16.609,14.54A8.847,8.847,0,1,0,9.835,17.7a8.756,8.756,0,0,0,5.071-1.6l5.257,5.467a1.154,1.154,0,1,0,1.664-1.6ZM9.835,2.309A6.542,6.542,0,1,1,3.293,8.851,6.549,6.549,0,0,1,9.835,2.309Z" transform="translate(-0.984)"/>-->
-<!--                </svg >-->
-<!--            </div>-->
-<!--            <div class="filters-container">-->
-<!--&lt;!&ndash;                    <div class="filter">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <select v-model="selectedState" >&ndash;&gt;-->
-<!--&lt;!&ndash;                            <option value="" selected >Select State</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <option v-for="state in states"> {{state}}</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </select>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            </div>-->
 
-<!--        </div>-->
+        <div class="filters-container">
+            <div class="filter">
+                <select v-model="selectedUserId" >
+                    <option value="" selected >Select User</option>
+                    <option v-for="user in users" :value="user.id" >{{user.name}}</option>
+                </select>
+            </div>
+            <div class="filter">
+                <select v-model="selectedVillageId" >
+                    <option value="" selected >Select Village</option>
+                    <option v-for="village in villages" :value="village.id" >{{village.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <span>There are total <strong>{{ total  }}</strong> Recoveries</span>
 
         <table>
             <thead>
@@ -26,7 +26,6 @@
                 <th>Recover At</th>
                 <th>Username</th>
                 <th>Name</th>
-<!--                <th>Total</th>-->
                 <th>Amount Recovered</th>
                 <th>Comments</th>
             </tr>
@@ -41,13 +40,26 @@
                 <td>{{recovery.comments}}</td>
                 <td class="icons-container">
                     <a :href="'connections/'+recovery.connection.id" >
-                        <svg class="icon" version="1.1" viewBox="0 0 23.486 14" >
-                            <path d="M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z" transform="translate(0 -98.725)" />
-                        </svg>
+                        <svg class="icon" version="1.1" viewBox="0 0 1e3 1e3" ><path d="m957.4 736.5c0-64.2-40.9-105.2-104.9-105.2h-567.6-12.5v-13.3-264.9c0-27.2 0.3-54.4-0.2-81.5-0.3-16.9-13.7-30.4-30.2-31.6-16.3-1.1-31 9.8-34.2 25.9-0.9 4.3-0.7 8.8-0.7 13.2-0.1 113.1-0.1 226.2-0.1 339.3v13h-60.8c-59.9 0.1-102 42.1-102.2 101.8-0.1 40.8-0.1 81.5 0 122.3 0.1 59.9 42.1 102.1 101.8 102.1 236.4 0.1 472.8 0.1 709.2 0 60 0 102-41.9 102.2-101.8 0.3-39.9 0.2-79.6 0.2-119.3zm-654.4 90.4c-15.6 0.1-31.3 0-46.9 0s-31.3 0.1-46.9 0c-20-0.2-34.5-13.8-34.6-32.3-0.2-18.6 14.3-32.7 34.1-32.8 31.6-0.2 63.2-0.2 94.8 0 19.8 0.1 34.3 14.3 34.2 32.8-0.2 18.5-14.7 32.2-34.7 32.3zm328.2-0.4c-0.4 19-14.8 33.2-32.9 33-17.7-0.2-31.8-14.2-32.1-32.7-0.3-21.7-0.3-43.5 0-65.2 0.3-18.4 14.6-32.4 32.4-32.4 17.8-0.1 32.2 13.9 32.7 32.2 0.3 10.9 0.1 21.7 0.1 32.6-0.2 10.8 0 21.7-0.2 32.5zm130.4 0.8c-0.6 18.3-14.9 32.3-32.7 32.2s-32.1-14-32.4-32.5c-0.3-21.7-0.3-43.5 0-65.2 0.3-18.5 14.3-32.5 32.1-32.7 18.2-0.2 32.5 14 33 33 0.3 10.9 0 21.7 0 32.6 0.1 10.9 0.3 21.8 0 32.6z"/>
+                            <path d="m696.5 285c-0.6 62.5-18.8 132.3-55.5 197.1-8 14.2-21.6 20.9-35.5 18.1-14.3-2.9-25.4-13.7-26-28.7-0.3-7.9 2.5-16.8 6.3-23.9 30.7-56.7 46.4-117 45.2-181.5-1.1-59.8-16.5-115.7-45-168.3-4.1-7.6-7-17.3-6.6-25.8 0.7-14.3 12.3-24.9 26.1-27.5 13.2-2.5 26.8 3.9 34.3 16.8 19.9 34.2 34.5 70.6 44 109 8.5 33.7 12.7 68 12.7 114.7z"/>
+                            <path d="m566.1 269.1c-0.5 54.9-12.9 103.6-38.7 148.8-8.5 14.9-23.8 20.9-38.9 16-15-4.9-24.3-19-22.2-34.7 0.7-5.2 3-10.4 5.5-15.1 38.7-74.4 39.1-148.7-0.2-223-10.1-19.1-5.4-38.4 11.4-47.5 17-9.2 35.5-2.7 46 16.4 24.4 44.1 36.6 91.5 37.1 139.1z"/>
+                            <path d="m435.5 279.7c-0.6 31.9-12.8 66.8-37.7 97-13.7 16.6-33.7 19.3-48.3 7s-15.5-31.4-2.4-48.1c31-39.2 31-87.1-0.1-126.4-13.1-16.6-12.1-35.8 2.6-48.1 14.4-12 34.1-9.3 47.7 6.5 24.3 28.4 38.2 66.5 38.2 112.1z"/></svg>
                     </a>
                     <a :href="'connections/'+recovery.connection.id +'/history' " >
-                        <svg class="icon" version="1.1" viewBox="0 0 23.486 14" >
-                            <path d="M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z" transform="translate(0 -98.725)" />
+                        <svg class="icon" version="1.1" viewBox="0 0 423.055 423.055" >
+                            <g>
+                                <path d="M362.021,10.869c-6.431-2.963-14.009-1.81-19.269,2.93l-27.755,24.575c-0.755,0.672-1.894,0.668-2.645-0.008L274.588,4.59
+			c-6.83-6.12-17.17-6.12-24,0l-37.73,33.745c-0.759,0.678-1.906,0.678-2.665,0L172.459,4.59c-6.83-6.119-17.17-6.119-24,0
+			L110.69,38.366c-0.756,0.676-1.898,0.679-2.658,0.007l-27.78-24.574c-7.37-6.554-18.658-5.893-25.212,1.477
+			c-2.939,3.305-4.547,7.583-4.513,12.005v368.494c-0.066,9.878,7.888,17.939,17.766,18.005c4.425,0.03,8.703-1.582,12.009-4.523
+			l27.755-24.575c0.755-0.672,1.894-0.668,2.645,0.008l37.764,33.776c6.83,6.12,17.17,6.12,24,0l37.734-33.745
+			c0.759-0.678,1.906-0.678,2.665,0l37.734,33.744c6.831,6.117,17.17,6.117,24,0l37.771-33.776c0.756-0.676,1.898-0.679,2.658-0.007
+			l27.78,24.574c7.373,6.551,18.66,5.885,25.211-1.488c2.934-3.302,4.54-7.575,4.508-11.993V27.281
+			C372.621,20.202,368.489,13.747,362.021,10.869z M116.734,143.528h99.586c4.418,0,8,3.582,8,8s-3.582,8-8,8h-99.586
+			c-4.418,0-8-3.582-8-8S112.316,143.528,116.734,143.528z M306.32,279.528H116.734c-4.418,0-8-3.582-8-8s3.582-8,8-8H306.32
+			c4.418,0,8,3.582,8,8S310.738,279.528,306.32,279.528z M306.32,219.528H116.734c-4.418,0-8-3.582-8-8s3.582-8,8-8H306.32
+			c4.418,0,8,3.582,8,8S310.738,219.528,306.32,219.528z"/>
+                            </g>
                         </svg>
                     </a>
 
@@ -69,12 +81,20 @@
 
 <script>
     export default {
-        props:['recoveries'],
+        props:['recoveries','users', 'villages'],
+
+        created(){
+            let userId = this.$route.query.u_id;
+
+            this.selectedUserId = userId.toString();
+
+        },
 
         data(){
             return{
                 searchQuery: "",
-                selectedState: '',
+                selectedUserId: "",
+                selectedVillageId: "",
             }
         },
         methods:{
@@ -83,11 +103,23 @@
 
         computed:{
             filteredRecoveries (){
-
                 let recoveriesList = [];
 
-                recoveriesList =  this.recoveries.filter( recovery =>{
-                    if(recovery.user.name.match(this.searchQuery)){
+
+                console.log(this.selectedUserId);
+                // filter by user
+
+                recoveriesList = this.recoveries.filter(recovery => {
+                    if(recovery.user.id.toString() === this.selectedUserId.toString()){
+                        return true;
+                    }else if(this.selectedUserId.toString().length <= 0){
+                       return true;
+                    }
+                });
+
+                // filter by village
+                recoveriesList = recoveriesList.filter(recovery => {
+                    if(recovery.connection.village_id.toString().match(this.selectedVillageId.toString())){
                         return true;
                     }
                 });

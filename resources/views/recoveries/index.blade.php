@@ -8,7 +8,12 @@
             <div class="page_body">
 
 
-                <recoveries :recoveries="{{ json_encode($recentRecoveries) }}"> </recoveries>
+                <recoveries
+                        :users="{{ json_encode($users) }}"
+                        :recoveries="{{ json_encode($recentRecoveries) }}"
+                        :villages="{{json_encode($villages)}}"
+
+                > </recoveries>
 {{--                <bills :bills="{{ json_encode($bills) }}"></bills>--}}
                 {{--                <recoveries :recoveries="{{ json_encode($recoveries) }}"></recoveries>--}}
             </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Bill;
 use App\Recovery;
+use App\User;
+use App\Village;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,8 +16,15 @@ class RecoveryController extends Controller
     public function index(){
 
         $recentRecoveries =  Recovery::recentRecoveries();
+        $users  = User::all();
+        $villages = Village::all();
 //        return $recentRecoveries;
-        return view('recoveries.index', ['recentRecoveries'=>$recentRecoveries]);
+//        return $recentRecoveries;
+        return view('recoveries.index', [
+            'recentRecoveries'=>$recentRecoveries ,
+            'users' => $users,
+            'villages' => $villages
+            ]);
     }
 
     public function store(Request $request){

@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function recoveries(){
+        return $this->hasMany(Recovery::class,'user_id');
+    }
 }

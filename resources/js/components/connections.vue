@@ -18,7 +18,7 @@
                     <div class="filter">
                         <select v-model="selectedPackage" >
                             <option value="" selected >Select Package</option>
-                            <option v-for="packageName in packageNames"> {{packageName}}</option>
+                            <option v-for="packageName in packageNames" :value="packageName.toLowerCase()"> {{packageName.toLowerCase()}}</option>
                         </select>
                     </div>
                     <div class="filter">
@@ -53,7 +53,6 @@
                 <th>Paid</th>
                 <th>Remaining</th>
                 <th>Status</th>
-
             </tr>
             </thead>
             <tbody>
@@ -113,6 +112,7 @@
             let state = this.$route.query.state;
             let village = this.$route.query.village;
             let status = this.$route.query.status;
+            let pkg = this.$route.query.pkg;
 
             if(state != null){
                 // console.log('state is set');
@@ -131,6 +131,13 @@
             if(village != null){
                 this.selectedVillage = village.toLowerCase();
             }
+
+            // sync query param pkg by package filter
+            if(pkg != null){
+                this.selectedPackage = pkg.toLowerCase();
+            }
+
+
             if(status != null){
                 const NOT_RECOVERED =  "notrecovered";
                 const NOT_PAID =  "notpaid";
@@ -205,7 +212,7 @@
                 if(this.selectedPackage.length > 0){
                     console.log("Filter by package");
                     filteredConnectionsList = filteredConnectionsList.filter( connection => {
-                            if(connection.package.name.match( this.selectedPackage )){
+                            if(connection.package.name.toLowerCase().match( this.selectedPackage )){
                                 return true;
                             }
                         }

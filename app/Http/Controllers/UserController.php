@@ -11,11 +11,12 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::latest()->get();
+
+//        return $users;
         return view('users.index', [
             "users"=>$users,
         ]);
 
-//
 //        $queryParams = $request->query;
 //
 //        if($queryParams->count() > 0 ){   // if has query params
