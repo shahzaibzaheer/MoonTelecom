@@ -40,7 +40,7 @@
         <table>
             <thead>
             <tr>
-                <th>Username</th>
+                <th >Username</th>
                 <th>Name</th>
                 <th class="hide-column">Fathername</th>
                 <th>Village</th>
@@ -58,7 +58,7 @@
             <tbody>
             <tr v-for="connection in filteredConnections" :class="{blocked: connection.isBlocked}">
                 <td class="blocked" v-if="connection.isBlocked">Blocked</td>
-                <td><strong>Username: </strong> <span>{{connection.username}}</span>  </td>
+                <td class="username" ><strong>Username: </strong> <span>{{connection.username}}</span>  </td>
                 <td><strong>Name: </strong> <span>{{connection.name}}</span> </td>
                 <td class="hide-column"><strong>Father Name: </strong> <span>{{connection.fathername}}</span> </td>
                 <td><strong>Village: </strong> <span>{{connection.village.name}}</span> </td>

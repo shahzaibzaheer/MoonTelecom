@@ -199,6 +199,7 @@ select {
 }
 
 .table_container .table-meta-info {
+  text-align: center;
   margin: 16px auto;
   display: block;
   max-width: 1500px;
@@ -206,6 +207,12 @@ select {
 
 .table_container .table-meta-info strong {
   font-size: 1.4em;
+}
+
+@media (min-width: 1000px) {
+  .table_container .table-meta-info {
+    text-align: left;
+  }
 }
 
 .table_container .table_header {
@@ -370,8 +377,13 @@ select {
   .table_container table td {
     min-width: 9.5%;
     text-align: left;
-    margin: 0;
+    margin: 0.8px;
     word-wrap: break-word;
+  }
+
+  .table_container table th.username,
+  .table_container table td.username {
+    word-break: break-all;
   }
 
   .table_container table th.blocked,
@@ -423,6 +435,46 @@ select {
     padding: 8px;
     max-width: 1500px;
     margin: 0 auto;
+  }
+}
+
+.table_container.recoveries th strong,
+.table_container.recoveries td strong {
+  width: 80px;
+  margin-left: 16px;
+}
+
+.table_container.recoveries th span,
+.table_container.recoveries td span {
+  margin-left: 16px;
+}
+
+@media (min-width: 600px) {
+  .table_container.recoveries th strong,
+  .table_container.recoveries td strong {
+    width: 100px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .table_container.recoveries th,
+  .table_container.recoveries td {
+    width: 10%;
+  }
+
+  .table_container.recoveries th span,
+  .table_container.recoveries td span {
+    margin: 0;
+  }
+
+  .table_container.recoveries th.comments,
+  .table_container.recoveries td.comments {
+    width: 40%;
+  }
+
+  .table_container.recoveries .icons-container {
+    width: 10%;
+    margin-left: auto;
   }
 }
 

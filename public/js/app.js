@@ -2578,6 +2578,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ['recoveries', 'users', 'villages'],
   created: function created() {
@@ -34153,7 +34154,7 @@ var render = function() {
               ? _c("td", { staticClass: "blocked" }, [_vm._v("Blocked")])
               : _vm._e(),
             _vm._v(" "),
-            _c("td", [
+            _c("td", { staticClass: "username" }, [
               _c("strong", [_vm._v("Username: ")]),
               _vm._v(" "),
               _c("span", [_vm._v(_vm._s(connection.username))])
@@ -34653,7 +34654,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table_container" }, [
+  return _c("div", { staticClass: "table_container recoveries" }, [
     _c("div", { staticClass: "filters-container" }, [
       _c("div", { staticClass: "filter" }, [
         _c(
@@ -34667,6 +34668,7 @@ var render = function() {
                 expression: "selectedUserId"
               }
             ],
+            class: { neutral: _vm.selectedUserId.toString().length > 0 },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -34710,6 +34712,7 @@ var render = function() {
                 expression: "selectedVillageId"
               }
             ],
+            class: { neutral: _vm.selectedVillageId.toString().length > 0 },
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -34742,7 +34745,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("span", [
+    _c("span", { staticClass: "table-meta-info" }, [
       _vm._v("There are total "),
       _c("strong", [_vm._v(_vm._s(_vm.total))]),
       _vm._v(" Recoveries")
@@ -34755,17 +34758,51 @@ var render = function() {
         "tbody",
         _vm._l(_vm.filteredRecoveries, function(recovery) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(recovery.user.name))]),
+            _c("td", { staticClass: "bold success" }, [
+              _c("strong", [_vm._v("By: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.user.name))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.created_at))]),
+            _c("td", [
+              _c("strong", [_vm._v("At: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.created_at))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.connection.username))]),
+            _c("td", [
+              _c("strong", [_vm._v("Username: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.connection.username))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.connection.name))]),
+            _c("td", [
+              _c("strong", [_vm._v("Name: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.connection.name))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.amount))]),
+            _c(
+              "td",
+              {
+                staticClass: "bold",
+                class: {
+                  danger: recovery.amount <= 0,
+                  neutral: recovery.amount > 0
+                }
+              },
+              [
+                _c("strong", [_vm._v("Amount: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(recovery.amount))])
+              ]
+            ),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.comments))]),
+            _c("td", { staticClass: "comments" }, [
+              _c("strong", [_vm._v("Comments: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.comments))])
+            ]),
             _vm._v(" "),
             _c("td", { staticClass: "icons-container" }, [
               _c(
@@ -34892,9 +34929,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount Recovered")]),
+        _c("th", [_vm._v("Amount")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Comments")])
+        _c("th", { staticClass: "comments" }, [_vm._v("Comments")]),
+        _vm._v(" "),
+        _c("th")
       ])
     ])
   }
