@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <span>There are total <strong>{{ total  }}</strong> Connections</span>
+        <span class="table-meta-info">There are total <strong>{{ total  }}</strong> Connections</span>
         <table>
             <thead>
             <tr>

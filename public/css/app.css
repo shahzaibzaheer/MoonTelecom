@@ -19,11 +19,11 @@ body {
 .btn {
   background: #1E2838;
   color: #fff;
-  font-size: 1.2em;
+  font-size: 0.8em;
   border-radius: 100px;
-  padding: 9.6px 32px;
+  padding: 8px 16px;
   border: none;
-  min-width: 150px;
+  text-align: center;
 }
 
 .btn:hover {
@@ -33,6 +33,13 @@ body {
 
 .btn:active {
   background: #dd570c;
+}
+
+@media (min-width: 600px) {
+  .btn {
+    font-size: 1em;
+    padding: 8px 24px;
+  }
 }
 
 .error {
@@ -53,35 +60,39 @@ a {
   text-decoration: none;
 }
 
-input,
-select {
-  padding: 12px 12px 12px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-  border-radius: 2px;
-  margin: 4px 0;
+input {
+  padding: 12px 12px 12px 12px;
   font-size: 1.2em;
 }
 
-input::-webkit-input-placeholder, select::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
 
-input::-moz-placeholder, select::-moz-placeholder {
+input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
 
-input:-ms-input-placeholder, select:-ms-input-placeholder {
+input:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
 
-input::-ms-input-placeholder, select::-ms-input-placeholder {
+input::-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
 
-input::placeholder,
-select::placeholder {
+input::placeholder {
   color: rgba(0, 0, 0, 0.3);
+}
+
+select {
+  padding: 8px;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.8em;
+  min-width: 150px;
 }
 
 .search-filter-contianer {
@@ -89,20 +100,30 @@ select::placeholder {
   display: flex;
   -webkit-box-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+@media (min-width: 700px) {
+  .search-filter-contianer {
+    font-size: 1.2em;
+  }
 }
 
 .search-container {
+  align-self: center;
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-align: center;
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
+  font-size: 0.8em;
   border: none;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   background: #fff;
-  margin-bottom: 24px;
 }
 
 .search-container:hover {
@@ -113,22 +134,38 @@ select::placeholder {
   fill: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   box-sizing: content-box;
-  padding: 16px;
+  padding: 8px;
+  width: 18px;
+  height: 18px;
 }
 
 .search-container .icon:hover {
   fill: black;
 }
 
-.search-container input,
-.search-container select {
+.search-container input {
   border: none;
   outline: none;
 }
 
-.search-container input:hover,
-.search-container select:hover {
+.search-container input:hover {
   cursor: text;
+}
+
+.filters-container {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-top: 16px;
+}
+
+.filters-container .filter {
+  margin: 4px 8px;
 }
 
 .dialog {
@@ -150,11 +187,16 @@ select::placeholder {
 
 .table_container {
   margin-top: 80px;
+  width: 100%;
 }
 
-.table_container strong {
-  font-weight: 800;
-  font-size: 1.2em;
+.table_container .table-meta-info {
+  margin-top: 16px;
+  display: block;
+}
+
+.table_container .table-meta-info strong {
+  font-size: 1.4em;
 }
 
 .table_container .table_header {
@@ -162,23 +204,31 @@ select::placeholder {
 }
 
 .table_container table {
-  background: #fff;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  padding: 16px;
   text-align: left;
   width: 100%;
 }
 
-.table_container table th {
-  font-size: 1.1em;
+.table_container table thead {
+  display: none;
 }
 
-.table_container table td,
-.table_container table th {
-  padding: 8px 16px;
+.table_container table tr {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  margin: 16px 0px;
 }
 
 .table_container table .icons-container {
+  align-self: flex-end;
+  -webkit-box-ordinal-group: 0;
+          order: -1;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: left;
@@ -255,8 +305,7 @@ select::placeholder {
   margin: 8px 0;
 }
 
-.login-container input,
-.login-container select {
+.login-container input {
   padding: 12px 16px;
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -287,22 +336,16 @@ select::placeholder {
   left: 0;
   padding: 16px 0;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
   width: 300px;
 }
 
 .main_navigation_container.collapsed {
-  width: 80px;
-  -webkit-transform: translateX(-80px);
-          transform: translateX(-80px);
-}
-
-.main_navigation_container.collapsed span {
-  display: none;
-}
-
-.main_navigation_container.collapsed .icon {
-  display: block;
-  margin: 0 auto;
+  -webkit-transform: translateX(-300px);
+          transform: translateX(-300px);
 }
 
 .main_navigation_container a {
@@ -391,11 +434,18 @@ select::placeholder {
           justify-content: center;
   position: absolute;
   top: 8px;
-  left: 320px;
+  left: 16px;
+  -webkit-transform: translateX(300px);
+          transform: translateX(300px);
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
 }
 
 .title_nav_toggle_container.collapsed {
-  left: 20px;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .title_nav_toggle_container:hover {
@@ -443,20 +493,28 @@ select::placeholder {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+          align-items: flex-start;
   box-sizing: border-box;
   -webkit-box-pack: start;
           justify-content: flex-start;
 }
 
 .content-container .page_header {
+  margin-top: 56px;
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: end;
-          justify-content: flex-end;
-  padding-top: 8px;
+  -webkit-box-pack: center;
+          justify-content: center;
   width: 100%;
+}
+
+@media (min-width: 400px) {
+  .content-container .page_header {
+    margin-top: 8px;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+  }
 }
 
 .content-container .page_body {
@@ -533,8 +591,7 @@ form.create_connection_container .form_element {
           justify-content: center;
 }
 
-form.create_connection_container .form_element input,
-form.create_connection_container .form_element select {
+form.create_connection_container .form_element input {
   padding: 8px;
   align-self: flex-start;
 }
@@ -551,14 +608,12 @@ form.create_connection_container .form_element.checkbox {
           justify-content: flex-start;
 }
 
-form.create_connection_container .form_element.checkbox input,
-form.create_connection_container .form_element.checkbox select {
+form.create_connection_container .form_element.checkbox input {
   width: 20px;
   height: 20px;
 }
 
-form.create_connection_container .form_element.checkbox input:hover,
-form.create_connection_container .form_element.checkbox select:hover {
+form.create_connection_container .form_element.checkbox input:hover {
   cursor: inherit;
 }
 
@@ -627,8 +682,7 @@ form.invoice_container .form_element {
   margin: 0;
 }
 
-form.invoice_container .form_element input,
-form.invoice_container .form_element select {
+form.invoice_container .form_element input {
   padding: 8px;
 }
 
@@ -747,15 +801,6 @@ td.icons-container {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
-}
-
-.filters-container {
-  display: -webkit-box;
-  display: flex;
-}
-
-.filters-container .filter {
-  margin: 8px;
 }
 
 .meta_info_container {

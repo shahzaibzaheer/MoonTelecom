@@ -34123,7 +34123,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("span", [
+    _c("span", { staticClass: "table-meta-info" }, [
       _vm._v("There are total "),
       _c("strong", [_vm._v(_vm._s(_vm.total))]),
       _vm._v(" Connections")

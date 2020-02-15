@@ -23,18 +23,24 @@ body{
 .btn{
     background: $primary-color;
     color:$white;
-    font-size: 1.2em;
+    font-size: 0.8em;
     @include round-border;
-    padding: gap(1.2) gap(4);
+    padding: gap(1) gap(2);
     border: none;
-    min-width: 150px;
-
+    //min-width: 150px;
+    text-align: center;
     &:hover{
         cursor: pointer;
         background: $accent-color;
     }
     &:active{
         background: darken($accent-color, 10%);
+    }
+
+
+    @media (min-width: 600px){
+        font-size: 1em;
+        padding: gap(1) gap(3);
     }
 }
 
@@ -62,18 +68,25 @@ a{
 
 
 input{
-    padding: gap(1.5) gap(1.5) gap(1.5) gap(2.5);
-    @include light_border;
-    @include card-border;
-    margin: gap(0.5) 0;
+    padding: gap(1.5) gap(1.5) gap(1.5) gap(1.5);
+    //@include light_border;
+    //@include card-border;
+    //margin: gap(0.5);
+    //background: red;
     font-size: 1.2em;
     &::placeholder{
         color: rgba(black,0.3);
 
     }
+
 }
 select{
-    @extend input;
+    //@extend input;
+    padding: gap(1) ;
+    @include card_style;
+    font-size: 0.8em;
+    min-width: 150px;
+
 }
 
 
@@ -81,6 +94,10 @@ select{
 .search-filter-contianer{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    @media (min-width: 700px)  {
+        font-size: 1.2em;
+    }
 }
 
 
@@ -88,22 +105,26 @@ select{
 
 
 .search-container{
+    align-self: center;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    font-size: 0.8em;
     @include card_style;
-    margin-bottom: gap(3);
+    //margin-bottom: gap(2);
     &:hover{
         cursor: pointer;
 
     }
 
-
     .icon{
         fill: rgba(#000,0.4);
         cursor: pointer;
         box-sizing: content-box;
-        padding: gap(2);
+        padding: gap(1);
+        width: 18px;
+        height: 18px;
         &:hover{
             fill: rgba(#000,1);
         }
@@ -115,11 +136,19 @@ select{
             cursor: text;
         }
     }
-
 }
 
-.filter-container{
-
+.filters-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: gap(2);
+    .filter{
+        margin: gap(0.5) gap(1);
+        //min-width: 200px;
+    }
 }
 
 
@@ -164,32 +193,44 @@ select{
 
 .table_container{
     margin-top: gap(10);
-    strong  {
-        font-weight: $font-bolder;
-        font-size: 1.2em;
+    width: 100%;
+
+    .table-meta-info{
+        margin-top: gap(2);
+        display: block;
+        strong{
+            font-size: 1.4em;
+        }
+
     }
+
     .table_header{
         font-size: 1.1em;
     }
 
     table{
-        background: $white;
-        @include shadow;
-        padding: gap(2) ;
+        //background: $white;
+        //@include shadow;
+        //padding: gap(2) ;
 
         text-align: left;
         width: 100%;
 
-        th {
-            font-size: 1.1em;
-            //text-align: center;
+        thead{
+            display: none;
         }
 
-        td,th {
-            padding: gap(1) gap(2);
+        tr{
+            display: flex;
+            flex-direction: column;
+            @include card_style;
+            margin: gap(2) gap(0);
         }
+
 
         .icons-container{
+            align-self: flex-end;
+            order: -1;
             display: flex;
             justify-content: left;
             .icon  {
@@ -345,24 +386,15 @@ select{
     left: 0;
     padding: gap(2) 0;
     @include shadow;
-    //transition: width 0.3s ease-in;
+    transition: transform 0.3s ease-in;
     width: 300px;
     //transform: translateX(10px);
 
 
     &.collapsed{
-        width: 80px;
-        transform: translateX(-80px);
+        transform: translateX(-300px);
 
-        span{
-            display: none;
-        }
-        .icon{
-            //width: 25px;
-            //height: 25px;
-            display: block;
-            margin: 0 auto;
-        }
+
     }
 
     a{
@@ -374,7 +406,6 @@ select{
 
     //********* Nav Header
     .nav_logo_container img{
-
         height: 80px;
         margin: 0 auto;
         display: block;
@@ -387,7 +418,6 @@ select{
 
     //**************** Nav items
     .nav_items {
-
         list-style: none;
         padding: 0;
     }
@@ -453,10 +483,14 @@ select{
     justify-content: center;
     position: absolute;
     top: gap(1);
-    left: 320px;
+    left: gap(2);
+    transform: translateX(300px);
+    transition: transform 0.3s ease-in;
 
     &.collapsed{
-        left: 20px;
+        //left: 20px;
+        transform: translateX(0);
+
     }
     &:hover{
         cursor: pointer;
@@ -522,6 +556,7 @@ select{
 
 
 .content-container{
+    //background: red;
     padding: gap(2);
     min-height: 100vh;
     width: 100%;
@@ -530,14 +565,25 @@ select{
     //background: red;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
     justify-content: flex-start;
     .page_header{
+        margin-top: gap(7);
+
         display: flex;
-        justify-content: flex-end;
-        padding-top: gap(1);
+        justify-content: center;
+        //align-items: flex-end;
+        //justify-content: flex-end;
+        //padding-top: gap(1);
         width: 100%;
+
+        @media (min-width: 400px)  {
+            margin-top: gap(1);
+            justify-content: flex-end;
+
+        }
+
     }
     .page_body{
         width: 100%;
@@ -795,14 +841,6 @@ td.icons-container{
 
 
 
-
-.filters-container{
-    display: flex;
-
-    .filter{
-        margin: gap(1);
-    }
-}
 
 
 

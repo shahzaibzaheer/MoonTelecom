@@ -10,7 +10,6 @@
             </div>
 
             <div class="page_body">
-{{--                <packages :pkgs="{{json_encode($packages)}}"> </packages>--}}
                 <connections
                         :connections="{{  json_encode($connections) }}"
                         :village-names="{{ json_encode($villageNames) }}"

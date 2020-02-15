@@ -14,8 +14,7 @@
         </g>
     </svg>
     <a class="nav_logo_container" href="{{ url('/')}}">
-        <img class="logo" src="{{asset('images/logo.png')}}" alt="Moon Telecom Logo" v-show="!isCollapsed" >
-        <img class="logo_collapsed" src="{{asset('images/logo_collapsed.png')}}" alt="Moon Telecom Logo" v-show="isCollapsed">
+        <img class="logo" src="{{asset('images/logo.png')}}" alt="Moon Telecom Logo">
     </a>
     <ul class="nav_items">
         <li class="nav_item_container">
