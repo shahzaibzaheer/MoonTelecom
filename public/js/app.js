@@ -2216,6 +2216,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['connections', 'villageNames', 'packageNames'],
   created: function created() {
@@ -33961,6 +33970,7 @@ var render = function() {
                   expression: "selectedState"
                 }
               ],
+              class: { neutral: _vm.selectedState.length > 0 },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -34002,6 +34012,7 @@ var render = function() {
                   expression: "selectedPackage"
                 }
               ],
+              class: { neutral: _vm.selectedPackage.length > 0 },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -34047,6 +34058,7 @@ var render = function() {
                   expression: "selectedStatus"
                 }
               ],
+              class: { neutral: _vm.selectedStatus.length > 0 },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -34088,6 +34100,7 @@ var render = function() {
                   expression: "selectedVillage"
                 }
               ],
+              class: { neutral: _vm.selectedVillage.length > 0 },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -34135,53 +34148,137 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.filteredConnections, function(connection) {
-          return _c("tr", [
-            !connection.isBlocked
-              ? _c("td", [_c("span", { staticClass: "active circle" })])
-              : _c("td", [_c("span", { staticClass: "block circle" })]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.username))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.fathername))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.village.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.package.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.package.bandwidth))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.current_bill.due))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.current_bill.billAmount))]),
+          return _c("tr", { class: { blocked: connection.isBlocked } }, [
+            connection.isBlocked
+              ? _c("td", { staticClass: "blocked" }, [_vm._v("Blocked")])
+              : _vm._e(),
             _vm._v(" "),
             _c("td", [
-              _vm._v(
-                _vm._s(
-                  connection.current_bill.due +
-                    connection.current_bill.billAmount
-                )
-              )
+              _c("strong", [_vm._v("Username: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.username))])
             ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(connection.current_bill.amountPaid))]),
             _vm._v(" "),
             _c("td", [
-              _vm._v(
-                _vm._s(
-                  connection.current_bill.due +
-                    connection.current_bill.billAmount -
-                    connection.current_bill.amountPaid
-                )
-              )
+              _c("strong", [_vm._v("Name: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.name))])
             ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "hide-column" }, [
+              _c("strong", [_vm._v("Father Name: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.fathername))])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Village: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.village.name))])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Package: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.package.name))])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Bandwidth: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.package.bandwidth))])
+            ]),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                staticClass: "bold number-column",
+                class: {
+                  danger: connection.current_bill.due > 0,
+                  success: connection.current_bill.due <= 0
+                }
+              },
+              [
+                _c("strong", [_vm._v("Due: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.current_bill.due))])
+              ]
+            ),
+            _vm._v(" "),
+            _c("td", { staticClass: "number-column" }, [
+              _c("strong", [_vm._v("Current: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.current_bill.billAmount))])
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "number-column" }, [
+              _c("strong", [_vm._v("Total: ")]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  _vm._s(
+                    connection.current_bill.due +
+                      connection.current_bill.billAmount
+                  )
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "number-column" }, [
+              _c("strong", [_vm._v("Paid: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(connection.current_bill.amountPaid))])
+            ]),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                staticClass: "bold number-column",
+                class: {
+                  danger:
+                    connection.current_bill.due +
+                      connection.current_bill.billAmount -
+                      connection.current_bill.amountPaid >
+                    0,
+                  success:
+                    connection.current_bill.due +
+                      connection.current_bill.billAmount -
+                      connection.current_bill.amountPaid <=
+                    0
+                }
+              },
+              [
+                _c("strong", [_vm._v("Remaining: ")]),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(
+                    _vm._s(
+                      connection.current_bill.due +
+                        connection.current_bill.billAmount -
+                        connection.current_bill.amountPaid
+                    )
+                  )
+                ])
+              ]
+            ),
             _vm._v(" "),
             connection.current_bill.status == 0
-              ? _c("td", [_vm._v(" Not Recovered")])
+              ? _c("td", { staticClass: "neutral" }, [
+                  _c("strong", [_vm._v("Status: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Not Recovered")])
+                ])
               : connection.current_bill.status == 1
-              ? _c("td", [_vm._v(" Not Paid")])
-              : _c("td", [_vm._v(" Paid")]),
+              ? _c("td", { staticClass: " danger" }, [
+                  _c("strong", [_vm._v("Status: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Not Paid")])
+                ])
+              : _c("td", { staticClass: " success" }, [
+                  _c("strong", [_vm._v("Status: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Paid")])
+                ]),
             _vm._v(" "),
             _c("td", { staticClass: "icons-container" }, [
               _c("a", { attrs: { href: "connections/" + connection.id } }, [
@@ -34284,13 +34381,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th"),
-        _vm._v(" "),
         _c("th", [_vm._v("Username")]),
         _vm._v(" "),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Fathername")]),
+        _c("th", { staticClass: "hide-column" }, [_vm._v("Fathername")]),
         _vm._v(" "),
         _c("th", [_vm._v("Village")]),
         _vm._v(" "),
@@ -34298,17 +34393,19 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Bandwidth")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Due")]),
+        _c("th", { staticClass: "number-column" }, [_vm._v("Due")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Current")]),
+        _c("th", { staticClass: "number-column" }, [_vm._v("Current")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Total")]),
+        _c("th", { staticClass: "number-column" }, [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Paid")]),
+        _c("th", { staticClass: "number-column" }, [_vm._v("Paid")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Remaining")]),
+        _c("th", { staticClass: "number-column" }, [_vm._v("Remain")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Status")])
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th")
       ])
     ])
   }

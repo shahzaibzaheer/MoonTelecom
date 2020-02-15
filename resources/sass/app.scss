@@ -46,10 +46,10 @@ body{
 
 
 .error{
-    color: $danger;
+    //color: $danger;
 }
 .success{
-    color: $success;
+    //color: $success;
 }
 
 .icon{
@@ -151,10 +151,20 @@ select{
     }
 }
 
+.bold{
+    font-weight: $font-bold;
+}
 
 
-
-
+.success{
+    color: $success;
+}
+.danger{
+    color: $danger;
+}
+.neutral{
+    color: $neutral;
+}
 
 
 //**********************
@@ -196,8 +206,9 @@ select{
     width: 100%;
 
     .table-meta-info{
-        margin-top: gap(2);
+        margin: gap(2) auto;
         display: block;
+        max-width: 1500px;
         strong{
             font-size: 1.4em;
         }
@@ -223,20 +234,75 @@ select{
         tr{
             display: flex;
             flex-direction: column;
+            align-self: center;
+            width: 100%;
             @include card_style;
-            margin: gap(2) gap(0);
+            margin: gap(2) auto;
+            padding-bottom: gap(2);
+            max-width: 340px;
+
+
+            @media (min-width: 600px){
+                max-width: 400px;
+                font-size: 1.1em;
+            }
+        }
+
+        td{
+            display: flex;
+            font-size: 1em;
+            margin: gap(0.2) gap(1);
+            strong{
+                width: 80px;
+                margin-left: gap(2);
+            }
+            span{
+                margin-left: gap(2);
+            }
+
+            &.blocked{
+                color: red;
+                font-size: 1.5em;
+                text-align: center;
+                align-self: center;
+            }
+
+            @media (min-width: 300px)  {
+                strong {
+                    width: 100px;
+                }
+            }
+            @media (min-width: 360px)  {
+                strong {
+                    width: 150px;
+                }
+            }
+            @media (min-width: 600px)  {
+                strong {
+                    width: 200px;
+                }
+            }
         }
 
 
+
+        .state{
+            order: -1;
+            display: inline-flex;
+            //align-self: flex-start;
+            //padding: gap(2);
+        }
         .icons-container{
+            width: 100%;
             align-self: flex-end;
             order: -1;
-            display: flex;
-            justify-content: left;
+            display: inline-flex;
+            justify-content: flex-end;
             .icon  {
                 fill: $primary-color ;
                 opacity: 0.7;
-                padding: gap(1);
+                padding: gap(1.5);
+                margin: gap(0.2);
                 box-sizing: content-box;
                 width: 20px;
                 height: 20px;
@@ -250,6 +316,100 @@ select{
 
                 }
             }
+
+            .state{
+                margin-left: gap(1);
+            }
+        }
+
+
+
+        @media (min-width: 1000px)  {
+
+            thead{
+                display: block;
+                box-shadow: none;
+                font-size: 1.1em;
+                margin-top: gap(1);
+            }
+
+            tr{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                font-size: 0.8em;
+                margin: gap(0.03);
+                padding: 0;
+                //align-self: center;
+                width: 100%;
+                box-shadow: none;
+                //@include card_style;
+                //margin: gap(2) auto;
+                //padding-bottom: gap(2);
+                max-width: 100%;
+
+                &.blocked{
+                    background: rgba(red,0.8);
+                    color: white;
+
+                    .success, .danger, .neutral{
+                        color: white;
+                    }
+                    .icon{
+                        fill: white;
+                    }
+                }
+            }
+
+            th,td{
+                min-width: 9.5%;
+                text-align: left;
+                margin: 0;
+                word-wrap: break-word;
+                //padding: 0;
+                &.blocked{
+                    display: none;
+
+                }
+                &.hide-column{
+                    display: none;
+                }
+
+                &.number-column{
+                    min-width: 7%;
+
+                }
+                strong{
+                    display: none;
+                    width: auto;
+                }
+                span{
+                    margin-left: 0;
+                }
+            }
+            .icons-container{
+                order: 2;
+                min-width: auto;
+                flex-direction: row;
+                justify-content: center;
+                padding: 0;
+                .icon{
+                    padding: gap(0.5);
+                }
+            }
+        }
+
+        @media (min-width: 1300px)  {
+
+            tr{
+                font-size: 1em;
+                padding: gap(1);
+                max-width: 1500px;
+                margin: 0 auto;
+
+            }
+
         }
 
     }

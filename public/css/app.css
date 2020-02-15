@@ -42,14 +42,6 @@ body {
   }
 }
 
-.error {
-  color: red;
-}
-
-.success {
-  color: #3EA900;
-}
-
 .icon {
   width: 25px;
   height: 25px;
@@ -168,6 +160,22 @@ select {
   margin: 4px 8px;
 }
 
+.bold {
+  font-weight: 700;
+}
+
+.success {
+  color: #3EA900;
+}
+
+.danger {
+  color: red;
+}
+
+.neutral {
+  color: #003ed6;
+}
+
 .dialog {
   background: #fff;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -191,8 +199,9 @@ select {
 }
 
 .table_container .table-meta-info {
-  margin-top: 16px;
+  margin: 16px auto;
   display: block;
+  max-width: 1500px;
 }
 
 .table_container .table-meta-info strong {
@@ -218,27 +227,88 @@ select {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+  align-self: center;
+  width: 100%;
   border: none;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   background: #fff;
-  margin: 16px 0px;
+  margin: 16px auto;
+  padding-bottom: 16px;
+  max-width: 340px;
+}
+
+@media (min-width: 600px) {
+  .table_container table tr {
+    max-width: 400px;
+    font-size: 1.1em;
+  }
+}
+
+.table_container table td {
+  display: -webkit-box;
+  display: flex;
+  font-size: 1em;
+  margin: 1.6px 8px;
+}
+
+.table_container table td strong {
+  width: 80px;
+  margin-left: 16px;
+}
+
+.table_container table td span {
+  margin-left: 16px;
+}
+
+.table_container table td.blocked {
+  color: red;
+  font-size: 1.5em;
+  text-align: center;
+  align-self: center;
+}
+
+@media (min-width: 300px) {
+  .table_container table td strong {
+    width: 100px;
+  }
+}
+
+@media (min-width: 360px) {
+  .table_container table td strong {
+    width: 150px;
+  }
+}
+
+@media (min-width: 600px) {
+  .table_container table td strong {
+    width: 200px;
+  }
+}
+
+.table_container table .state {
+  -webkit-box-ordinal-group: 0;
+          order: -1;
+  display: -webkit-inline-box;
+  display: inline-flex;
 }
 
 .table_container table .icons-container {
+  width: 100%;
   align-self: flex-end;
   -webkit-box-ordinal-group: 0;
           order: -1;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: left;
-          justify-content: left;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
 }
 
 .table_container table .icons-container .icon {
   fill: #1E2838;
   opacity: 0.7;
-  padding: 8px;
+  padding: 12px;
+  margin: 1.6px;
   box-sizing: content-box;
   width: 20px;
   height: 20px;
@@ -250,6 +320,110 @@ select {
 
 .table_container table .icons-container .icon:hover.danger {
   fill: red;
+}
+
+.table_container table .icons-container .state {
+  margin-left: 8px;
+}
+
+@media (min-width: 1000px) {
+  .table_container table thead {
+    display: block;
+    box-shadow: none;
+    font-size: 1.1em;
+    margin-top: 8px;
+  }
+
+  .table_container table tr {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-align: center;
+            align-items: center;
+    text-align: left;
+    font-size: 0.8em;
+    margin: 0.24px;
+    padding: 0;
+    width: 100%;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .table_container table tr.blocked {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+  }
+
+  .table_container table tr.blocked .success,
+  .table_container table tr.blocked .danger,
+  .table_container table tr.blocked .neutral {
+    color: white;
+  }
+
+  .table_container table tr.blocked .icon {
+    fill: white;
+  }
+
+  .table_container table th,
+  .table_container table td {
+    min-width: 9.5%;
+    text-align: left;
+    margin: 0;
+    word-wrap: break-word;
+  }
+
+  .table_container table th.blocked,
+  .table_container table td.blocked {
+    display: none;
+  }
+
+  .table_container table th.hide-column,
+  .table_container table td.hide-column {
+    display: none;
+  }
+
+  .table_container table th.number-column,
+  .table_container table td.number-column {
+    min-width: 7%;
+  }
+
+  .table_container table th strong,
+  .table_container table td strong {
+    display: none;
+    width: auto;
+  }
+
+  .table_container table th span,
+  .table_container table td span {
+    margin-left: 0;
+  }
+
+  .table_container table .icons-container {
+    -webkit-box-ordinal-group: 3;
+            order: 2;
+    min-width: auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: center;
+            justify-content: center;
+    padding: 0;
+  }
+
+  .table_container table .icons-container .icon {
+    padding: 4px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .table_container table tr {
+    font-size: 1em;
+    padding: 8px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
 }
 
 .login-container {
