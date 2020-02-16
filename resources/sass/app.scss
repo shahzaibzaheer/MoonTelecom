@@ -345,7 +345,7 @@ select{
                 align-items: center;
                 text-align: left;
                 font-size: 0.8em;
-                margin: gap(0.03);
+                margin: gap(0.5) auto;
                 padding: 0;
                 //align-self: center;
                 width: 100%;
@@ -416,7 +416,7 @@ select{
                 font-size: 1em;
                 padding: gap(1);
                 max-width: 1500px;
-                margin: 0 auto;
+                margin: gap(0.5) auto;
 
             }
 
@@ -452,6 +452,9 @@ select{
         }
 
         @media (min-width: 1000px){
+            tr{
+                margin: gap(0.5) auto;
+            }
             th,td{
                 width: 10%;
 
@@ -473,6 +476,57 @@ select{
     }
 
 
+
+    &.users{
+
+
+        tr{
+            padding: gap(2);
+            min-width: 100%;
+            margin: gap(1) auto;
+
+            @media (min-width: 450px )  {
+                min-width: 420px;
+
+            }
+
+        }
+        th,td{
+            strong{
+                max-width: 70px;
+                margin-left: gap(2);
+            }
+            span{
+                margin-left: gap(2);
+                word-break: break-all;
+            }
+        }
+
+
+
+        @media (min-width: 1000px){
+            tr{
+                margin: gap(0.5) auto;
+            }
+            th,td{
+                width: 15%;
+
+                span{
+                    margin: 0;
+                }
+                &.email{
+                    width: 30%;
+                }
+            }
+
+            .icons-container{
+                width: 10%;
+                margin-left: auto;
+            }
+
+
+        }
+    }
 
 
 

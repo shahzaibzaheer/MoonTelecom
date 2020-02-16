@@ -32,6 +32,8 @@ class ConnectionController extends Controller
         $villageNames = Village::pluck('name') ;
         $packageNames = Package::distinct()->pluck('name');
 
+//        return $connections;
+
 //        return $packageNames;
 //        return $villages;
 //        return $connections;

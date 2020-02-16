@@ -33,6 +33,12 @@
                             <option v-for="villageName in villageNames" :value="villageName.toLowerCase()">{{villageName}}</option>
                         </select>
                     </div>
+                <div class="filter">
+                    <select v-model="selectedSort" :class="{'neutral': selectedSort.length > 0 }" >
+                        <option value="" selected >Sort By</option>
+                        <option v-for="option in sortByOptions" >{{option}}</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -112,6 +118,10 @@
 
 
 <script>
+
+    import  * as constants  from  '../constants'
+
+
     export default {
         props:['connections', 'villageNames', 'packageNames'],
 
@@ -183,6 +193,12 @@
                     'Active',
                     'Blocked'
                 ],
+                selectedSort: '',
+                sortByOptions: [
+                    constants.HIGHEST_REMAINING,
+                    constants.LOWEST_REMAINING,
+                ],
+
 
             }
         },
@@ -262,6 +278,33 @@
                     }
                 }
 
+
+
+
+
+
+                //************* sorting
+                if(this.selectedSort.match(constants.HIGHEST_REMAINING)){
+                    // sort by highest dues
+                    // console.log("Sort by highest remaining");
+                    filteredConnectionsList.sort(function(a,b){
+
+                        //      b.remaining = a .remaining    :: remaining =  (due + current)-paid
+
+                        return ((b.current_bill.due + b.current_bill.billAmount ) - (b.current_bill.amountPaid ))  - ((a.current_bill.due + a.current_bill.billAmount ) - (a.current_bill.amountPaid ));
+
+                        // return (b.current_bill.due ) - a.current_bill.due;
+
+                    });
+                }else if(this.selectedSort.match(constants.LOWEST_REMAINING)){
+                    // sort by lowest dues
+                    // console.log("Sort by Lowest remaining");
+                    filteredConnectionsList.sort(function(a,b){
+                        return ((a.current_bill.due + a.current_bill.billAmount ) - (a.current_bill.amountPaid )) - ((b.current_bill.due + b.current_bill.billAmount ) - (b.current_bill.amountPaid )) ;
+                    });
+                }
+                
+                
 
 
 

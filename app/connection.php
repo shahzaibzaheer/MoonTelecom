@@ -70,4 +70,9 @@ class connection extends Model
     {
         return $this->hasMany(Bill::class);
     }
+
+
+    public function  billsHighestDuesFirst(){
+        return $this->belongsTo(Bill::class,'current_bill_id','id')->orderBy('due','ASC');
+    }
 }

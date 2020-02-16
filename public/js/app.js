@@ -2112,6 +2112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
 //
 //
 //
@@ -2225,6 +2226,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['connections', 'villageNames', 'packageNames'],
   created: function created() {
@@ -2285,7 +2293,9 @@ __webpack_require__.r(__webpack_exports__);
       selectedStatus: '',
       billStatus: ['Not Recovered', 'Not Paid', 'Paid'],
       selectedState: 'Active',
-      states: ['Active', 'Blocked']
+      states: ['Active', 'Blocked'],
+      selectedSort: '',
+      sortByOptions: [_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"]]
     };
   },
   methods: {},
@@ -2349,6 +2359,22 @@ __webpack_require__.r(__webpack_exports__);
             return connection.isBlocked;
           });
         }
+      } //************* sorting
+
+
+      if (this.selectedSort.match(_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"])) {
+        // sort by highest dues
+        // console.log("Sort by highest remaining");
+        filteredConnectionsList.sort(function (a, b) {
+          //      b.remaining = a .remaining    :: remaining =  (due + current)-paid
+          return b.current_bill.due + b.current_bill.billAmount - b.current_bill.amountPaid - (a.current_bill.due + a.current_bill.billAmount - a.current_bill.amountPaid); // return (b.current_bill.due ) - a.current_bill.due;
+        });
+      } else if (this.selectedSort.match(_constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"])) {
+        // sort by lowest dues
+        // console.log("Sort by Lowest remaining");
+        filteredConnectionsList.sort(function (a, b) {
+          return a.current_bill.due + a.current_bill.billAmount - a.current_bill.amountPaid - (b.current_bill.due + b.current_bill.billAmount - b.current_bill.amountPaid);
+        });
       }
 
       return filteredConnectionsList;
@@ -2632,6 +2658,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -34133,6 +34160,48 @@ var render = function() {
             ],
             2
           )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "filter" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.selectedSort,
+                  expression: "selectedSort"
+                }
+              ],
+              class: { neutral: _vm.selectedSort.length > 0 },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.selectedSort = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "", selected: "" } }, [
+                _vm._v("Sort By")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.sortByOptions, function(option) {
+                return _c("option", [_vm._v(_vm._s(option))])
+              })
+            ],
+            2
+          )
         ])
       ])
     ]),
@@ -34959,7 +35028,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table_container" }, [
+  return _c("div", { staticClass: "table_container users" }, [
     _c("div", { staticClass: "search-filter-contianer" }, [
       _c("div", { staticClass: "search-container" }, [
         _c("input", {
@@ -35025,6 +35094,7 @@ var render = function() {
                   expression: "selectedState"
                 }
               ],
+              class: { neutral: _vm.selectedState.length > 0 },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -35056,7 +35126,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("span", [
+    _c("span", { staticClass: "table-meta-info" }, [
       _vm._v("There are total "),
       _c("strong", [_vm._v(_vm._s(_vm.total))]),
       _vm._v(" users")
@@ -35069,19 +35139,41 @@ var render = function() {
         "tbody",
         _vm._l(_vm.filteredUsers, function(user) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(user.id))]),
+            _c("td", [
+              _c("strong", [_vm._v("Name: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(user.name))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(user.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(user.email))]),
+            _c("td", { staticClass: "email" }, [
+              _c("strong", [_vm._v("Email: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(user.email))])
+            ]),
             _vm._v(" "),
             user.isAdmin
-              ? _c("td", [_vm._v("Admin")])
-              : _c("td", [_vm._v("Employee")]),
+              ? _c("td", [
+                  _c("strong", [_vm._v("Role: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Admin")])
+                ])
+              : _c("td", [
+                  _c("strong", [_vm._v("Role: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Employee")])
+                ]),
             _vm._v(" "),
             user.isBlocked
-              ? _c("td", { staticClass: "error" }, [_vm._v("Blocked")])
-              : _c("td", { staticClass: "success" }, [_vm._v("Active")]),
+              ? _c("td", { staticClass: "danger" }, [
+                  _c("strong", [_vm._v("State: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Blocked")])
+                ])
+              : _c("td", { staticClass: "success" }, [
+                  _c("strong", [_vm._v("State: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Active")])
+                ]),
             _vm._v(" "),
             _c("td", { staticClass: "icons-container" }, [
               _c("a", { attrs: { href: "recoveries?u_id=" + user.id } }, [
@@ -35193,15 +35285,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("id")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", { staticClass: "email" }, [_vm._v("Email")]),
         _vm._v(" "),
         _c("th", [_vm._v("Role")]),
         _vm._v(" "),
-        _c("th", [_vm._v("State")])
+        _c("th", [_vm._v("State")]),
+        _vm._v(" "),
+        _c("th")
       ])
     ])
   }
@@ -51096,6 +51188,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_villages_vue_vue_type_template_id_bc9091dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/constants.js":
+/*!***********************************!*\
+  !*** ./resources/js/constants.js ***!
+  \***********************************/
+/*! exports provided: HIGHEST_REMAINING, LOWEST_REMAINING, HIGHEST_Current_Bill, LOWEST_Current_Bill */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HIGHEST_REMAINING", function() { return HIGHEST_REMAINING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOWEST_REMAINING", function() { return LOWEST_REMAINING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HIGHEST_Current_Bill", function() { return HIGHEST_Current_Bill; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOWEST_Current_Bill", function() { return LOWEST_Current_Bill; });
+var HIGHEST_REMAINING = 'Highest Remaining';
+var LOWEST_REMAINING = 'Lowest Remaining';
+var HIGHEST_Current_Bill = 'Highest Current';
+var LOWEST_Current_Bill = 'Lowest Current';
 
 /***/ }),
 

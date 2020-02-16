@@ -351,7 +351,7 @@ select {
             align-items: center;
     text-align: left;
     font-size: 0.8em;
-    margin: 0.24px;
+    margin: 4px auto;
     padding: 0;
     width: 100%;
     box-shadow: none;
@@ -434,7 +434,7 @@ select {
     font-size: 1em;
     padding: 8px;
     max-width: 1500px;
-    margin: 0 auto;
+    margin: 4px auto;
   }
 }
 
@@ -457,6 +457,10 @@ select {
 }
 
 @media (min-width: 1000px) {
+  .table_container.recoveries tr {
+    margin: 4px auto;
+  }
+
   .table_container.recoveries th,
   .table_container.recoveries td {
     width: 10%;
@@ -473,6 +477,56 @@ select {
   }
 
   .table_container.recoveries .icons-container {
+    width: 10%;
+    margin-left: auto;
+  }
+}
+
+.table_container.users tr {
+  padding: 16px;
+  min-width: 100%;
+  margin: 8px auto;
+}
+
+@media (min-width: 450px) {
+  .table_container.users tr {
+    min-width: 420px;
+  }
+}
+
+.table_container.users th strong,
+.table_container.users td strong {
+  max-width: 70px;
+  margin-left: 16px;
+}
+
+.table_container.users th span,
+.table_container.users td span {
+  margin-left: 16px;
+  word-break: break-all;
+}
+
+@media (min-width: 1000px) {
+  .table_container.users tr {
+    margin: 4px auto;
+  }
+
+  .table_container.users th,
+  .table_container.users td {
+    width: 15%;
+  }
+
+  .table_container.users th span,
+  .table_container.users td span {
+    margin: 0;
+  }
+
+  .table_container.users th.email,
+  .table_container.users td.email {
+    width: 30%;
+  }
+
+  .table_container.users .icons-container {
     width: 10%;
     margin-left: auto;
   }
