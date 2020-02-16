@@ -202,8 +202,8 @@ select{
 }
 
 .table_container{
-    margin-top: gap(10);
-    width: 100%;
+    width: 99%;
+    //margin: gap(10) auto;
 
     .table-meta-info{
         text-align: center;
@@ -235,6 +235,9 @@ select{
 
         thead{
             display: none;
+            tr{
+                padding: gap(1);
+            }
         }
 
         tr{
@@ -307,8 +310,8 @@ select{
             .icon  {
                 fill: $primary-color ;
                 opacity: 0.7;
-                padding: gap(1.5);
-                margin: gap(0.2);
+                padding: gap(0.5);
+                margin: gap(0.5) ;
                 box-sizing: content-box;
                 width: 20px;
                 height: 20px;
@@ -528,8 +531,115 @@ select{
         }
     }
 
+    &.packages{
+        margin-top: gap(4);
+        th,td{
+
+            strong{
+                width: 120px;
+                margin-left: gap(2);
+            }
+            span{
+                margin-left: gap(2);
+            }
+        }
 
 
+        .icons-container{
+        }
+
+
+        @media (min-width: 600px)  {
+            th,td{
+                font-size: 1.2em;
+                strong{
+                    width: 180px;
+                }
+            }
+        }
+
+        @media (min-width: 1000px){
+            tr{
+                padding: gap(1);
+            }
+            th,td{
+                width: 20%;
+
+                span{
+                    margin: 0;
+                }
+
+                &.connections{
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .icons-container{
+                //width: 100%;
+                margin-left: auto;
+            }
+
+
+        }
+    }
+
+    &.villages{
+        margin-top: gap(4);
+        th,td{
+
+            strong{
+                width: 120px;
+                margin-left: gap(2);
+            }
+            span{
+                margin-left: gap(2);
+            }
+        }
+
+
+        .icons-container{
+        }
+
+
+        @media (min-width: 600px)  {
+            th,td{
+                font-size: 1.2em;
+                strong{
+                    width: 180px;
+                }
+            }
+        }
+
+        @media (min-width: 1000px){
+            tr{
+                padding: gap(1);
+            }
+            th,td{
+                width: 20%;
+
+                span{
+                    margin: 0;
+                }
+
+                &.connections{
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .icons-container{
+                //width: 100%;
+                margin-left: auto;
+            }
+
+
+        }
+    }
 }
 
 

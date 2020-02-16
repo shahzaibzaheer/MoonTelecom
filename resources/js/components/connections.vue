@@ -197,6 +197,8 @@
                 sortByOptions: [
                     constants.HIGHEST_REMAINING,
                     constants.LOWEST_REMAINING,
+                    constants.HIGHEST_CURRENT_BILL,
+                    constants.LOWEST_CURRENT_BILL
                 ],
 
 
@@ -285,26 +287,32 @@
 
                 //************* sorting
                 if(this.selectedSort.match(constants.HIGHEST_REMAINING)){
-                    // sort by highest dues
-                    // console.log("Sort by highest remaining");
+
+                    // sort by highest remaining
                     filteredConnectionsList.sort(function(a,b){
 
                         //      b.remaining = a .remaining    :: remaining =  (due + current)-paid
-
                         return ((b.current_bill.due + b.current_bill.billAmount ) - (b.current_bill.amountPaid ))  - ((a.current_bill.due + a.current_bill.billAmount ) - (a.current_bill.amountPaid ));
-
                         // return (b.current_bill.due ) - a.current_bill.due;
 
                     });
                 }else if(this.selectedSort.match(constants.LOWEST_REMAINING)){
                     // sort by lowest dues
-                    // console.log("Sort by Lowest remaining");
                     filteredConnectionsList.sort(function(a,b){
                         return ((a.current_bill.due + a.current_bill.billAmount ) - (a.current_bill.amountPaid )) - ((b.current_bill.due + b.current_bill.billAmount ) - (b.current_bill.amountPaid )) ;
                     });
+                }else if(this.selectedSort.match(constants.HIGHEST_CURRENT_BILL)){
+                    // sort by highest current bill
+                    filteredConnectionsList.sort(function(a,b){
+                        return b.current_bill.billAmount - a.current_bill.billAmount;
+                    });
+                }else if(this.selectedSort.match(constants.LOWEST_CURRENT_BILL)){
+                    // sort by lowest current bill
+                    filteredConnectionsList.sort(function(a,b){
+                        return a.current_bill.billAmount - b.current_bill.billAmount;
+                    });
                 }
-                
-                
+
 
 
 

@@ -15,6 +15,12 @@
                     <option v-for="village in villages" :value="village.id" >{{village.name}}</option>
                 </select>
             </div>
+            <div class="filter">
+                <select v-model="selectedDay" :class="{'neutral': selectedDay.length > 0 }"   >
+                    <option value="" selected >Select Day</option>
+                    <option v-for="day in days"> {{day}}</option>
+                </select>
+            </div>
         </div>
 
         <span class="table-meta-info">There are total <strong>{{ total  }}</strong> Recoveries</span>
@@ -32,9 +38,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="recovery in filteredRecoveries">
+            <tr v-for="recovery in filteredRecoveries" >
                 <td class="bold success" > <strong>By: </strong> <span>{{recovery.user.name}}</span> </td>
-                <td> <strong>At: </strong> <span>{{recovery.created_at}}</span> </td>
+                <td> <strong>At: </strong> <span>{{ new Date(recovery.created_at).toLocaleDateString() }}</span> </td>
                 <td><strong>Username: </strong> <span>{{recovery.connection.username}}</span></td>
                 <td><strong>Name: </strong> <span>{{recovery.connection.name}}</span></td>
                 <td class="bold" :class="{danger: recovery.amount <= 0, neutral: recovery.amount > 0}"><strong>Amount: </strong> <span>{{recovery.amount}}</span></td>
@@ -81,6 +87,9 @@
 
 
 <script>
+    import  * as constants  from  '../constants'
+    import {TODAY} from "../constants";
+
     export default {
         props:['recoveries','users', 'villages'],
 
@@ -96,6 +105,11 @@
                 searchQuery: "",
                 selectedUserId: "",
                 selectedVillageId: "",
+                selectedDay: "",
+                days : [
+                    constants.TODAY,
+                    constants.LAST_SEVEN_DAYS,
+                ],
             }
         },
         methods:{
@@ -124,6 +138,43 @@
                         return true;
                     }
                 });
+
+
+
+
+
+                // filter by days
+                if(this.selectedDay.length > 0){
+                    recoveriesList = recoveriesList.filter(recovery => {
+
+                        if(this.selectedDay.match(constants.TODAY)){
+                            // filter today's recoveries
+                            let recoveryDay = new Date(recovery.created_at);
+                            let daysToSubtract = 1;
+                            let last = new Date(Date.now() -  (daysToSubtract * 24 * 60 * 60 * 1000) ); // subtract last 1 day
+
+                            if(recoveryDay >= last){
+                                // is today
+                                return true;
+                            }
+                        }else if(this.selectedDay.match(constants.LAST_SEVEN_DAYS)){
+                            // console.log('filter by last seven days');
+                            let recoveryDay = new Date(recovery.created_at);
+                            let daysToSubtract = 7;
+                            let last = new Date(Date.now() -  (daysToSubtract * 24 * 60 * 60 * 1000) ); // subtract last seven days
+
+                            if(recoveryDay >= last){
+                                return true;
+                            }
+
+                        }
+
+                    });
+                }
+
+
+
+
 
                 return recoveriesList;
             },

@@ -2295,7 +2295,7 @@ __webpack_require__.r(__webpack_exports__);
       selectedState: 'Active',
       states: ['Active', 'Blocked'],
       selectedSort: '',
-      sortByOptions: [_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"]]
+      sortByOptions: [_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_CURRENT_BILL"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_CURRENT_BILL"]]
     };
   },
   methods: {},
@@ -2363,17 +2363,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
       if (this.selectedSort.match(_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"])) {
-        // sort by highest dues
-        // console.log("Sort by highest remaining");
+        // sort by highest remaining
         filteredConnectionsList.sort(function (a, b) {
           //      b.remaining = a .remaining    :: remaining =  (due + current)-paid
           return b.current_bill.due + b.current_bill.billAmount - b.current_bill.amountPaid - (a.current_bill.due + a.current_bill.billAmount - a.current_bill.amountPaid); // return (b.current_bill.due ) - a.current_bill.due;
         });
       } else if (this.selectedSort.match(_constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"])) {
         // sort by lowest dues
-        // console.log("Sort by Lowest remaining");
         filteredConnectionsList.sort(function (a, b) {
           return a.current_bill.due + a.current_bill.billAmount - a.current_bill.amountPaid - (b.current_bill.due + b.current_bill.billAmount - b.current_bill.amountPaid);
+        });
+      } else if (this.selectedSort.match(_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_CURRENT_BILL"])) {
+        // sort by highest current bill
+        filteredConnectionsList.sort(function (a, b) {
+          return b.current_bill.billAmount - a.current_bill.billAmount;
+        });
+      } else if (this.selectedSort.match(_constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_CURRENT_BILL"])) {
+        // sort by lowest current bill
+        filteredConnectionsList.sort(function (a, b) {
+          return a.current_bill.billAmount - b.current_bill.billAmount;
         });
       }
 
@@ -2396,7 +2404,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2521,6 +2528,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 //
@@ -2605,6 +2613,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ['recoveries', 'users', 'villages'],
   created: function created() {
@@ -2615,7 +2631,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       searchQuery: "",
       selectedUserId: "",
-      selectedVillageId: ""
+      selectedVillageId: "",
+      selectedDay: "",
+      days: [_constants__WEBPACK_IMPORTED_MODULE_0__["TODAY"], _constants__WEBPACK_IMPORTED_MODULE_0__["LAST_SEVEN_DAYS"]]
     };
   },
   methods: {},
@@ -2638,7 +2656,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (recovery.connection.village_id.toString().match(_this.selectedVillageId.toString())) {
           return true;
         }
-      });
+      }); // filter by days
+
+      if (this.selectedDay.length > 0) {
+        recoveriesList = recoveriesList.filter(function (recovery) {
+          if (_this.selectedDay.match(_constants__WEBPACK_IMPORTED_MODULE_0__["TODAY"])) {
+            // filter today's recoveries
+            var recoveryDay = new Date(recovery.created_at);
+            var daysToSubtract = 1;
+            var last = new Date(Date.now() - daysToSubtract * 24 * 60 * 60 * 1000); // subtract last 1 day
+
+            if (recoveryDay >= last) {
+              // is today
+              return true;
+            }
+          } else if (_this.selectedDay.match(_constants__WEBPACK_IMPORTED_MODULE_0__["LAST_SEVEN_DAYS"])) {
+            // console.log('filter by last seven days');
+            var _recoveryDay = new Date(recovery.created_at);
+
+            var _daysToSubtract = 7;
+
+            var _last = new Date(Date.now() - _daysToSubtract * 24 * 60 * 60 * 1000); // subtract last seven days
+
+
+            if (_recoveryDay >= _last) {
+              return true;
+            }
+          }
+        });
+      }
+
       return recoveriesList;
     },
     total: function total() {
@@ -34501,7 +34548,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table_container" }, [
+  return _c("div", { staticClass: "table_container packages" }, [
     _c("div", { staticClass: "search-filter-contianer" }, [
       _c("div", { staticClass: "search-container" }, [
         _c("input", {
@@ -34547,7 +34594,7 @@ var render = function() {
       _c("div", { staticClass: "filters-container" })
     ]),
     _vm._v(" "),
-    _c("span", [
+    _c("span", { staticClass: "table-meta-info" }, [
       _vm._v("There are total "),
       _c("strong", [_vm._v(_vm._s(_vm.total))]),
       _vm._v(" Packages")
@@ -34560,15 +34607,29 @@ var render = function() {
         "tbody",
         _vm._l(_vm.filteredPackages, function(pkg) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(pkg.id))]),
+            _c("td", [
+              _c("strong", [_vm._v("Name: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(pkg.name))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(pkg.name))]),
+            _c("td", [
+              _c("strong", [_vm._v("Bandwidth: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(" " + _vm._s(pkg.bandwidth))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(pkg.bandwidth))]),
+            _c("td", [
+              _c("strong", [_vm._v("Fees: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(" " + _vm._s(pkg.fees))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(pkg.fees))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(pkg.connections_count))]),
+            _c("td", { staticClass: "neutral connections" }, [
+              _c("strong", [_vm._v("Connections: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(" " + _vm._s(pkg.connections_count))])
+            ]),
             _vm._v(" "),
             _c("td", { staticClass: "icons-container" }, [
               _c("a", { attrs: { href: "/connections?pkg=" + pkg.name } }, [
@@ -34689,15 +34750,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("id")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Package Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Bandwidth")]),
         _vm._v(" "),
         _c("th", [_vm._v("Monthly Fees")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Connections")])
+        _c("th", { staticClass: "connections" }, [_vm._v("Connections")])
       ])
     ])
   }
@@ -34811,6 +34870,48 @@ var render = function() {
           ],
           2
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "filter" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectedDay,
+                expression: "selectedDay"
+              }
+            ],
+            class: { neutral: _vm.selectedDay.length > 0 },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectedDay = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "", selected: "" } }, [
+              _vm._v("Select Day")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.days, function(day) {
+              return _c("option", [_vm._v(" " + _vm._s(day))])
+            })
+          ],
+          2
+        )
       ])
     ]),
     _vm._v(" "),
@@ -34836,7 +34937,11 @@ var render = function() {
             _c("td", [
               _c("strong", [_vm._v("At: ")]),
               _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(recovery.created_at))])
+              _c("span", [
+                _vm._v(
+                  _vm._s(new Date(recovery.created_at).toLocaleDateString())
+                )
+              ])
             ]),
             _vm._v(" "),
             _c("td", [
@@ -35319,7 +35424,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table_container" }, [
+  return _c("div", { staticClass: "table_container villages" }, [
     _c("div", { staticClass: "search-filter-contianer" }, [
       _c("div", { staticClass: "search-container" }, [
         _c("input", {
@@ -35365,7 +35470,7 @@ var render = function() {
       _c("div", { staticClass: "filters-container" })
     ]),
     _vm._v(" "),
-    _c("span", [
+    _c("span", { staticClass: "table-meta-info" }, [
       _vm._v("There are total "),
       _c("strong", [_vm._v(_vm._s(_vm.total))]),
       _vm._v(" Villages")
@@ -35378,11 +35483,17 @@ var render = function() {
         "tbody",
         _vm._l(_vm.filteredVillages, function(village) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(village.id))]),
+            _c("td", [
+              _c("strong", [_vm._v("Name: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(village.name))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(village.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(village.connections_count))]),
+            _c("td", { staticClass: "neutral" }, [
+              _c("strong", [_vm._v("Connections: ")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(village.connections_count))])
+            ]),
             _vm._v(" "),
             _c("td", { staticClass: "icons-container" }, [
               _c(
@@ -35502,8 +35613,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("id")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Village Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Connections")])
@@ -51195,19 +51304,23 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./resources/js/constants.js ***!
   \***********************************/
-/*! exports provided: HIGHEST_REMAINING, LOWEST_REMAINING, HIGHEST_Current_Bill, LOWEST_Current_Bill */
+/*! exports provided: HIGHEST_REMAINING, LOWEST_REMAINING, HIGHEST_CURRENT_BILL, LOWEST_CURRENT_BILL, TODAY, LAST_SEVEN_DAYS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HIGHEST_REMAINING", function() { return HIGHEST_REMAINING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOWEST_REMAINING", function() { return LOWEST_REMAINING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HIGHEST_Current_Bill", function() { return HIGHEST_Current_Bill; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOWEST_Current_Bill", function() { return LOWEST_Current_Bill; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HIGHEST_CURRENT_BILL", function() { return HIGHEST_CURRENT_BILL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOWEST_CURRENT_BILL", function() { return LOWEST_CURRENT_BILL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TODAY", function() { return TODAY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAST_SEVEN_DAYS", function() { return LAST_SEVEN_DAYS; });
 var HIGHEST_REMAINING = 'Highest Remaining';
 var LOWEST_REMAINING = 'Lowest Remaining';
-var HIGHEST_Current_Bill = 'Highest Current';
-var LOWEST_Current_Bill = 'Lowest Current';
+var HIGHEST_CURRENT_BILL = 'Highest Current';
+var LOWEST_CURRENT_BILL = 'Lowest Current';
+var TODAY = 'Today';
+var LAST_SEVEN_DAYS = 'Last 7 Days';
 
 /***/ }),
 
