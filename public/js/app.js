@@ -35485,7 +35485,6 @@ var render = function() {
           return _c("tr", [
             _c("td", [
               _c("strong", [_vm._v("Name: ")]),
-              _vm._v(" "),
               _c("span", [_vm._v(_vm._s(village.name))])
             ]),
             _vm._v(" "),

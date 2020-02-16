@@ -3,7 +3,7 @@
 @section('content')
     <div id="app">
         @include('components.navigation', ['title'=>'Create Connection'])
-        <div class="content-container">
+        <div class="content-container create_connection">
             <form  action="{{route('connections.store')}}" method="POST" class="create_connection_container">
                 @csrf
                 <div class="contact_detail">

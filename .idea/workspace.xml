@@ -4,12 +4,9 @@
     <list default="true" id="0a20ba32-6245-4062-993d-30d2945ea819" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/connections.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/connections.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/packages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/packages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/recoveries.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/recoveries.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/villages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/villages.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/connections/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/connections/create.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -136,60 +133,27 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
+        <entry file="file://$PROJECT_DIR$/resources/views/connections/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="121" column="28" selection-start-line="121" selection-end-line="122" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-                <marker date="1581855076284" expanded="true" signature="5950:6201" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/packages.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="432">
+              <caret line="90" column="26" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/villages.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/recoveries.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="25" column="37" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="37" />
-              <folding>
-                <element signature="e#6791#6835#0" expanded="true" />
-                <marker date="1581859713908" expanded="true" signature="1620:6594" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="584" selection-start-line="584" selection-end-line="584" />
+            <state relative-caret-position="525">
+              <caret line="1038" lean-forward="true" selection-start-line="1038" selection-end-line="1038" />
               <folding>
                 <element signature="e#46#203#0" />
                 <element signature="e#205#236#0" />
                 <element signature="e#254#285#0" />
                 <element signature="e#3381#8030#0" />
                 <element signature="e#8050#8885#0" />
+                <element signature="e#15791#16320#0" />
+                <element signature="e#16613#17111#0" />
               </folding>
             </state>
           </provider>
@@ -221,6 +185,9 @@
       <find>toString</find>
       <find>th</find>
       <find>table</find>
+      <find>content-container</find>
+      <find>form</find>
+      <find>create_connection_container</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -268,8 +235,9 @@
         <option value="$PROJECT_DIR$/resources/js/constants.js" />
         <option value="$PROJECT_DIR$/resources/js/components/recoveries.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/packages.vue" />
-        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/js/components/villages.vue" />
+        <option value="$PROJECT_DIR$/resources/views/connections/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
       </list>
     </option>
   </component>
@@ -382,7 +350,58 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="connections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="recoveries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MooonInternet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MooonInternet" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -437,12 +456,12 @@
       <workItem from="1581782319872" duration="1554000" />
       <workItem from="1581784183352" duration="8874000" />
       <workItem from="1581793982180" duration="10847000" />
-      <workItem from="1581852633198" duration="9248000" />
+      <workItem from="1581852633198" duration="13219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114392000" />
+    <option name="totallyTimeSpent" value="118363000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -612,13 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="17" column="66" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/connections/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="85" column="26" selection-start-line="64" selection-start-column="20" selection-end-line="85" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -848,17 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="121" column="28" selection-start-line="121" selection-end-line="122" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <marker date="1581855076284" expanded="true" signature="5950:6201" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/recoveries.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120">
@@ -877,24 +878,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/villages.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/connections.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="125" column="21" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <marker date="1581855076284" expanded="true" signature="5950:6201" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/connections/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="90" column="26" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="584" selection-start-line="584" selection-end-line="584" />
+        <state relative-caret-position="525">
+          <caret line="1038" lean-forward="true" selection-start-line="1038" selection-end-line="1038" />
           <folding>
             <element signature="e#46#203#0" />
             <element signature="e#205#236#0" />
             <element signature="e#254#285#0" />
             <element signature="e#3381#8030#0" />
             <element signature="e#8050#8885#0" />
+            <element signature="e#15791#16320#0" />
+            <element signature="e#16613#17111#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/villages.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
         </state>
       </provider>
     </entry>
