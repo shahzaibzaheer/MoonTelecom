@@ -8,15 +8,16 @@
             <div class="page_header"></div>
             <div class="page_body">
 
-                <form action="{{route('villages.destroy',$village->id)}}" method="POST">
+                <form  class="dialog"  action="{{route('villages.destroy',$village->id)}}" method="POST">
                     @method('DELETE')
                     <span class="title">Delete Village</span>
                     @csrf
-                    <h2> Are you sure?</h2>
-                    <span>Village Name: {{$village->name}}</span>
-                    <input class="btn" type="submit" name="delete" value="yes" >
-                    <br>
-                    <input class="btn" type="submit" name="delete" value="no" >
+                    <p> Are you sure?</p>
+                    <div class="buttons_container">
+                        <input class="btn" type="submit" name="delete" value="yes" >
+                        <input class="btn" type="submit" name="delete" value="no" >
+                    </div>
+
                 </form>
 
             </div>

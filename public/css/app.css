@@ -195,6 +195,7 @@ select {
 
 .table_container {
   width: 99%;
+  margin-top: 64px;
 }
 
 .table_container .table-meta-info {
@@ -651,6 +652,45 @@ select {
   }
 }
 
+.table_container.bill_recoveries tr {
+  padding: 8px;
+}
+
+.table_container.bill_recoveries th strong,
+.table_container.bill_recoveries td strong {
+  width: 50%;
+  margin: 0;
+}
+
+.table_container.bill_recoveries th span,
+.table_container.bill_recoveries td span {
+  width: 50%;
+}
+
+@media (min-width: 1000px) {
+  .table_container.bill_recoveries tr {
+    padding: 4px;
+  }
+
+  .table_container.bill_recoveries th {
+    padding: 8px;
+  }
+
+  .table_container.bill_recoveries th,
+  .table_container.bill_recoveries td {
+    width: 20%;
+  }
+
+  .table_container.bill_recoveries th span,
+  .table_container.bill_recoveries td span {
+    margin: 0;
+  }
+}
+
+.table_container.bills tr {
+  padding: 8px;
+}
+
 .login-container {
   background: #1E2838;
   width: 100vw;
@@ -664,7 +704,7 @@ select {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  padding: 100px 8px 8px 8px;
+  padding: 10px 8px 8px 8px;
 }
 
 .login-container h1 {
@@ -1138,12 +1178,30 @@ form.create_connection_container .contact_detail {
 @media (min-width: 1200px) {
   form.create_connection_container {
     max-width: 1100px;
-    font-size: 1.2em;
   }
 }
 
 form.invoice_container {
-  width: 50%;
+  width: 95%;
+  margin: 8px auto;
+  font-size: 0.8em;
+  padding: 16px 16px 32px 16px;
+}
+
+@media (min-width: 400px) {
+  form.invoice_container {
+    font-size: 1em;
+    margin-top: 64px;
+    max-width: 420px;
+  }
+
+  form.invoice_container .title {
+    font-size: 2.2em;
+  }
+}
+
+form.invoice_container .title {
+  margin: 16px auto;
 }
 
 form.invoice_container .contact_data {
@@ -1163,22 +1221,45 @@ form.invoice_container .data_item {
   text-align: left;
 }
 
-form.invoice_container .data_item span,
 form.invoice_container .data_item strong {
-  text-align: left;
-  width: 50%;
+  width: 60%;
+}
+
+form.invoice_container .data_item span {
+  width: 40%;
+}
+
+@media (min-width: 400px) {
+  form.invoice_container .data_item strong {
+    width: 50%;
+  }
+
+  form.invoice_container .data_item span {
+    width: 50%;
+  }
 }
 
 form.invoice_container .form_element {
-  margin: 0;
+  margin: 8px auto;
 }
 
 form.invoice_container .form_element input {
   padding: 8px;
+  margin: 8px 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
 form.invoice_container .btn {
   margin: 16px auto;
+  font-size: 1.2em;
+  width: 100%;
+}
+
+form.invoice_container a {
+  margin-top: 16px;
+  display: block;
+  text-align: center;
 }
 
 .connection_detail_container {
@@ -1187,19 +1268,60 @@ form.invoice_container .btn {
   border-radius: 4px;
   background: #fff;
   width: 95%;
-  margin: 80px auto;
-  padding: 40px 80px;
+  margin: 16px auto;
+  padding: 16px;
   display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: row;
+          flex-direction: column;
   -webkit-box-pack: justify;
           justify-content: space-between;
+  max-width: 350px;
+  font-size: 0.8em;
 }
 
 .connection_detail_container .connection_detail {
   width: 70%;
+}
+
+@media (min-width: 400px) {
+  .connection_detail_container {
+    margin-top: 64px;
+  }
+}
+
+@media (min-width: 600px) {
+  .connection_detail_container {
+    max-width: 500px;
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 720px) {
+  .connection_detail_container {
+    max-width: 700px;
+    padding-bottom: 40px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    font-size: 0.8em;
+  }
+
+  .connection_detail_container .bill_detail {
+    width: 35%;
+  }
+
+  .connection_detail_container .connection_detail {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1020px) {
+  .connection_detail_container {
+    max-width: 1000px;
+    font-size: 1em;
+  }
 }
 
 .connection_detail_container .data_item {
@@ -1211,14 +1333,16 @@ form.invoice_container .btn {
   text-align: left;
 }
 
-.connection_detail_container .data_item span,
 .connection_detail_container .data_item strong {
-  text-align: left;
-  width: 50%;
+  width: 55%;
+}
+
+.connection_detail_container .data_item span {
+  width: 45%;
 }
 
 .connection_detail_container .title {
-  font-size: 2em;
+  font-size: 1.7em;
   font-weight: 400;
 }
 
@@ -1227,6 +1351,7 @@ form.invoice_container .btn {
 }
 
 .connection_detail_container .bill_detail {
+  margin-top: 32px;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -1236,7 +1361,6 @@ form.invoice_container .btn {
           justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
-  width: 30%;
 }
 
 .connection_detail_container .bill_detail .bill_summary {
@@ -1273,6 +1397,7 @@ form.invoice_container .btn {
 }
 
 .connection_detail_container .buttons_container {
+  margin-top: 16px;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -1283,6 +1408,11 @@ form.invoice_container .btn {
   -webkit-box-align: center;
           align-items: center;
   text-align: center;
+}
+
+.connection_detail_container .buttons_container .btn {
+  width: 100%;
+  margin: 4px;
 }
 
 td.icons-container {
@@ -1409,5 +1539,72 @@ td.icons-container {
 
 .circle.active {
   background: green;
+}
+
+form.dialog {
+  width: 90%;
+  padding: 16px 16px 8px 16px;
+  max-width: 300px;
+}
+
+form.dialog .title {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 4px;
+}
+
+form.dialog p {
+  margin: 8px 0;
+}
+
+form.dialog .buttons_container {
+  display: -webkit-box;
+  display: flex;
+  margin-top: 16px;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+
+form.dialog .buttons_container .btn {
+  margin: 1.6px;
+}
+
+@media (min-width: 600px) {
+  form.dialog .btn {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 1000px) {
+  form.dialog {
+    max-width: 400px;
+    font-size: 1.3em;
+    padding: 16px;
+  }
+}
+
+form.create_box {
+  width: 95%;
+  margin-top: 24px;
+  padding: 24px 8px;
+  font-size: 0.7em;
+}
+
+form.create_box input {
+  margin: 3.2px 0;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+form.create_box .btn {
+  font-size: 1.2em;
+}
+
+@media (min-width: 400px) {
+  form.create_box {
+    margin-top: 64px;
+    max-width: 350px;
+  }
 }
 

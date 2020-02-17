@@ -8,7 +8,7 @@
         <div class="content-container">
             <div class="page_header"></div>
             <div class="page_body">
-                <form action="{{route('packages.store')}}" method="POST">
+                <form  class="create_box"  action="{{route('packages.store')}}" method="POST">
                     <span class="title">Create New Package</span>
                     @csrf
                     <div class="form_element">

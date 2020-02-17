@@ -7,7 +7,7 @@
             <div class="page_header"></div>
             <div class="page_body">
 
-                <form action="{{route('users.update', $user->id)}}" method="POST">
+                <form class="create_box" action="{{route('users.update', $user->id)}}" method="POST">
                     @method('PUT')
                     @csrf
                     <span class="title">Edit User</span>

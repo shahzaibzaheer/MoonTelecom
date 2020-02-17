@@ -2058,6 +2058,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['bills'],
   data: function data() {
@@ -33781,7 +33791,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table_container" }, [
+  return _c("div", { staticClass: "table_container bill_recoveries" }, [
     _c("table", [
       _vm._m(0),
       _vm._v(" "),
@@ -33789,13 +33799,38 @@ var render = function() {
         "tbody",
         _vm._l(_vm.filteredRecoveries, function(recovery) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(recovery.user.name))]),
+            _c("td", [
+              _c("strong", [_vm._v("By")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.user.name))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.created_at))]),
+            _c("td", [
+              _c("strong", [_vm._v("At")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.created_at))])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.amount))]),
+            _c(
+              "td",
+              {
+                class: {
+                  danger: recovery.amount <= 0,
+                  neutral: recovery.amount > 0
+                }
+              },
+              [
+                _c("strong", [_vm._v("Amount")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(recovery.amount))])
+              ]
+            ),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(recovery.comments))])
+            _c("td", [
+              _c("strong", [_vm._v("Comments")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(recovery.comments))])
+            ])
           ])
         }),
         0
@@ -33842,7 +33877,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table_container" }, [
+  return _c("div", { staticClass: "table_container bills" }, [
     _c("table", [
       _vm._m(0),
       _vm._v(" "),
@@ -33850,27 +33885,93 @@ var render = function() {
         "tbody",
         _vm._l(_vm.bills, function(bill) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(bill.billingMonth))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(bill.bandwidth))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(bill.due))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(bill.billAmount))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(bill.due + bill.billAmount))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(bill.amountPaid))]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(bill.due + bill.billAmount - bill.amountPaid))
+            _c("td", { staticClass: "neutral" }, [
+              _c("strong", [_vm._v("Month")]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  _vm._s(
+                    new Date(bill.billingMonth).toLocaleString("default", {
+                      month: "long"
+                    })
+                  )
+                )
+              ])
             ]),
             _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Bandwidth")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(bill.bandwidth))])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Due")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(bill.due))])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Month Bill")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(bill.billAmount))])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("strong", [_vm._v("Total")]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(bill.due + bill.billAmount))])
+            ]),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                class: {
+                  danger: bill.amountPaid <= 0,
+                  success: bill.amountPaid > 0
+                }
+              },
+              [
+                _c("strong", [_vm._v("Paid")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(bill.amountPaid))])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                class: {
+                  danger: bill.due + bill.billAmount - bill.amountPaid > 0,
+                  success: bill.due + bill.billAmount - bill.amountPaid <= 0
+                }
+              },
+              [
+                _c("strong", [_vm._v("Remaining")]),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(_vm._s(bill.due + bill.billAmount - bill.amountPaid))
+                ])
+              ]
+            ),
+            _vm._v(" "),
             bill.status == 0
-              ? _c("td", [_vm._v(" Not Recovered")])
+              ? _c("td", { staticClass: "danger" }, [
+                  _c("strong", [_vm._v("Status")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(" Not Recovered")])
+                ])
               : bill.status == 1
-              ? _c("td", [_vm._v(" Not Paid")])
-              : _c("td", [_vm._v(" Paid")]),
+              ? _c("td", { staticClass: "danger" }, [
+                  _c("strong", [_vm._v("Status")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(" Not Paid")])
+                ])
+              : _c("td", { staticClass: "success" }, [
+                  _c("strong", [_vm._v("Status")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(" Paid")])
+                ]),
             _vm._v(" "),
             bill.status !== 0
               ? _c("td", { staticClass: "icons-container" }, [
@@ -51341,8 +51442,8 @@ var LAST_SEVEN_DAYS = 'Last 7 Days';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Laravel\MoonTelecom\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\MoonTelecom\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Laravel\MooonInternet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\MooonInternet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

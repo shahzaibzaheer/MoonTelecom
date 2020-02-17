@@ -8,30 +8,28 @@
             <div class="page_header"></div>
             <div class="page_body">
 
-                <form action="{{route('connections.block',$connection->id)}}" method="POST">
+                <form class="dialog" action="{{route('connections.block',$connection->id)}}" method="POST">
                     @method('DELETE')
 
                     @if(!$connection->isBlocked)
                         <span class="title">Block Connection</span>
                     @else
-                        <span class="title">unBlock Connection</span>
+                        <span class="title">UnBlock Connection</span>
                     @endif
 
                     @csrf
-                    <h2> Are you sure ?</h2>
-                    <span>Username: {{$connection->username}}</span>
-                    <span>Connection Name: {{$connection->name}}</span>
-                    <br>
-                    <br>
-                    <br>
+                    <p > Are you sure ?</p>
 
-                    @if(!$connection->isBlocked)
-                        <button class="btn " type="submit" name="block" value="1" >Block</button>
-                    @else
-                        <button class="btn" type="submit" name="block" value="0" >Un Block</button>
-                    @endif
-                    <br>
-                    <button class="btn" type="submit" >Cancel</button>
+                    <div class="buttons_container">
+                        @if(!$connection->isBlocked)
+                            <button class="btn " type="submit" name="block" value="1" >Block</button>
+                        @else
+                            <button class="btn" type="submit" name="block" value="0" >UnBlock</button>
+                        @endif
+                            <button class="btn" type="submit" >Cancel</button>
+
+                    </div>
+
 
                 </form>
 

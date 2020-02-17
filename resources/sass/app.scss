@@ -204,6 +204,7 @@ select{
 .table_container{
     width: 99%;
     //margin: gap(10) auto;
+    margin-top: gap(8);
 
     .table-meta-info{
         text-align: center;
@@ -640,6 +641,47 @@ select{
 
         }
     }
+    &.bill_recoveries{
+        tr{
+            padding: gap(1);
+        }
+        th,td{
+            strong{
+                width: 50%;
+                margin: 0;
+
+            }
+            span{
+                width: 50%;
+
+            }
+        }
+        @media (min-width: 1000px){
+            tr{
+                padding: gap(0.5);
+            }
+            th{
+                padding: gap(1) ;
+            }
+            th,td{
+                width: 20%;
+
+                span{
+                    margin: 0;
+                }
+
+            }
+
+        }
+    }
+
+
+    &.bills{
+        tr{
+            padding: gap(1);
+        }
+    }
+
 }
 
 
@@ -689,7 +731,7 @@ select{
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 100px gap(1) gap(1) gap(1);
+    padding: 10px gap(1) gap(1) gap(1);
 
 
 
@@ -1180,16 +1222,31 @@ form.create_connection_container{
     }
     @media (min-width: 1200px){
         max-width: 1100px;
-        font-size: 1.2em;
-
     }
-
-
 }
 
 form.invoice_container{
-    width: 50%;
+    width: 95%;
+    margin: gap(1) auto;
+    font-size: 0.8em;
+    padding: gap(2) gap(2) gap(4) gap(2);
+    //max-width: 320px;
 
+    @media (min-width: 400px){
+        font-size: 1em;
+        margin-top: gap(8);
+        max-width: 420px;
+
+        .title{
+            font-size: 2.2em;
+            //font-weight: bold;
+        }
+
+    }
+
+    .title{
+        margin: gap(2) auto;
+    }
     .contact_data{
         margin-bottom: gap(4);
     }
@@ -1202,20 +1259,41 @@ form.invoice_container{
         justify-content: space-between;
         text-align: left;
 
-        span,strong{
-            text-align: left;
-            width: 50%;
+        strong{
+            width: 60%;
+        }
+        span{
+            width: 40%;
+        }
+
+        @media (min-width: 400px) {
+            strong{
+                width: 50%;
+            }
+            span{
+                width: 50%;
+            }
         }
     }
 
     .form_element{
-        margin: 0;
+        margin: gap(1) auto;
         input{
             padding: gap(1);
+            margin: gap(1) 0;
+            border: 1px solid rgba(black, 0.1);
+            border-radius: 4px;
         }
     }
     .btn{
         margin: gap(2) auto;
+        font-size: 1.2em;
+        width: 100%;
+    }
+    a{
+        margin-top: gap(2);
+        display: block;
+        text-align: center;
     }
 }
 
@@ -1227,14 +1305,49 @@ form.invoice_container{
 .connection_detail_container{
     @include card_style;
     width: 95%;
-    margin: gap(10) auto;
-    padding: gap(5) gap(10);
+    margin: gap(2) auto;
+    padding: gap(2);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+
+    max-width: 350px;
+    font-size: 0.8em;
 
     .connection_detail{
         width: 70%;
+    }
+
+    @media (min-width: 400px){
+        margin-top: gap(8);
+
+    }
+
+    @media (min-width: 600px){
+        max-width: 500px ;
+        font-size: 1em;
+    }
+
+
+    @media (min-width: 720px){
+        max-width: 700px ;
+        padding-bottom: gap(5);
+        flex-direction: row;
+        font-size: 0.8em;
+
+        .bill_detail{
+            width: 35%;
+        }
+        .connection_detail{
+            width: 45%;
+        }
+    }
+    @media (min-width: 1020px )  {
+        max-width: 1000px ;
+        font-size: 1em;
+
+
+
     }
 
     .data_item{
@@ -1242,15 +1355,16 @@ form.invoice_container{
         display: flex;
         justify-content: space-between;
         text-align: left;
-
-        span,strong{
-            text-align: left;
-            width: 50%;
+        strong{
+            width: 55%;
+        }
+        span{
+            width: 45%;
         }
     }
 
     .title{
-        font-size: 2em;
+        font-size: 1.7em;
         font-weight: $font-normal;
     }
     .contact_info{
@@ -1258,11 +1372,12 @@ form.invoice_container{
     }
 
     .bill_detail{
+        margin-top: gap(4);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        width: 30%;
+        //width: 30%;
 
         .bill_summary{
             @include card_style;
@@ -1290,11 +1405,18 @@ form.invoice_container{
         margin: gap(1);
     }
     .buttons_container{
+        margin-top: gap(2);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+
+        .btn{
+            width: 100%;
+            margin: gap(0.5);
+        }
+
     }
 }
 
@@ -1447,6 +1569,67 @@ td.icons-container{
     }
     &.active{
         background: green;
+
+    }
+}
+
+
+
+form.dialog{
+    width: 90%;
+    padding: gap(2) gap(2) gap(1) gap(2) ;
+    max-width: 300px;
+    .title{
+        font-size: 1em;
+        font-weight: bold;
+        margin: gap(0.5) ;
+    }
+    p{
+        margin: gap(1) 0;
+    }
+    .buttons_container{
+        display: flex;
+        margin-top: gap(2);
+        justify-content: flex-end;
+        .btn{
+            margin: gap(0.2);
+        }
+    }
+
+
+    @media (min-width: 600px)  {
+
+        .btn{
+            font-size: 0.8em;
+        }
+    }
+    @media (min-width: 1000px)  {
+        max-width: 400px;
+        font-size: 1.3em;
+        padding: gap(2);
+    }
+}
+
+
+
+form.create_box{
+    width: 95%;
+    margin-top: gap(3);
+    padding: gap(3) gap(1);
+    font-size: 0.7em;
+    input{
+        margin: gap(0.4) 0;
+        padding: gap(1);
+        border: 1px solid rgba(black, 0.3);
+        border-radius: 4px;
+    }
+    .btn{
+        font-size: 1.2em;
+    }
+
+    @media (min-width: 400px)  {
+        margin-top: gap(8);
+        max-width: 350px;
 
     }
 }

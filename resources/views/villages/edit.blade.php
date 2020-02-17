@@ -8,7 +8,7 @@
             <div class="page_header"></div>
             <div class="page_body">
 
-                <form action="{{route('villages.update',$village->id)}}" method="POST">
+                <form  class="create_box" action="{{route('villages.update',$village->id)}}" method="POST">
                     @method('PUT')
                     <span class="title">Edit Village</span>
                     @csrf

@@ -13,8 +13,6 @@
                     <input type="hidden" name="bill_id" value="{{$bill->id}}">
                     <input type="hidden" name="connection_id" value="{{$connection->id}}">
 
-
-
                     <strong class="title">Invoice</strong>
                     <div class="invoice_data_container">
                         <div class="contact_data">

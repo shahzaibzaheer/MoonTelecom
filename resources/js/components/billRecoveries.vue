@@ -1,6 +1,6 @@
 <template>
 
-    <div class="table_container">
+    <div class="table_container bill_recoveries">
 <!--        <div class="search-filter-contianer">-->
 <!--            <div class="search-container" >-->
 <!--                <input type="text"  placeholder="Search..." v-model="searchQuery" >-->
@@ -33,10 +33,10 @@
             </thead>
             <tbody>
             <tr v-for="recovery in filteredRecoveries">
-                <td>{{recovery.user.name}}</td>
-                <td>{{recovery.created_at}}</td>
-                <td>{{recovery.amount}}</td>
-                <td>{{recovery.comments}}</td>
+                <td> <strong>By</strong> <span>{{recovery.user.name}}</span>  </td>
+                <td><strong>At</strong> <span>{{recovery.created_at}}</span> </td>
+                <td :class="{danger: recovery.amount <= 0, neutral: recovery.amount > 0}"><strong>Amount</strong> <span>{{recovery.amount}}</span> </td>
+                <td><strong>Comments</strong> <span>{{recovery.comments}}</span> </td>
             </tr>
             </tbody>
         </table>

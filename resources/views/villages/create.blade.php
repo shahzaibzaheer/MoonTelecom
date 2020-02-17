@@ -8,7 +8,7 @@
             <div class="page_header"></div>
             <div class="page_body">
 
-                <form action="{{route('villages.store')}}" method="POST">
+                <form class="create_box" action="{{route('villages.store')}}" method="POST">
                     <span class="title">Create New Village</span>
                     @csrf
                     <div class="form_element">

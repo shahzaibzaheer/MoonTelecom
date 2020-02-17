@@ -8,7 +8,7 @@
         <div class="content-container">
             <div class="page_header"></div>
             <div class="page_body">
-                <form action="{{route('packages.update', $package)}}" method="POST">
+                <form class="create_box"  action="{{route('packages.update', $package)}}" method="POST">
                     @method('PUT')
                     <span class="title">Edit Package</span>
                     @csrf

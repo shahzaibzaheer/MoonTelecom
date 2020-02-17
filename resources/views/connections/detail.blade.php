@@ -136,7 +136,6 @@
                                 @else
                                     Block
                                 @endif
-
                             </a>
 
                             <div class="page_footer">

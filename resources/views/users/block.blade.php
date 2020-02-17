@@ -8,25 +8,24 @@
             <div class="page_header"></div>
             <div class="page_body">
 
-                <form action="{{route('users.destroy',$user->id)}}" method="POST">
+                <form  class="dialog"  action="{{route('users.destroy',$user->id)}}" method="POST">
                     @method('DELETE')
                     @if(!$user->isBlocked)
                         <span class="title">Block User</span>
                     @else
-                        <span class="title">unBlock User</span>
+                        <span class="title">UnBlock User</span>
                     @endif
 
                     @csrf
-                    <h2> Are you sure ?</h2>
-                    <span>User Name: {{$user->name}}</span>
-                    <span>Email: {{$user->email}}</span>
-
-                    @if(!$user->isBlocked)
+                    <p> Are you sure ?</p>
+                    <div class="buttons_container">
+                        @if(!$user->isBlocked)
                         <button class="btn " type="submit" name="block" value="1" >Block</button>
-                    @else
-                        <button class="btn" type="submit" name="block" value="0" >Un Block</button>
-                    @endif
-                    <button class="btn" type="submit" >Cancel</button>
+                        @else
+                        <button class="btn" type="submit" name="block" value="0" >UnBlock</button>
+                        @endif
+                        <button class="btn" type="submit" >Cancel</button>
+                    </div>
 
                 </form>
 
