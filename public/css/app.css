@@ -664,7 +664,7 @@ select {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  padding-top: 100px;
+  padding: 100px 8px 8px 8px;
 }
 
 .login-container h1 {
@@ -680,7 +680,7 @@ select {
 .login-container form {
   background: #fff;
   border-radius: 2px;
-  padding: 50px;
+  padding: 8px;
   width: 100%;
   max-width: 400px;
   display: -webkit-box;
@@ -688,6 +688,12 @@ select {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+}
+
+@media (min-width: 320px) {
+  .login-container form {
+    padding: 40px;
+  }
 }
 
 .login-container label {
@@ -712,7 +718,10 @@ select {
 }
 
 .login-container .btn {
+  width: auto;
+  font-size: 1.1em;
   display: block;
+  padding: 8px 24px;
   margin: 16px auto;
 }
 

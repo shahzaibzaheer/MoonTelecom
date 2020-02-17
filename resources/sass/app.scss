@@ -689,7 +689,10 @@ select{
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding-top: 100px;
+    padding: 100px gap(1) gap(1) gap(1);
+
+
+
 
     h1{
         text-align: center;
@@ -705,12 +708,17 @@ select{
 
     form{
         background: $white;
+        //background: red;
         @include card-border;
-        padding: 50px;
+        padding: gap(1);
         width: 100%;
         max-width: 400px;
         display: flex;
         flex-direction: column;
+
+        @media (min-width: 320px) {
+                padding: gap(5);
+        }
     }
 
     label{
@@ -730,8 +738,12 @@ select{
     }
 
     .btn{
+        width: auto;
+        font-size: 1.1em;
         display: block;
+        padding: gap(1) gap(3);
         margin: gap(2) auto;
+        //max-width: 150px;
     }
 
     .link{

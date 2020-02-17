@@ -51341,8 +51341,8 @@ var LAST_SEVEN_DAYS = 'Last 7 Days';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Laravel\MooonInternet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\MooonInternet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Laravel\MoonTelecom\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\MoonTelecom\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
