@@ -18,7 +18,13 @@ class ConnectionController extends Controller
      * **
      *
      * */
-
+    /**
+     * ConnectionController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin')->except('index','showBillsHistory','invoice','showRecoveries','show');
+    }
 
 
     /**

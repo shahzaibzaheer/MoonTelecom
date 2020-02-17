@@ -11,7 +11,8 @@
 |
 */
 
-Route::group([ 'middleware'=>'auth'],function(){
+Route::group([ 'middleware'=>['auth','blockedUser']],function(){
+
 
 
 //    Route::get('/', function () {return view('dashboard');});
@@ -44,11 +45,12 @@ Route::group([ 'middleware'=>'auth'],function(){
 
     // temp
     Route::get('/generateBills', 'ConnectionController@generateBills');
+    Route::get('/home', 'HomeController@index')->name('home');
 
 });
 
 
 Auth::routes();
 
+Route::get('/blocked','HomeController@blocked')->name('blocked');
 Route::redirect('/register','/');
-Route::get('/home', 'HomeController@index')->name('home');

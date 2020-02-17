@@ -6,7 +6,9 @@
 
         <div class="content-container">
             <div class="page_header">
-                <a href="{{route('connections.create')}}" class="btn">Create New Connection</a>
+                @if(auth()->user()->isAdmin)
+                    <a href="{{route('connections.create')}}" class="btn">Create New Connection</a>
+                @endif
             </div>
 
             <div class="page_body">

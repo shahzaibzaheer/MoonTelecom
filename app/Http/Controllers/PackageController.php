@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class PackageController extends Controller
 {
     /**
+     * PackageController constructor.
+     */
+    public function __construct()
+    {
+
+        $this->middleware('admin');
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

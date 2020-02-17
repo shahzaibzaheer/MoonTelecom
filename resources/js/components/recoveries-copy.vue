@@ -70,7 +70,7 @@
                         </svg>
                     </a>
 
-                    <a :href="'/recoveries/'+recovery.id+'/delete'"  v-if="admin"  >
+                    <a :href="'/recoveries/'+recovery.id+'/delete'" >
                         <svg class="icon" version="1.1" viewBox="0 0 384 384">
                             <g>
                                 <path d="M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"/>
@@ -82,20 +82,6 @@
             </tr>
             </tbody>
         </table>
-
-<!--        <ul class="pagination">-->
-<!--            <li class="page-item">-->
-<!--                <button type="button" class="page-link" v-if="page != 1" @click="page&#45;&#45;"> Previous</button>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--                <button type="button" class="page-link" v-for="pageNumber in pages.slice(page-1, page+5)"-->
-<!--                        @click="page = pageNumber"> {{pageNumber}}-->
-<!--                </button>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--                <button type="button" @click="page++" v-if="page < pages.length" class="page-link"> Next</button>-->
-<!--            </li>-->
-<!--        </ul>-->
     </div>
 </template>
 
@@ -105,10 +91,11 @@
     import {TODAY} from "../constants";
 
     export default {
-        props:['recoveries','users', 'villages', 'admin'],
+        props:['recoveries','users', 'villages'],
 
         created(){
             let userId = this.$route.query.u_id;
+
             this.selectedUserId = userId.toString();
 
         },
@@ -123,28 +110,10 @@
                     constants.TODAY,
                     constants.LAST_SEVEN_DAYS,
                 ],
-                paginatedRecoveries: [],
-
-                page: 1,
-                perPage: 4,
-                pages: [],
-
             }
         },
         methods:{
-            paginate (recoveries){
-                let page = this.page;
-                let perPage = this.perPage;
-                let from = (page * perPage) - perPage;
-                let to = (page * perPage);
-                return  recoveries.slice(from, to);
-            },
-            setPages () {
-                let numberOfPages = Math.ceil(this.recoveries.length / this.perPage);
-                for (let index = 1; index <= numberOfPages; index++) {
-                    this.pages.push(index);
-                }
-            },
+
         },
 
         computed:{
@@ -197,21 +166,24 @@
                             if(recoveryDay >= last){
                                 return true;
                             }
+
                         }
+
                     });
                 }
 
-                return  this.paginate(recoveriesList);
+
+
+
+
+                return recoveriesList;
             },
             total(){
                 return this.filteredRecoveries.length;
             }
         },
-        mounted(){
-         this.setPages();
-        },
-
-
+        methods:{
+        }
     }
 </script>
 

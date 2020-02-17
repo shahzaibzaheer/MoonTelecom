@@ -128,6 +128,7 @@
                             <a href="{{route('connections.history', $connection->id)}}">Bill History</a>
 {{--                            <a href="{{route('connections.recoveries', $connection->id )}}">See All Recoveries</a>--}}
                         </div>
+                        @if(auth()->user()->isAdmin)
                         <div class="buttons_container">
                             <a href="{{ route('connections.edit', $connection->id) }}" class="btn">Edit Connection</a>
                             <a href="{{ route('connections.block',$connection->id) }}" class="btn">
@@ -144,6 +145,8 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

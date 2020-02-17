@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class VillageController extends Controller
 {
+
+
+    /**
+     * VillageController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $villages = Village::latest()->withCount('connections')->get();

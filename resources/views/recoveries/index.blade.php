@@ -12,7 +12,7 @@
                         :users="{{ json_encode($users) }}"
                         :recoveries="{{ json_encode($recentRecoveries) }}"
                         :villages="{{json_encode($villages)}}"
-
+                        :admin="{{ json_encode($isAdmin )}}"
                 > </recoveries>
 {{--                <bills :bills="{{ json_encode($bills) }}"></bills>--}}
                 {{--                <recoveries :recoveries="{{ json_encode($recoveries) }}"></recoveries>--}}

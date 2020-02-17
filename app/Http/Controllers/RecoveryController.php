@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\DB;
 class RecoveryController extends Controller
 {
 
+
+    /**
+     * RecoveryController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin')->only('deleteConfirm','delete');
+    }
+
     public function index(){
 
         $recentRecoveries =  Recovery::recentRecoveries();
@@ -20,10 +29,13 @@ class RecoveryController extends Controller
         $villages = Village::all();
 //        return $recentRecoveries;
 //        return $recentRecoveries;
+        $isAdmin = (bool) auth()->user()->isAdmin;
+
         return view('recoveries.index', [
             'recentRecoveries'=>$recentRecoveries ,
             'users' => $users,
-            'villages' => $villages
+            'villages' => $villages,
+            'isAdmin' => $isAdmin,
             ]);
     }
 

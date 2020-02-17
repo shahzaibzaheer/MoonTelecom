@@ -39,4 +39,13 @@ class HomeController extends Controller
             'netRecovery' => $netRecovery,
         ]);
     }
+
+    public function blocked(){
+
+        if(!auth()->user()->isBlocked){
+            return redirect()->route('home');
+        }
+        return view('blocked');
+    }
+
 }

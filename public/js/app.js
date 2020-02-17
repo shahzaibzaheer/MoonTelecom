@@ -2539,100 +2539,112 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  props: ['recoveries', 'users', 'villages'],
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['recoveries', 'users', 'villages', 'admin'],
   created: function created() {
     var userId = this.$route.query.u_id;
     this.selectedUserId = userId.toString();
@@ -2643,10 +2655,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selectedUserId: "",
       selectedVillageId: "",
       selectedDay: "",
-      days: [_constants__WEBPACK_IMPORTED_MODULE_0__["TODAY"], _constants__WEBPACK_IMPORTED_MODULE_0__["LAST_SEVEN_DAYS"]]
+      days: [_constants__WEBPACK_IMPORTED_MODULE_0__["TODAY"], _constants__WEBPACK_IMPORTED_MODULE_0__["LAST_SEVEN_DAYS"]],
+      paginatedRecoveries: [],
+      page: 1,
+      perPage: 4,
+      pages: []
     };
   },
-  methods: {},
+  methods: {
+    paginate: function paginate(recoveries) {
+      var page = this.page;
+      var perPage = this.perPage;
+      var from = page * perPage - perPage;
+      var to = page * perPage;
+      return recoveries.slice(from, to);
+    },
+    setPages: function setPages() {
+      var numberOfPages = Math.ceil(this.recoveries.length / this.perPage);
+
+      for (var index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    }
+  },
   computed: {
     filteredRecoveries: function filteredRecoveries() {
       var _this = this;
@@ -2696,13 +2727,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       }
 
-      return recoveriesList;
+      return this.paginate(recoveriesList);
     },
     total: function total() {
       return this.filteredRecoveries.length;
     }
+  },
+  mounted: function mounted() {
+    this.setPages();
   }
-}, "methods", {}));
+});
 
 /***/ }),
 
@@ -35151,36 +35185,40 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "a",
-                { attrs: { href: "/recoveries/" + recovery.id + "/delete" } },
-                [
-                  _c(
-                    "svg",
+              _vm.admin
+                ? _c(
+                    "a",
                     {
-                      staticClass: "icon",
-                      attrs: { version: "1.1", viewBox: "0 0 384 384" }
+                      attrs: { href: "/recoveries/" + recovery.id + "/delete" }
                     },
                     [
-                      _c("g", [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("polygon", {
-                          attrs: {
-                            points:
-                              "266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 \t\t\t"
-                          }
-                        })
-                      ])
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "icon",
+                          attrs: { version: "1.1", viewBox: "0 0 384 384" }
+                        },
+                        [
+                          _c("g", [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M64,341.333C64,364.907,83.093,384,106.667,384h170.667C300.907,384,320,364.907,320,341.333v-256H64V341.333z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("polygon", {
+                              attrs: {
+                                points:
+                                  "266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 \t\t\t"
+                              }
+                            })
+                          ])
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
+                : _vm._e()
             ])
           ])
         }),
