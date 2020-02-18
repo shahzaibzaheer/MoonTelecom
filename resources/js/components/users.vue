@@ -86,10 +86,10 @@
 
                 filteredUsersList =  this.users.filter(user =>{
                     
-                    if(user.name.match(this.searchQuery)){
+                    if(user.name.toLowerCase().match(this.searchQuery.toLowerCase())){
                         return true;
                     }
-                    if(user.email.match(this.searchQuery)){
+                    if(user.email.toLowerCase().match(this.searchQuery.toLowerCase())){
                         return true;
                     }
                 });

@@ -214,10 +214,10 @@
                 filteredConnectionsList =  this.connections.filter( connection => {
 
                     // search by  Username, Name, Fathername, Village
-                    if( connection.username.match(this.searchQuery)
-                        || connection.name.match(this.searchQuery)
-                        || connection.fathername.match(this.searchQuery)
-                        || connection.village.name.match(this.searchQuery)
+                    if( connection.username.toLowerCase().match(this.searchQuery.toLowerCase())
+                        || connection.name.toLowerCase().match(this.searchQuery.toLowerCase())
+                        || connection.fathername.toLowerCase().match(this.searchQuery.toLowerCase())
+                        || connection.village.name.toLowerCase().match(this.searchQuery.toLowerCase())
 
                     ){
                         return true;

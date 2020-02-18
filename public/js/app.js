@@ -2316,7 +2316,7 @@ __webpack_require__.r(__webpack_exports__);
       var filteredConnectionsList = [];
       filteredConnectionsList = this.connections.filter(function (connection) {
         // search by  Username, Name, Fathername, Village
-        if (connection.username.match(_this.searchQuery) || connection.name.match(_this.searchQuery) || connection.fathername.match(_this.searchQuery) || connection.village.name.match(_this.searchQuery)) {
+        if (connection.username.toLowerCase().match(_this.searchQuery.toLowerCase()) || connection.name.toLowerCase().match(_this.searchQuery.toLowerCase()) || connection.fathername.toLowerCase().match(_this.searchQuery.toLowerCase()) || connection.village.name.toLowerCase().match(_this.searchQuery.toLowerCase())) {
           return true;
         }
       }); // filter by village
@@ -2498,7 +2498,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var filteredPackagesList = [];
       filteredPackagesList = this.pkgs.filter(function (pkg) {
-        if (pkg.name.match(_this.searchQuery)) {
+        if (pkg.name.toLowerCase().match(_this.searchQuery.toLowerCase())) {
           return true;
         }
 
@@ -2830,11 +2830,11 @@ __webpack_require__.r(__webpack_exports__);
 
       var filteredUsersList = [];
       filteredUsersList = this.users.filter(function (user) {
-        if (user.name.match(_this.searchQuery)) {
+        if (user.name.toLowerCase().match(_this.searchQuery.toLowerCase())) {
           return true;
         }
 
-        if (user.email.match(_this.searchQuery)) {
+        if (user.email.toLowerCase().match(_this.searchQuery.toLowerCase())) {
           return true;
         }
       }); // console.log('filter by state: '+ this.selectedState);
@@ -2959,7 +2959,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var filteredVillagesList = [];
       filteredVillagesList = this.villages.filter(function (village) {
-        if (village.name.match(_this.searchQuery)) {
+        if (village.name.toLowerCase().match(_this.searchQuery.toLowerCase())) {
           return true;
         }
       }); // console.log('filter by state: '+ this.selectedState);

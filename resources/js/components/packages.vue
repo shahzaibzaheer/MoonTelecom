@@ -86,7 +86,7 @@
                 let filteredPackagesList = [];
 
                 filteredPackagesList =  this.pkgs.filter( pkg =>{
-                    if(pkg.name.match(this.searchQuery)){
+                    if(pkg.name.toLowerCase().match(this.searchQuery.toLowerCase())){
                         return true;
                     }
                     if(pkg.id.toString().match(this.searchQuery)){

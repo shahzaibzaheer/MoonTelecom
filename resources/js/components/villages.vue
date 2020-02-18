@@ -84,7 +84,7 @@
                 let filteredVillagesList = [];
 
                 filteredVillagesList =  this.villages.filter(village =>{
-                    if(village.name.match(this.searchQuery)){
+                    if(village.name.toLowerCase().match(this.searchQuery.toLowerCase())){
                         return true;
                     }
                 });
