@@ -51422,28 +51422,26 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-  window.toastr = __webpack_require__(/*! toastr/toastr */ "./node_modules/toastr/toastr.js");
-  toastr.options = {
-    "timeOut": 3000,
-    "debug": false,
-    "newestOnTop": false,
-    "positionClass": "toast-top-right",
-    "preventDuplicates": true,
-    "closeDuration": 100,
-    "closeMethod": 'fadeOut',
-    "closeEasing": 'swing'
-  }; // toastr.success("Hello");
-  // require('bootstrap');
-} catch (e) {}
+window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.toastr = __webpack_require__(/*! toastr/toastr */ "./node_modules/toastr/toastr.js");
+toastr.options = {
+  "timeOut": 3000,
+  "debug": false,
+  "newestOnTop": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": true,
+  "closeDuration": 100,
+  "closeMethod": 'fadeOut',
+  "closeEasing": 'swing'
+}; // toastr.success("Hello");
+// require('bootstrap');
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

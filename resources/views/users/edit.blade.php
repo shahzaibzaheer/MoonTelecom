@@ -14,10 +14,12 @@
                     <div class="form_element">
                         <label for="name">Name</label>
                         <input id="name" type="text" name="name" placeholder="Enter Name" value="{{$user->name}}">
+                        <span class="danger">@error('name') *{{ $message  }}@enderror</span>
                     </div>
                     <div class="form_element">
                         <label for="email">Email</label>
                         <input id="email" type="email" name="email" placeholder="Enter Email" value="{{$user->email}}">
+                        <span class="danger">@error('email') *{{ $message  }}@enderror</span>
                     </div>
                     @if($user->id !== $current_user_id)
                     <div class="form_element">

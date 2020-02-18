@@ -45,7 +45,13 @@ class RecoveryController extends Controller
         /*
          * update the bill
          * jf bill successfully update, then save recovery into recoveries table
-         * */
+         *
+        */
+
+
+        $request->validate([
+            'amount' => 'required',
+        ]);
 
         $PAID = 2;
         $NOT_PAID = 1;
@@ -54,7 +60,7 @@ class RecoveryController extends Controller
         $bill_id = $request->input('bill_id');
         $user_id = Auth::id();
         $amount = $request->input('amount');
-        $comments = $request->input('comment');
+        $comments = $request->input('comment') ?? "No Comments";
         $connection_id = $request->input('connection_id');
 
         $bill = Bill::findOrFail($bill_id);

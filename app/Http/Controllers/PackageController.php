@@ -47,6 +47,14 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'bandwidth' => 'required',
+            'fees' => 'required',
+
+        ]);
+
         $package = new Package();
         $package->name = $request->input('name');
         $package->bandwidth = $request->input('bandwidth');

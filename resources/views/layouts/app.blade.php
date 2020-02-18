@@ -22,11 +22,6 @@
 <body>
 
     @yield('content')
-    @include('components.notification')
-
-
-
-
 
 
     @include("components.notification")

@@ -13,15 +13,19 @@
                     @csrf
                     <div class="form_element">
                         <label for="name">Package Name</label>
-                        <input id="name" type="text" name="name" placeholder="Enter Package Name">
+                        <input required id="name" type="text" name="name" placeholder="Enter Package Name">
+                        <span class="danger">@error('name') *{{ $message  }}@enderror</span>
                     </div>
                     <div class="form_element">
                         <label for="bandwidth">Bandwidth</label>
-                        <input id="bandwidth" type="number" name="bandwidth" placeholder="Enter Bandwidth">
+                        <input required id="bandwidth" type="number" name="bandwidth" placeholder="Enter Bandwidth">
+                        <span class="danger">@error('bandwidth') *{{ $message  }}@enderror</span>
+
                     </div>
                     <div class="form_element">
                         <label for="fees">Monthly Fees</label>
-                        <input id="fees" type="number" name="fees" placeholder="Enter Fees">
+                        <input required id="fees" type="number" name="fees" placeholder="Enter Fees">
+                        <span class="danger">@error('fees') *{{ $message  }}@enderror</span>
                     </div>
 
                     <input class="btn" type="submit" name="Submit" value="Create Package" >

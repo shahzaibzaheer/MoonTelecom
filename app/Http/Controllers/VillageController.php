@@ -33,6 +33,11 @@ class VillageController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+
+        $request->validate([
+            'name'=> 'required',
+        ]);
+
         $village = new Village();
         $village->name = $request->input('name');
         $isSuccess= $village->save();

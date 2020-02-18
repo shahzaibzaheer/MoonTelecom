@@ -13,7 +13,8 @@
                     @csrf
                     <div class="form_element">
                         <label for="name">Village Name</label>
-                        <input id="name" type="text" name="name" placeholder="Enter Village Name" autofocus>
+                        <input required id="name" type="text" name="name" placeholder="Enter Village Name" autofocus value="{{old("name")}}">
+                        <span class="danger">@error('name') *{{ $message  }}@enderror</span>
                     </div>
                     <input class="btn" type="submit" name="Submit" value="Create Village" >
                 </form>

@@ -68,7 +68,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        // do  authentication
+        // do  authorization
+        $request->validate([
+            'name'=> "required",
+            'email'=> 'required|email',
+            'role'=> 'required',
+            'Password' => 'required',
+        ]);
+
+
 //        dd( $request->all());
 
         $user = new User();
@@ -78,8 +86,11 @@ class UserController extends Controller
         $user->password = bcrypt($request->input('Password')); 
 
         $isSuccess= $user->save();
+
         if($isSuccess){
             // model created successfully
+//            return response("user created");
+            session()->flash('success', 'User Created');
             return redirect()->route('users.index');
         }else{
             dd($isSuccess);
@@ -109,6 +120,12 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+        // do  authorization
+        $request->validate([
+            'name'=> "required",
+            'email'=> 'required|email',
+            'role'=> 'required',
+        ]);
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');

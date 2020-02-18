@@ -87,7 +87,8 @@
                     <div class="form_element_container">
                         <div class="form_element">
                             <label for="amount">Enter Amount</label>
-                            <input id="amount" type="number" name="amount" placeholder="Enter Amount" autofocus>
+                            <input id="amount" type="number" name="amount" placeholder="Enter Amount" autofocus required>
+                            <span class="danger">@error('amount') *{{ $message  }}@enderror</span>
                         </div>
                         <div class="form_element">
                             <label for="comment">Enter Comment</label>
