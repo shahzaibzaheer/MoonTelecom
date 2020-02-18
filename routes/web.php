@@ -42,10 +42,12 @@ Route::group([ 'middleware'=>['auth','blockedUser']],function(){
 
     // specific bill's recoveries history,     show specific bill recoveries
     Route::get('/bills/{bill}/recoveries', 'BillController@showBillRecoveries')->name('bills.bill.recoveries');
+    Route::get('/bills/generate','BillController@generateBills')->name('bills.generate');
+    Route::post('/bills/generate','BillController@generate')->name('bills.generate');
 
     // temp
-    Route::get('/generateBills', 'ConnectionController@generateBills');
-    Route::get('/home', 'HomeController@index')->name('home');
+//    Route::get('/generateBills', 'ConnectionController@generateBills');
+//    Route::get('/home', 'HomeController@index')->name('home');
 
 });
 

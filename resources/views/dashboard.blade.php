@@ -6,6 +6,12 @@
         @include('components.navigation', ['title'=>'Dashboard', 'link'=>url('/')])
 
         <div class="content-container">
+            <div class="page_header">
+                @if(auth()->user()->isAdmin)
+                    <a href="{{route('bills.generate')}}" class="btn">Generate Bills</a>
+                @endif
+            </div>
+
             <div class="page_body">
                 <div class="meta_info_container">
                     <a href="/connections?state=Active"  class="card">

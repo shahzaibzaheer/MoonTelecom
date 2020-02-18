@@ -1,7 +1,6 @@
 window._ = require('lodash');
 
 
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -11,6 +10,20 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    window.toastr = require('toastr/toastr');
+
+    toastr.options = {
+        "timeOut": 3000,
+        "debug": false,
+        "newestOnTop": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": true,
+        "closeDuration" : 100,
+        "closeMethod": 'fadeOut',
+        "closeEasing" : 'swing',
+    };
+
+    // toastr.success("Hello");
 
     // require('bootstrap');
 } catch (e) {}

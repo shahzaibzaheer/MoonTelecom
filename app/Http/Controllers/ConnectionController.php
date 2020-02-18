@@ -75,11 +75,24 @@ class ConnectionController extends Controller
      */
     public function store(Request $request)
     {
+        // validate the data
         // create connection
         // generate bill for the connection and save that bill id into conenction's current_bill_id
         // show the invoice   (save recoveries into recovery table)
 
-//        dd($request->all());
+
+
+        $request->validate([
+            'username' => 'required|unique:connections',
+            'name'=> 'required',
+            'fathername'=>'required',
+            'village_id'=> 'required',
+            'installationAddress'=> 'required',
+        ]);
+
+
+
+
 
         /*************** Create connection
         ***********************************************/
@@ -88,9 +101,9 @@ class ConnectionController extends Controller
         // contact info
         $connection->username  = $request->input('username');
         $connection->name  = $request->input('name');
-        $connection->fathername  = $request->input('fathername');
-        $connection->phone  = $request->input('phone');
-        $connection->email  = $request->input('email');
+        $connection->fathername  = $request->input('fathername') ;
+        $connection->phone  = $request->input('phone') ;
+        $connection->email  = $request->input('email') ;
         $connection->cnic  = $request->input('cnic');
         $connection->user_id = Auth::id();
 
@@ -137,7 +150,7 @@ class ConnectionController extends Controller
             // generate bill for the connection from inatallation fess
             // also save bill id to connection current_bill_id
 
-            $installationFess  =  $request->input('installationFees');
+            $installationFess  =  $request->input('installationFees') ?? 0;
 
             $bill_id =  DB::table('bills')->insertGetId([
                 'billingMonth'=> now(),
@@ -155,6 +168,7 @@ class ConnectionController extends Controller
             /*************** Redirect to invoice
              ***********************************************/
             if($isConnectionUpdated){
+                session()->flash('success', 'Connection Created Successfully');
                 return redirect()->route('connections.invoice',$connection->id);
             }
         }
@@ -232,8 +246,15 @@ class ConnectionController extends Controller
 //        dd($connection);
 //          dd($request);
 
+        $request->validate([
+            'name'=> 'required',
+            'fathername'=>'required',
+            'village_id'=> 'required',
+            'installationAddress'=> 'required',
+        ]);
 
-            $connection->username = $request->input('username');
+
+//            $connection->username = $request->input('username');  // don't allow to update username
             $connection->name = $request->input('name');
             $connection->fathername = $request->input('fathername');
             $connection->phone = $request->input('phone');
@@ -362,8 +383,6 @@ class ConnectionController extends Controller
 
 
         return "Bill generated :-)";
-
-
 
     }
 

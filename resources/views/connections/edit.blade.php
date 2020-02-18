@@ -11,16 +11,18 @@
                     <h2 class="heading">Contact Detail</h2>
                     <div class="form_element">
                         <label for="username">Username</label>
-                        <input id="username" type="text" name="username" placeholder="Enter Username" value="{{$connection->username}}">
+                        <input id="username" type="text" disabled value="{{$connection->username}}">
                     </div>
                     <div class="form_element_group">
                         <div class="form_element">
                             <label for="name">Name</label>
                             <input id="name" type="text" name="name" placeholder="Enter Name" value="{{$connection->name}}">
+                            <span class="danger">@error('name') *{{ $message  }}@enderror</span>
                         </div>
                         <div class="form_element">
                             <label for="fathername">Father Name</label>
                             <input id="fathername" type="text" name="fathername" placeholder="Enter Father Name" value="{{$connection->fathername}}">
+                            <span class="danger">@error('fathername') *{{ $message  }}@enderror</span>
                         </div>
                     </div>
                     <div class="form_element_group">
@@ -46,11 +48,13 @@
                                     <option value="{{$village->id}}" @if($connection->village_id === $village->id) selected @endif >{{$village->name}}</option>
                                 @endforeach
                             </select>
+                            <span class="danger">@error('village_id') *{{ $message  }}@enderror</span>
                         </div>
                     </div>
                     <div class="form_element">
                         <label for="installationAddress">Installation Address</label>
                         <input id="installationAddress" type="text" name="installationAddress" placeholder="Enter Installation Address" value="{{$connection->installationAddress}}">
+                        <span class="danger">@error('installationAddress') *{{ $message  }}@enderror</span>
                     </div>
                     <div class="form_element checkbox">
                         <input v-model="isBillingAddressSame" id="billingAddressCheckbox" type="checkbox" name="billingAddressCheckbox"  >
@@ -85,7 +89,7 @@
                     <div v-show="changePackage">
                         <div class="form_element">
                             <label for="package">Package</label>
-                            <select id="package" name="package_id" :disabled="isCustomPackage == true">
+                            <select id="package" name="package_id" :required="changePackage ==true && isCustomPackage !=true " :disabled="isCustomPackage == true">
                                 <option value="">Select Package</option>
                                 @foreach($packages as $package)
                                     <option value="{{$package->id}}">{{$package->name}}</option>

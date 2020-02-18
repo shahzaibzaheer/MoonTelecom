@@ -82,6 +82,7 @@ class RecoveryController extends Controller
             $recovery->comments = $comments;
             $isSaved = $recovery->save();
             if($isSaved){
+                session()->flash('success', 'Connection Successfully Recovered');
                 return redirect()->route('connections.invoice',$connection_id);
             }else{
                 return response("Error occur while saving the recovery");

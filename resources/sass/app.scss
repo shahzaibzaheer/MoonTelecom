@@ -1,3 +1,4 @@
+@import "~toastr/toastr";
 @import "partials/variables_and_mixins";
 
 body{
@@ -19,7 +20,8 @@ body{
 
 // *************************
 // Elements
-// ************************
+// *******************
+// *****
 .btn{
     background: $primary-color;
     color:$white;
@@ -186,9 +188,17 @@ select{
         font-weight: $font-normal;
     }
 
-
-
 }
+
+
+.main_buttons_container{
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: gap(4);
+}
+
 
 
 
@@ -1631,5 +1641,14 @@ form.create_box{
         margin-top: gap(8);
         max-width: 350px;
 
+    }
+}
+
+
+
+.generate_bill_meta{
+    text-align: center;
+    strong{
+        font-size: 1.5em;
     }
 }
