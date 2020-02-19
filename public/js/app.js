@@ -2631,23 +2631,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['recoveries', 'users', 'villages', 'admin'],
   created: function created() {
-    var userId = this.$route.query.u_id;
-    this.selectedUserId = userId.toString();
+    if (this.$route.query.u_id) {
+      var userId = this.$route.query.u_id;
+      this.selectedUserId = userId.toString();
+    }
+
+    if (this.itemsDisplayCount <= this.filteredRecoveries.length) {
+      for (var i = 0; i < this.itemsDisplayCount; i++) {
+        this.itemsToDisplay.push(this.filteredRecoveries[i]);
+      }
+    } else {
+      this.itemsToDisplay = this.filteredRecoveries;
+    }
   },
   data: function data() {
     return {
@@ -2656,13 +2656,33 @@ __webpack_require__.r(__webpack_exports__);
       selectedVillageId: "",
       selectedDay: "",
       days: [_constants__WEBPACK_IMPORTED_MODULE_0__["TODAY"], _constants__WEBPACK_IMPORTED_MODULE_0__["LAST_SEVEN_DAYS"]],
-      paginatedRecoveries: [],
+      recoveriesToDisplay: [],
       page: 1,
-      perPage: 4,
-      pages: []
+      perPage: 10,
+      pages: [],
+      itemsToDisplay: [],
+      itemsDisplayCount: 5,
+      itemsPerLoad: 5,
+      isLoading: false
     };
   },
   methods: {
+    loadMoreItems: function loadMoreItems() {
+      if (this.itemsDisplayCount < this.filteredRecoveries.length) {
+        this.startLoading();
+        var from = this.itemsDisplayCount;
+        var to = this.itemsDisplayCount + this.itemsPerLoad;
+        this.itemsDisplayCount = to;
+        var moreItems = this.filteredRecoveries.slice(from, to);
+        console.log(moreItems);
+
+        for (var i = 0; i < moreItems.length; i++) {
+          this.itemsToDisplay.push(moreItems[i]);
+        }
+
+        this.stopLoading();
+      }
+    },
     paginate: function paginate(recoveries) {
       var page = this.page;
       var perPage = this.perPage;
@@ -2676,6 +2696,12 @@ __webpack_require__.r(__webpack_exports__);
       for (var index = 1; index <= numberOfPages; index++) {
         this.pages.push(index);
       }
+    },
+    startLoading: function startLoading() {
+      this.isLoading = true;
+    },
+    stopLoading: function stopLoading() {
+      this.isLoading = false;
     }
   },
   computed: {
@@ -2727,7 +2753,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return this.paginate(recoveriesList);
+      return recoveriesList;
     },
     total: function total() {
       return this.filteredRecoveries.length;
@@ -35543,7 +35569,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.filteredRecoveries, function(recovery) {
+        _vm._l(_vm.itemsToDisplay, function(recovery) {
           return _c("tr", [
             _c("td", { staticClass: "bold success" }, [
               _c("strong", [_vm._v("By: ")]),
@@ -35705,6 +35731,41 @@ var render = function() {
           ])
         }),
         0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "pagination_container" }, [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isLoading,
+              expression: "isLoading"
+            }
+          ],
+          staticClass: "lds-ellipsis"
+        },
+        [_c("div"), _c("div"), _c("div"), _c("div")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.isLoading,
+              expression: "!isLoading"
+            }
+          ],
+          staticClass: "btn",
+          on: { click: _vm.loadMoreItems }
+        },
+        [_vm._v("Load More")]
       )
     ])
   ])

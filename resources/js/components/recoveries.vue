@@ -38,7 +38,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="recovery in filteredRecoveries" >
+            <tr v-for="recovery in itemsToDisplay" >
                 <td class="bold success" > <strong>By: </strong> <span>{{recovery.user.name}}</span> </td>
                 <td><strong>At: </strong> <span>{{ new Date(recovery.created_at).toLocaleDateString() }}</span> </td>
                 <td><strong>Username: </strong> <span>{{recovery.connection.username}}</span></td>
@@ -82,20 +82,10 @@
             </tr>
             </tbody>
         </table>
-
-<!--        <ul class="pagination">-->
-<!--            <li class="page-item">-->
-<!--                <button type="button" class="page-link" v-if="page != 1" @click="page&#45;&#45;"> Previous</button>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--                <button type="button" class="page-link" v-for="pageNumber in pages.slice(page-1, page+5)"-->
-<!--                        @click="page = pageNumber"> {{pageNumber}}-->
-<!--                </button>-->
-<!--            </li>-->
-<!--            <li class="page-item">-->
-<!--                <button type="button" @click="page++" v-if="page < pages.length" class="page-link"> Next</button>-->
-<!--            </li>-->
-<!--        </ul>-->
+        <div class="pagination_container">
+            <div class="lds-ellipsis" v-show="isLoading"><div></div><div></div><div></div><div></div></div>
+            <button class="btn" @click="loadMoreItems" v-show="!isLoading">Load More</button>
+        </div>
     </div>
 </template>
 
@@ -108,8 +98,22 @@
         props:['recoveries','users', 'villages', 'admin'],
 
         created(){
-            let userId = this.$route.query.u_id;
-            this.selectedUserId = userId.toString();
+            if(this.$route.query.u_id){
+                let userId = this.$route.query.u_id;
+                this.selectedUserId = userId.toString();
+            }
+
+
+
+            if(this.itemsDisplayCount <= this.filteredRecoveries.length){
+                for(let i=0; i<this.itemsDisplayCount; i++){
+
+                    this.itemsToDisplay.push(this.filteredRecoveries[i]);
+                }
+            }else{
+                this.itemsToDisplay = this.filteredRecoveries;
+            }
+
 
         },
 
@@ -123,15 +127,34 @@
                     constants.TODAY,
                     constants.LAST_SEVEN_DAYS,
                 ],
-                paginatedRecoveries: [],
-
+                recoveriesToDisplay: [],
                 page: 1,
-                perPage: 4,
+                perPage: 10,
                 pages: [],
+                itemsToDisplay: [],
+                itemsDisplayCount: 5,
+                itemsPerLoad: 5,
+                isLoading: false,
 
             }
         },
         methods:{
+            loadMoreItems(){
+
+                if(this.itemsDisplayCount < this.filteredRecoveries.length){
+                    this.startLoading();
+                    let from = this.itemsDisplayCount;
+                    let to = this.itemsDisplayCount + this.itemsPerLoad;
+                    this.itemsDisplayCount = to;
+                    let moreItems = this.filteredRecoveries.slice(from,to);
+                    console.log(moreItems);
+                    for(let i=0; i<moreItems.length; i++){
+                        this.itemsToDisplay.push(moreItems[i]);
+                    }
+                    this.stopLoading();
+                }
+            },
+
             paginate (recoveries){
                 let page = this.page;
                 let perPage = this.perPage;
@@ -145,6 +168,15 @@
                     this.pages.push(index);
                 }
             },
+
+            startLoading(){
+                this.isLoading = true;
+            },
+            stopLoading(){
+                this.isLoading = false;
+            }
+
+
         },
 
         computed:{
@@ -201,8 +233,9 @@
                     });
                 }
 
-                return  this.paginate(recoveriesList);
+                return  recoveriesList;
             },
+
             total(){
                 return this.filteredRecoveries.length;
             }
