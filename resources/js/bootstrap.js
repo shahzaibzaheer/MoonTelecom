@@ -9,7 +9,7 @@ window._ = require('lodash');
 
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-    window.toastr = require('toastr/toastr');
+    window.toastr = require('./toaster.min');
 
     toastr.options = {
         "timeOut": 3000,

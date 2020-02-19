@@ -1,4 +1,4 @@
-@import "~toastr/toastr";
+@import "partials/toastr";
 @import "partials/variables_and_mixins";
 
 body{
@@ -1660,8 +1660,18 @@ form.create_box{
     flex-direction: column;
     .btn{
         display: block;
-        margin: gap(2) auto;
+        margin: gap(2) auto gap(6) auto;
         outline: none;
+
+
+        &.disable{
+            opacity: 0.3;
+            &:hover{
+                cursor: not-allowed;
+                background: $primary-color;
+            }
+        }
+
 
         &::selection{
             //background: none;

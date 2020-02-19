@@ -84,7 +84,7 @@
         </table>
         <div class="pagination_container">
             <div class="lds-ellipsis" v-show="isLoading"><div></div><div></div><div></div><div></div></div>
-            <button class="btn" @click="loadMoreItems" v-show="!isLoading">Load More</button>
+            <button class="btn" :disabled="itemsDisplayCount >= this.filteredRecoveries.length" :class="{disable: itemsDisplayCount >= this.filteredRecoveries.length}" @click="loadMoreItems" v-show="!isLoading">Load More</button>
         </div>
     </div>
 </template>
@@ -132,8 +132,8 @@
                 perPage: 10,
                 pages: [],
                 itemsToDisplay: [],
-                itemsDisplayCount: 5,
-                itemsPerLoad: 5,
+                itemsDisplayCount: 2,
+                itemsPerLoad: 2,
                 isLoading: false,
 
             }
@@ -141,18 +141,25 @@
         methods:{
             loadMoreItems(){
 
-                if(this.itemsDisplayCount < this.filteredRecoveries.length){
-                    this.startLoading();
-                    let from = this.itemsDisplayCount;
-                    let to = this.itemsDisplayCount + this.itemsPerLoad;
-                    this.itemsDisplayCount = to;
-                    let moreItems = this.filteredRecoveries.slice(from,to);
-                    console.log(moreItems);
-                    for(let i=0; i<moreItems.length; i++){
-                        this.itemsToDisplay.push(moreItems[i]);
+                this.startLoading();
+                setTimeout(()=>{
+                    if(this.itemsDisplayCount < this.filteredRecoveries.length){
+
+                        let from = this.itemsDisplayCount;
+                        let to = this.itemsDisplayCount + this.itemsPerLoad;
+                        this.itemsDisplayCount = to;
+                        let moreItems = this.filteredRecoveries.slice(from,to);
+                        console.log(moreItems);
+                        for(let i=0; i<moreItems.length; i++){
+                            this.itemsToDisplay.push(moreItems[i]);
+                        }
+                        this.stopLoading();
+                    }else{
+                        this.stopLoading();
                     }
-                    this.stopLoading();
-                }
+
+                }, 700);
+
             },
 
             paginate (recoveries){
