@@ -113,7 +113,7 @@
                 selectedUserId: "",
                 selectedVillageId: "",
                 selectedDay: "",
-                days : [
+                days:[
                     constants.TODAY,
                     constants.LAST_SEVEN_DAYS,
                 ],
@@ -123,9 +123,8 @@
                 pages: [],
                 itemsToDisplay: [],
                 itemsDisplayCount: 0,
-                itemsPerLoad: 2,
+                itemsPerLoad: 5,
                 isLoading: false,
-
             }
         },
         watch:{
@@ -135,7 +134,22 @@
         },
         methods:{
             loadInitialItems(){
-                // reset data
+                /*   Pagination Pseudo code
+                *
+                *******  on page load OR on any filter,search change
+                *         -> load initial items
+                *         -> set array to empty and reset items display count (to initial count)
+                *         -> grab the items (itemsPerLoad) form the filtered array and push into itemsToDisplay array
+                *******  on load more button click
+                *         -> slice the next items from filtered array
+                *         next items mean
+                *               from =  current loaded items
+                *               to = current loaded items + itemsPerload
+                *         -> push that sliced items into the itemsToDisplayArray
+                *          // we will render items to display that are in itemsToDisplay array
+                * */
+
+
                 this.itemsToDisplay = [];
                 this.itemsDisplayCount = this.itemsPerLoad;
 
@@ -149,6 +163,7 @@
             },
 
             loadMoreItems(){
+
                 this.startLoading();
                 setTimeout(()=>{
                     if(this.itemsDisplayCount < this.filteredRecoveries.length){

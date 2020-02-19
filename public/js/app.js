@@ -2242,6 +2242,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['connections', 'villageNames', 'packageNames'],
@@ -2293,6 +2297,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
 
+    this.loadInitialItems();
     console.log(state);
   },
   data: function data() {
@@ -2305,18 +2310,79 @@ __webpack_require__.r(__webpack_exports__);
       selectedState: 'Active',
       states: ['Active', 'Blocked'],
       selectedSort: '',
-      sortByOptions: [_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_CURRENT_BILL"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_CURRENT_BILL"]]
+      sortByOptions: [_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_CURRENT_BILL"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_CURRENT_BILL"]],
+      itemsToDisplay: [],
+      itemsDisplayCount: 0,
+      itemsPerLoad: 1,
+      isLoading: false
     };
   },
-  methods: {},
+  methods: {
+    loadInitialItems: function loadInitialItems() {
+      /*   Pagination Pseudo code
+      *
+      *******  on page load OR on any filter,search change
+      *         -> load initial items
+      *         -> set array to empty and reset items display count (to initial count)
+      *         -> grab the items (itemsPerLoad) form the filtered array and push into itemsToDisplay array
+      *******  on load more button click
+      *         -> slice the next items from filtered array
+      *         next items mean
+      *               from =  current loaded items
+      *               to = current loaded items + itemsPerload
+      *         -> push that sliced items into the itemsToDisplayArray
+      *          // we will render items to display that are in itemsToDisplay array
+      * */
+      this.itemsToDisplay = [];
+      this.itemsDisplayCount = this.itemsPerLoad;
+
+      if (this.itemsPerLoad <= this.filteredConnections.length) {
+        for (var i = 0; i < this.itemsPerLoad; i++) {
+          this.itemsToDisplay.push(this.filteredConnections[i]);
+        }
+      } else {
+        this.itemsToDisplay = this.filteredConnections;
+      }
+    },
+    loadMoreItems: function loadMoreItems() {
+      var _this = this;
+
+      this.startLoading();
+      setTimeout(function () {
+        if (_this.itemsDisplayCount < _this.filteredConnections.length) {
+          var from = _this.itemsDisplayCount;
+          var to = _this.itemsDisplayCount + _this.itemsPerLoad;
+          _this.itemsDisplayCount = to;
+
+          var moreItems = _this.filteredConnections.slice(from, to);
+
+          console.log(moreItems);
+
+          for (var i = 0; i < moreItems.length; i++) {
+            _this.itemsToDisplay.push(moreItems[i]);
+          }
+
+          _this.stopLoading();
+        } else {
+          _this.stopLoading();
+        }
+      }, 700);
+    },
+    startLoading: function startLoading() {
+      this.isLoading = true;
+    },
+    stopLoading: function stopLoading() {
+      this.isLoading = false;
+    }
+  },
   computed: {
     filteredConnections: function filteredConnections() {
-      var _this = this;
+      var _this2 = this;
 
       var filteredConnectionsList = [];
       filteredConnectionsList = this.connections.filter(function (connection) {
         // search by  Username, Name, Fathername, Village
-        if (connection.username.toLowerCase().match(_this.searchQuery.toLowerCase()) || connection.name.toLowerCase().match(_this.searchQuery.toLowerCase()) || connection.fathername.toLowerCase().match(_this.searchQuery.toLowerCase()) || connection.village.name.toLowerCase().match(_this.searchQuery.toLowerCase())) {
+        if (connection.username.toLowerCase().match(_this2.searchQuery.toLowerCase()) || connection.name.toLowerCase().match(_this2.searchQuery.toLowerCase()) || connection.fathername.toLowerCase().match(_this2.searchQuery.toLowerCase()) || connection.village.name.toLowerCase().match(_this2.searchQuery.toLowerCase())) {
           return true;
         }
       }); // filter by village
@@ -2324,7 +2390,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.selectedVillage.length > 0) {
         console.log("Filter by village");
         filteredConnectionsList = filteredConnectionsList.filter(function (connection) {
-          if (connection.village.name.toLowerCase().match(_this.selectedVillage.toLowerCase())) {
+          if (connection.village.name.toLowerCase().match(_this2.selectedVillage.toLowerCase())) {
             return true;
           }
         });
@@ -2334,7 +2400,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.selectedPackage.length > 0) {
         console.log("Filter by package");
         filteredConnectionsList = filteredConnectionsList.filter(function (connection) {
-          if (connection["package"].name.toLowerCase().match(_this.selectedPackage)) {
+          if (connection["package"].name.toLowerCase().match(_this2.selectedPackage)) {
             return true;
           }
         });
@@ -2348,11 +2414,11 @@ __webpack_require__.r(__webpack_exports__);
       if (this.selectedStatus.length > 0) {
         console.log("Filter by Bill Status");
         filteredConnectionsList = filteredConnectionsList.filter(function (connection) {
-          if (_this.selectedStatus.match("Not Recovered")) {
+          if (_this2.selectedStatus.match("Not Recovered")) {
             return connection.current_bill.status === NOT_RECOVERED;
-          } else if (_this.selectedStatus.match("Not Paid")) {
+          } else if (_this2.selectedStatus.match("Not Paid")) {
             return connection.current_bill.status === NOT_PAID;
-          } else if (_this.selectedStatus.match("Paid")) {
+          } else if (_this2.selectedStatus.match("Paid")) {
             return connection.current_bill.status === PAID;
           }
         });
@@ -2399,6 +2465,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     total: function total() {
       return this.filteredConnections.length;
+    }
+  },
+  watch: {
+    filteredConnections: function filteredConnections() {
+      this.loadInitialItems();
     }
   }
 });
@@ -2657,7 +2728,7 @@ __webpack_require__.r(__webpack_exports__);
       pages: [],
       itemsToDisplay: [],
       itemsDisplayCount: 0,
-      itemsPerLoad: 2,
+      itemsPerLoad: 5,
       isLoading: false
     };
   },
@@ -2668,7 +2739,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     loadInitialItems: function loadInitialItems() {
-      // reset data
+      /*   Pagination Pseudo code
+      *
+      *******  on page load OR on any filter,search change
+      *         -> load initial items
+      *         -> set array to empty and reset items display count (to initial count)
+      *         -> grab the items (itemsPerLoad) form the filtered array and push into itemsToDisplay array
+      *******  on load more button click
+      *         -> slice the next items from filtered array
+      *         next items mean
+      *               from =  current loaded items
+      *               to = current loaded items + itemsPerload
+      *         -> push that sliced items into the itemsToDisplayArray
+      *          // we will render items to display that are in itemsToDisplay array
+      * */
       this.itemsToDisplay = [];
       this.itemsDisplayCount = this.itemsPerLoad;
 
@@ -34446,7 +34530,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.filteredConnections, function(connection) {
+        _vm._l(_vm.itemsToDisplay, function(connection) {
           return _c("tr", { class: { blocked: connection.isBlocked } }, [
             connection.isBlocked
               ? _c("td", { staticClass: "blocked" }, [_vm._v("Blocked")])
@@ -34669,6 +34753,47 @@ var render = function() {
           ])
         }),
         0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "pagination_container" }, [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isLoading,
+              expression: "isLoading"
+            }
+          ],
+          staticClass: "lds-ellipsis"
+        },
+        [_c("div"), _c("div"), _c("div"), _c("div")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.isLoading,
+              expression: "!isLoading"
+            }
+          ],
+          staticClass: "btn",
+          class: {
+            disable: _vm.itemsDisplayCount >= this.filteredConnections.length
+          },
+          attrs: {
+            disabled: _vm.itemsDisplayCount >= this.filteredConnections.length
+          },
+          on: { click: _vm.loadMoreItems }
+        },
+        [_vm._v("Load More")]
       )
     ])
   ])

@@ -62,7 +62,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="connection in filteredConnections" :class="{blocked: connection.isBlocked}">
+            <tr v-for="connection in itemsToDisplay" :class="{blocked: connection.isBlocked}">
                 <td class="blocked" v-if="connection.isBlocked">Blocked</td>
                 <td class="username" ><strong>Username: </strong> <span>{{connection.username}}</span>  </td>
                 <td><strong>Name: </strong> <span>{{connection.name}}</span> </td>
@@ -113,6 +113,10 @@
             </tr>
             </tbody>
         </table>
+        <div class="pagination_container">
+            <div class="lds-ellipsis" v-show="isLoading"><div></div><div></div><div></div><div></div></div>
+            <button class="btn" :disabled="itemsDisplayCount >= this.filteredConnections.length" :class="{disable: itemsDisplayCount >= this.filteredConnections.length}" @click="loadMoreItems" v-show="!isLoading">Load More</button>
+        </div>
     </div>
 </template>
 
@@ -174,6 +178,7 @@
             }
 
 
+            this.loadInitialItems();
             console.log(state);
         },
 
@@ -200,14 +205,70 @@
                     constants.HIGHEST_CURRENT_BILL,
                     constants.LOWEST_CURRENT_BILL
                 ],
+                itemsToDisplay: [],
+                itemsDisplayCount: 0,
+                itemsPerLoad: 1,
+                isLoading: false,
 
 
             }
         },
         methods:{
+            loadInitialItems(){
+                /*   Pagination Pseudo code
+                *
+                *******  on page load OR on any filter,search change
+                *         -> load initial items
+                *         -> set array to empty and reset items display count (to initial count)
+                *         -> grab the items (itemsPerLoad) form the filtered array and push into itemsToDisplay array
+                *******  on load more button click
+                *         -> slice the next items from filtered array
+                *         next items mean
+                *               from =  current loaded items
+                *               to = current loaded items + itemsPerload
+                *         -> push that sliced items into the itemsToDisplayArray
+                *          // we will render items to display that are in itemsToDisplay array
+                * */
+
+                this.itemsToDisplay = [];
+                this.itemsDisplayCount = this.itemsPerLoad;
+
+                if(this.itemsPerLoad <= this.filteredConnections.length){
+                    for(let i=0; i<this.itemsPerLoad; i++){
+                        this.itemsToDisplay.push(this.filteredConnections[i]);
+                    }
+                }else{
+                    this.itemsToDisplay = this.filteredConnections;
+                }
+            },
+            loadMoreItems(){
+                this.startLoading();
+                setTimeout(()=>{
+                    if(this.itemsDisplayCount < this.filteredConnections.length){
+                        let from = this.itemsDisplayCount;
+                        let to = this.itemsDisplayCount + this.itemsPerLoad;
+                        this.itemsDisplayCount = to;
+                        let moreItems = this.filteredConnections.slice(from,to);
+                        console.log(moreItems);
+                        for(let i=0; i<moreItems.length; i++){
+                            this.itemsToDisplay.push(moreItems[i]);
+                        }
+                        this.stopLoading();
+                    }else{
+                        this.stopLoading();
+                    }
+
+                }, 700);
+
+            },
+            startLoading(){
+                this.isLoading = true;
+            },
+            stopLoading(){
+                this.isLoading = false;
+            },
 
         },
-
         computed:{
             filteredConnections (){
                 let filteredConnectionsList = [];
@@ -321,6 +382,11 @@
             total(){
                 return this.filteredConnections.length;
             }
+        },
+        watch:{
+            filteredConnections () {
+                this.loadInitialItems();
+            },
         },
 
     }
