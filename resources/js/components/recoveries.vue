@@ -103,19 +103,9 @@
                 this.selectedUserId = userId.toString();
             }
 
-
-
-            if(this.itemsDisplayCount <= this.filteredRecoveries.length){
-                for(let i=0; i<this.itemsDisplayCount; i++){
-
-                    this.itemsToDisplay.push(this.filteredRecoveries[i]);
-                }
-            }else{
-                this.itemsToDisplay = this.filteredRecoveries;
-            }
-
-
+            this.loadInitialItems();
         },
+        // mounted(){},
 
         data(){
             return{
@@ -132,19 +122,36 @@
                 perPage: 10,
                 pages: [],
                 itemsToDisplay: [],
-                itemsDisplayCount: 2,
+                itemsDisplayCount: 0,
                 itemsPerLoad: 2,
                 isLoading: false,
 
             }
         },
+        watch:{
+          filteredRecoveries () {
+              this.loadInitialItems();
+          },
+        },
         methods:{
-            loadMoreItems(){
+            loadInitialItems(){
+                // reset data
+                this.itemsToDisplay = [];
+                this.itemsDisplayCount = this.itemsPerLoad;
 
+                if(this.itemsPerLoad <= this.filteredRecoveries.length){
+                    for(let i=0; i<this.itemsPerLoad; i++){
+                        this.itemsToDisplay.push(this.filteredRecoveries[i]);
+                    }
+                }else{
+                    this.itemsToDisplay = this.filteredRecoveries;
+                }
+            },
+
+            loadMoreItems(){
                 this.startLoading();
                 setTimeout(()=>{
                     if(this.itemsDisplayCount < this.filteredRecoveries.length){
-
                         let from = this.itemsDisplayCount;
                         let to = this.itemsDisplayCount + this.itemsPerLoad;
                         this.itemsDisplayCount = to;
@@ -240,7 +247,10 @@
                     });
                 }
 
-                return  recoveriesList;
+
+
+                return recoveriesList;
+                // return  recoveriesList;
             },
 
             total(){

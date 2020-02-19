@@ -2641,14 +2641,9 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedUserId = userId.toString();
     }
 
-    if (this.itemsDisplayCount <= this.filteredRecoveries.length) {
-      for (var i = 0; i < this.itemsDisplayCount; i++) {
-        this.itemsToDisplay.push(this.filteredRecoveries[i]);
-      }
-    } else {
-      this.itemsToDisplay = this.filteredRecoveries;
-    }
+    this.loadInitialItems();
   },
+  // mounted(){},
   data: function data() {
     return {
       searchQuery: "",
@@ -2661,12 +2656,30 @@ __webpack_require__.r(__webpack_exports__);
       perPage: 10,
       pages: [],
       itemsToDisplay: [],
-      itemsDisplayCount: 2,
+      itemsDisplayCount: 0,
       itemsPerLoad: 2,
       isLoading: false
     };
   },
+  watch: {
+    filteredRecoveries: function filteredRecoveries() {
+      this.loadInitialItems();
+    }
+  },
   methods: {
+    loadInitialItems: function loadInitialItems() {
+      // reset data
+      this.itemsToDisplay = [];
+      this.itemsDisplayCount = this.itemsPerLoad;
+
+      if (this.itemsPerLoad <= this.filteredRecoveries.length) {
+        for (var i = 0; i < this.itemsPerLoad; i++) {
+          this.itemsToDisplay.push(this.filteredRecoveries[i]);
+        }
+      } else {
+        this.itemsToDisplay = this.filteredRecoveries;
+      }
+    },
     loadMoreItems: function loadMoreItems() {
       var _this = this;
 
@@ -2761,7 +2774,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return recoveriesList;
+      return recoveriesList; // return  recoveriesList;
     },
     total: function total() {
       return this.filteredRecoveries.length;
