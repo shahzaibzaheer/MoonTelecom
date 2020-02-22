@@ -62,7 +62,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="connection in itemsToDisplay" :class="{blocked: connection.isBlocked}">
+
+            <tr v-for="connection in itemsToDisplay" :class="{blocked: connection.isBlocked}"
+                @click="redirectToDetail(connection.id)" >
                 <td class="blocked" v-if="connection.isBlocked">Blocked</td>
                 <td class="username" ><strong>Username: </strong> <span>{{connection.username}}</span>  </td>
                 <td><strong>Name: </strong> <span>{{connection.name}}</span> </td>
@@ -207,13 +209,17 @@
                 ],
                 itemsToDisplay: [],
                 itemsDisplayCount: 0,
-                itemsPerLoad: 1,
+                itemsPerLoad: 30,
                 isLoading: false,
 
 
             }
         },
         methods:{
+            redirectToDetail(id){
+                window.location = 'connections/'+id;
+            },
+
             loadInitialItems(){
                 /*   Pagination Pseudo code
                 *

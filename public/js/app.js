@@ -2246,6 +2246,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['connections', 'villageNames', 'packageNames'],
@@ -2313,11 +2315,14 @@ __webpack_require__.r(__webpack_exports__);
       sortByOptions: [_constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_REMAINING"], _constants__WEBPACK_IMPORTED_MODULE_0__["HIGHEST_CURRENT_BILL"], _constants__WEBPACK_IMPORTED_MODULE_0__["LOWEST_CURRENT_BILL"]],
       itemsToDisplay: [],
       itemsDisplayCount: 0,
-      itemsPerLoad: 1,
+      itemsPerLoad: 30,
       isLoading: false
     };
   },
   methods: {
+    redirectToDetail: function redirectToDetail(id) {
+      window.location = 'connections/' + id;
+    },
     loadInitialItems: function loadInitialItems() {
       /*   Pagination Pseudo code
       *
@@ -2728,7 +2733,7 @@ __webpack_require__.r(__webpack_exports__);
       pages: [],
       itemsToDisplay: [],
       itemsDisplayCount: 0,
-      itemsPerLoad: 5,
+      itemsPerLoad: 30,
       isLoading: false
     };
   },
@@ -34531,226 +34536,241 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.itemsToDisplay, function(connection) {
-          return _c("tr", { class: { blocked: connection.isBlocked } }, [
-            connection.isBlocked
-              ? _c("td", { staticClass: "blocked" }, [_vm._v("Blocked")])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("td", { staticClass: "username" }, [
-              _c("strong", [_vm._v("Username: ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.username))])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("strong", [_vm._v("Name: ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.name))])
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "hide-column" }, [
-              _c("strong", [_vm._v("Father Name: ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.fathername))])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("strong", [_vm._v("Village: ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.village.name))])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("strong", [_vm._v("Package: ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.package.name))])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c("strong", [_vm._v("Bandwidth: ")]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.package.bandwidth))])
-            ]),
-            _vm._v(" "),
-            _c(
-              "td",
-              {
-                staticClass: "bold number-column",
-                class: {
-                  danger: connection.current_bill.due > 0,
-                  success: connection.current_bill.due <= 0
+          return _c(
+            "tr",
+            {
+              class: { blocked: connection.isBlocked },
+              on: {
+                click: function($event) {
+                  return _vm.redirectToDetail(connection.id)
                 }
-              },
-              [
-                _c("strong", [_vm._v("Due: ")]),
+              }
+            },
+            [
+              connection.isBlocked
+                ? _c("td", { staticClass: "blocked" }, [_vm._v("Blocked")])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("td", { staticClass: "username" }, [
+                _c("strong", [_vm._v("Username: ")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(connection.current_bill.due))])
-              ]
-            ),
-            _vm._v(" "),
-            _c("td", { staticClass: "number-column" }, [
-              _c("strong", [_vm._v("Current: ")]),
+                _c("span", [_vm._v(_vm._s(connection.username))])
+              ]),
               _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.current_bill.billAmount))])
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "number-column" }, [
-              _c("strong", [_vm._v("Total: ")]),
+              _c("td", [
+                _c("strong", [_vm._v("Name: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.name))])
+              ]),
               _vm._v(" "),
-              _c("span", [
-                _vm._v(
-                  _vm._s(
-                    connection.current_bill.due +
-                      connection.current_bill.billAmount
-                  )
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "number-column" }, [
-              _c("strong", [_vm._v("Paid: ")]),
+              _c("td", { staticClass: "hide-column" }, [
+                _c("strong", [_vm._v("Father Name: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.fathername))])
+              ]),
               _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(connection.current_bill.amountPaid))])
-            ]),
-            _vm._v(" "),
-            _c(
-              "td",
-              {
-                staticClass: "bold number-column",
-                class: {
-                  danger:
-                    connection.current_bill.due +
-                      connection.current_bill.billAmount -
-                      connection.current_bill.amountPaid >
-                    0,
-                  success:
-                    connection.current_bill.due +
-                      connection.current_bill.billAmount -
-                      connection.current_bill.amountPaid <=
-                    0
-                }
-              },
-              [
-                _c("strong", [_vm._v("Remaining: ")]),
+              _c("td", [
+                _c("strong", [_vm._v("Village: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.village.name))])
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("strong", [_vm._v("Package: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.package.name))])
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("strong", [_vm._v("Bandwidth: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.package.bandwidth))])
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "bold number-column",
+                  class: {
+                    danger: connection.current_bill.due > 0,
+                    success: connection.current_bill.due <= 0
+                  }
+                },
+                [
+                  _c("strong", [_vm._v("Due: ")]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(_vm._s(connection.current_bill.due))])
+                ]
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "number-column" }, [
+                _c("strong", [_vm._v("Current: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.current_bill.billAmount))])
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "number-column" }, [
+                _c("strong", [_vm._v("Total: ")]),
                 _vm._v(" "),
                 _c("span", [
                   _vm._v(
                     _vm._s(
                       connection.current_bill.due +
-                        connection.current_bill.billAmount -
-                        connection.current_bill.amountPaid
+                        connection.current_bill.billAmount
                     )
                   )
                 ])
-              ]
-            ),
-            _vm._v(" "),
-            connection.current_bill.status == 0
-              ? _c("td", { staticClass: "neutral" }, [
-                  _c("strong", [_vm._v("Status: ")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Not Recovered")])
-                ])
-              : connection.current_bill.status == 1
-              ? _c("td", { staticClass: " danger" }, [
-                  _c("strong", [_vm._v("Status: ")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Not Paid")])
-                ])
-              : _c("td", { staticClass: " success" }, [
-                  _c("strong", [_vm._v("Status: ")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Paid")])
-                ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "icons-container" }, [
-              _c("a", { attrs: { href: "connections/" + connection.id } }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "icon",
-                    attrs: { version: "1.1", viewBox: "0 0 23.486 14" }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z",
-                        transform: "translate(0 -98.725)"
-                      }
-                    })
-                  ]
-                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "number-column" }, [
+                _c("strong", [_vm._v("Paid: ")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(connection.current_bill.amountPaid))])
               ]),
               _vm._v(" "),
               _c(
-                "a",
+                "td",
                 {
-                  attrs: { href: "connections/" + connection.id + "/invoice" }
+                  staticClass: "bold number-column",
+                  class: {
+                    danger:
+                      connection.current_bill.due +
+                        connection.current_bill.billAmount -
+                        connection.current_bill.amountPaid >
+                      0,
+                    success:
+                      connection.current_bill.due +
+                        connection.current_bill.billAmount -
+                        connection.current_bill.amountPaid <=
+                      0
+                  }
                 },
                 [
+                  _c("strong", [_vm._v("Remaining: ")]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(
+                      _vm._s(
+                        connection.current_bill.due +
+                          connection.current_bill.billAmount -
+                          connection.current_bill.amountPaid
+                      )
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              connection.current_bill.status == 0
+                ? _c("td", { staticClass: "neutral" }, [
+                    _c("strong", [_vm._v("Status: ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Not Recovered")])
+                  ])
+                : connection.current_bill.status == 1
+                ? _c("td", { staticClass: " danger" }, [
+                    _c("strong", [_vm._v("Status: ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Not Paid")])
+                  ])
+                : _c("td", { staticClass: " success" }, [
+                    _c("strong", [_vm._v("Status: ")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Paid")])
+                  ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "icons-container" }, [
+                _c("a", { attrs: { href: "connections/" + connection.id } }, [
                   _c(
                     "svg",
                     {
                       staticClass: "icon",
-                      attrs: { version: "1.1", viewBox: "0 0 21.246 25.279" }
+                      attrs: { version: "1.1", viewBox: "0 0 23.486 14" }
                     },
                     [
-                      _c("g", { attrs: { transform: "translate(-0.359 0)" } }, [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M104.008,125.9a5.413,5.413,0,1,0,5.413-5.413A5.413,5.413,0,0,0,104.008,125.9Zm5.413.342a1.779,1.779,0,0,1-.452-3.5v-.458a.375.375,0,0,1,.75,0v.435a1.761,1.761,0,0,1,1.467,1.748.371.371,0,1,1-.741,0,1.026,1.026,0,1,0-1.024,1.027,1.776,1.776,0,0,1,.3,3.525v.447a.375.375,0,0,1-.75,0V129a1.8,1.8,0,0,1-1.337-1.725.38.38,0,0,1,.759,0,1.029,1.029,0,0,0,.917,1.021.391.391,0,0,1,.059,0,.378.378,0,0,1,.084.01,1.026,1.026,0,0,0-.03-2.052Zm0,0",
-                            transform: "translate(-98.094 -114.035)"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M80.48,352.822l-.009,0-3.482,1.645a2.691,2.691,0,0,1,.049.585.375.375,0,0,1-.375.365h-.011l-5.1-.14a.375.375,0,0,1,.021-.75l4.685.129a1.934,1.934,0,0,0-1.85-1.607l-3.1-.085a4.083,4.083,0,0,1-1.757-.454l-.315-.163a4.766,4.766,0,0,0-4.865.274l-.124,4.51.533-.285a2.317,2.317,0,0,1,1.727-.189l5.261,1.477a4.914,4.914,0,0,0,3.011-.337l7.289-4.715a1.363,1.363,0,0,0-1.591-.264Zm0,0",
-                            transform: "translate(-60.467 -332.958)"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M.359,347.261l.185-6.71,2.65.073-.185,6.71Zm0,0",
-                            transform: "translate(0 -322.301)"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M198.336,4.448V.375a.375.375,0,0,0-.75,0V4.448a.375.375,0,0,0,.75,0Zm0,0",
-                            transform: "translate(-186.657)"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M258.336,42.3V40.375a.375.375,0,0,0-.75,0V42.3a.375.375,0,1,0,.75,0Zm0,0",
-                            transform: "translate(-243.442 -37.856)"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M138.336,42.3V40.375a.375.375,0,0,0-.75,0V42.3a.375.375,0,1,0,.75,0Zm0,0",
-                            transform: "translate(-129.873 -37.856)"
-                          }
-                        })
-                      ])
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11.743,98.725c-4.487,0-8.557,2.455-11.559,6.443a.93.93,0,0,0,0,1.11c3,3.992,7.072,6.448,11.559,6.448S20.3,110.27,23.3,106.282a.93.93,0,0,0,0-1.11C20.3,101.18,16.23,98.725,11.743,98.725Zm.322,11.929a4.94,4.94,0,1,1,4.607-4.607A4.943,4.943,0,0,1,12.065,110.654Zm-.149-2.277a2.66,2.66,0,1,1,2.484-2.484A2.656,2.656,0,0,1,11.916,108.377Z",
+                          transform: "translate(0 -98.725)"
+                        }
+                      })
                     ]
                   )
-                ]
-              )
-            ])
-          ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "connections/" + connection.id + "/invoice" }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "icon",
+                        attrs: { version: "1.1", viewBox: "0 0 21.246 25.279" }
+                      },
+                      [
+                        _c(
+                          "g",
+                          { attrs: { transform: "translate(-0.359 0)" } },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M104.008,125.9a5.413,5.413,0,1,0,5.413-5.413A5.413,5.413,0,0,0,104.008,125.9Zm5.413.342a1.779,1.779,0,0,1-.452-3.5v-.458a.375.375,0,0,1,.75,0v.435a1.761,1.761,0,0,1,1.467,1.748.371.371,0,1,1-.741,0,1.026,1.026,0,1,0-1.024,1.027,1.776,1.776,0,0,1,.3,3.525v.447a.375.375,0,0,1-.75,0V129a1.8,1.8,0,0,1-1.337-1.725.38.38,0,0,1,.759,0,1.029,1.029,0,0,0,.917,1.021.391.391,0,0,1,.059,0,.378.378,0,0,1,.084.01,1.026,1.026,0,0,0-.03-2.052Zm0,0",
+                                transform: "translate(-98.094 -114.035)"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M80.48,352.822l-.009,0-3.482,1.645a2.691,2.691,0,0,1,.049.585.375.375,0,0,1-.375.365h-.011l-5.1-.14a.375.375,0,0,1,.021-.75l4.685.129a1.934,1.934,0,0,0-1.85-1.607l-3.1-.085a4.083,4.083,0,0,1-1.757-.454l-.315-.163a4.766,4.766,0,0,0-4.865.274l-.124,4.51.533-.285a2.317,2.317,0,0,1,1.727-.189l5.261,1.477a4.914,4.914,0,0,0,3.011-.337l7.289-4.715a1.363,1.363,0,0,0-1.591-.264Zm0,0",
+                                transform: "translate(-60.467 -332.958)"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M.359,347.261l.185-6.71,2.65.073-.185,6.71Zm0,0",
+                                transform: "translate(0 -322.301)"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M198.336,4.448V.375a.375.375,0,0,0-.75,0V4.448a.375.375,0,0,0,.75,0Zm0,0",
+                                transform: "translate(-186.657)"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M258.336,42.3V40.375a.375.375,0,0,0-.75,0V42.3a.375.375,0,1,0,.75,0Zm0,0",
+                                transform: "translate(-243.442 -37.856)"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M138.336,42.3V40.375a.375.375,0,0,0-.75,0V42.3a.375.375,0,1,0,.75,0Zm0,0",
+                                transform: "translate(-129.873 -37.856)"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
         }),
         0
       )

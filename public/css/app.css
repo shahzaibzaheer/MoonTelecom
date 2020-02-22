@@ -1053,11 +1053,12 @@ select {
           flex-direction: column;
   -webkit-box-pack: justify;
           justify-content: space-between;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   padding: 16px 0;
+  z-index: 1000;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: -webkit-transform 0.3s ease-in;
   transition: -webkit-transform 0.3s ease-in;

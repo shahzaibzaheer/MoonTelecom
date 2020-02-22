@@ -123,7 +123,7 @@
                 pages: [],
                 itemsToDisplay: [],
                 itemsDisplayCount: 0,
-                itemsPerLoad: 5,
+                itemsPerLoad: 30,
                 isLoading: false,
             }
         },

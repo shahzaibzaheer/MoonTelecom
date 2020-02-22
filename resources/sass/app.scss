@@ -827,11 +827,12 @@ select{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     padding: gap(2) 0;
+    z-index: 1000;
     @include shadow;
     transition: transform 0.3s ease-in;
     width: 300px;
