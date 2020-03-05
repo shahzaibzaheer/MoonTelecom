@@ -138,6 +138,7 @@
                                     Block
                                 @endif
                             </a>
+                            <a href="{{ route('connections.delete', $connection->id) }}" class="btn danger">Delete</a>
 
                             <div class="page_footer">
                                 @if($connection->isBlocked)

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use http\Env\Response;
 use Illuminate\Database\Eloquent\Model;
 
 class connection extends Model
@@ -75,4 +76,14 @@ class connection extends Model
     public function  billsHighestDuesFirst(){
         return $this->belongsTo(Bill::class,'current_bill_id','id')->orderBy('due','ASC');
     }
+
+
+    public function delete()
+    {
+
+        return response("DELETE Connection");
+
+    }
+
+
 }

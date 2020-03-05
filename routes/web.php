@@ -30,6 +30,8 @@ Route::group([ 'middleware'=>['auth','blockedUser']],function(){
     Route::get('/connections/{connection}/invoice', 'ConnectionController@invoice')->name('connections.invoice');
     Route::get('/connections/{connection}/block', 'ConnectionController@blockConfirm')->name('connections.block');
     Route::delete('/connections/{connection}/block', 'ConnectionController@block')->name('connections.block');
+    Route::get('/connections/{connection}/delete', 'ConnectionController@deleteConfirm')->name('connections.delete');
+    Route::delete('/connections/{connection}/destroy', 'ConnectionController@destroy')->name('connections.destroy');
 
     Route::resource('connections', 'ConnectionController');
 

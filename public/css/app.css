@@ -299,6 +299,15 @@ body {
   background: #dd570c;
 }
 
+.btn.danger {
+  background: red;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background: #cc0000;
+}
+
 @media (min-width: 600px) {
   .btn {
     font-size: 1em;

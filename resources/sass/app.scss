@@ -39,6 +39,14 @@ body{
         background: darken($accent-color, 10%);
     }
 
+    &.danger{
+        background: red;
+        color: #fff;
+
+        &:hover{
+            background: darken(red,10%);
+        }
+    }
 
     @media (min-width: 600px){
         font-size: 1em;

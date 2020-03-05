@@ -318,16 +318,6 @@ class ConnectionController extends Controller
             }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\connection  $connection
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(connection $connection)
-    {
-        //
-    }
 
 
 
@@ -393,6 +383,10 @@ class ConnectionController extends Controller
         return view('connections.block', ['connection'=>$connection]);
     }
 
+    public function deleteConfirm(Connection $connection){
+        return view('connections.delete', ['connection'=>$connection]);
+    }
+
     public function block(Request $request, Connection $connection){
         // here we handle user blocking and unblocking
 //        dd($request->all());
@@ -416,6 +410,50 @@ class ConnectionController extends Controller
     }
 
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\connection  $connection
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, connection $connection)
+    {
+//        return response("Handle connection delete");
+//        dd($request->all());
+
+        if($request->input('delete') === 'yes'){
+                $isDeleteConfirmed = true;
+        }else{
+            $isDeleteConfirmed = false;
+        }
+
+        if($isDeleteConfirmed){
+            try {
+
+                /* TO DELETE CONNECTION
+                 * delete the connection
+                 * delete linked bill history
+                 * delete linked bill's recoveries
+                 */
+
+                DB::transaction(function ()  use ($connection){
+
+                    DB::table('bills')->where('connection_id',$connection->id)->delete();
+                    DB::table('recoveries')->where('connection_id',$connection->id)->delete();
+                    DB::table('connections')->where('id',$connection->id)->delete();
+                });
+//                return response("DELETE THE CONNECTION");
+                return redirect()->route('connections.index');
+
+
+            } catch (\Exception $e) {
+                return response("can't delete due to exception: ".$e->getMessage());
+            }
+        }else{
+            return redirect()->route('connections.show', $connection->id);
+        }
+
+    }
 
 
 }
