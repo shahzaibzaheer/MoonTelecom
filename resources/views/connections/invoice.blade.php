@@ -98,8 +98,11 @@
                     </div>
 
                     @if(! $bill->status == $NOT_RECOVERED)
-                        <a href="{{route('bills.bill.recoveries',$bill->id)}}">Show Recoveries</a>
+                        <a  href="{{route('bills.bill.recoveries',$bill->id)}}">Show Recoveries</a>
                     @endif
+                    <a href="{{route('connections.show',$connection->id)}}">Connection Detail</a>
+                    <a  href="{{route('connections.index')}}">All Connections</a>
+
                 </form>
 
             </div>

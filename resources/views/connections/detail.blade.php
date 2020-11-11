@@ -139,6 +139,7 @@
                                 @endif
                             </a>
                             <a href="{{ route('connections.delete', $connection->id) }}" class="btn danger">Delete</a>
+                            <a class="mt-2" href="{{route('connections.index')}}">All Connections</a>
 
                             <div class="page_footer">
                                 @if($connection->isBlocked)

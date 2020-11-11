@@ -62,9 +62,8 @@
             </tr>
             </thead>
             <tbody>
-
-            <tr v-for="connection in itemsToDisplay" :class="{blocked: connection.isBlocked}"
-                @click="redirectToDetail(connection.id)" >
+<!--  <tr v-for="connection in itemsToDisplay" :class="{blocked: connection.isBlocked}" @click="redirectToDetail(connection.id)" > -->
+            <tr v-for="connection in itemsToDisplay" :class="{blocked: connection.isBlocked}" >
                 <td class="blocked" v-if="connection.isBlocked">Blocked</td>
                 <td class="username" ><strong>Username: </strong> <span>{{connection.username}}</span>  </td>
                 <td><strong>Name: </strong> <span>{{connection.name}}</span> </td>

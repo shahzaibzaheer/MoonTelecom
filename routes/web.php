@@ -47,6 +47,12 @@ Route::group([ 'middleware'=>['auth','blockedUser']],function(){
     Route::get('/bills/generate','BillController@generateBills')->name('bills.generate');
     Route::post('/bills/generate','BillController@generate')->name('bills.generate');
 
+
+
+
+    // backup all connection data 
+    
+    
     // temp
 //    Route::get('/generateBills', 'ConnectionController@generateBills');
 //    Route::get('/home', 'HomeController@index')->name('home');

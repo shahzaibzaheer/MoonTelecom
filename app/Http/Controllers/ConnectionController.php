@@ -34,7 +34,7 @@ class ConnectionController extends Controller
      */
     public function index()
     {
-        $connections = Connection::with('currentBill')->with('village')->with('package')->get();
+        $connections = Connection::with('currentBill')->with('village')->with('package')->orderBy('username','ASC')->get();
         $villageNames = Village::pluck('name') ;
         $packageNames = Package::distinct()->pluck('name');
 

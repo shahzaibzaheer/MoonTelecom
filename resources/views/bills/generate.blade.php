@@ -16,8 +16,8 @@
                         <p><strong>{{ \Illuminate\Support\Carbon::parse($last_bill_timestamp)->diffForhumans() }}</strong></p>
                     </div>
                     <div class="form_element">
-                        <label for="name">Are you sure, if yes type <strong>"confirm" </strong> ?</label>
-                        <input id="name" type="text" name="confirm" placeholder="Enter confirm in small latters">
+                        <label for="name">Please Enter Bill Generation Password </strong> ?</label>
+                        <input id="name" type="text" name="confirm" placeholder="Enter Bill Generation Password">
                         @error('confirm')<span class="danger">*{{$message}}</span>@enderror()
                     </div>
                     <input class="btn" type="submit" name="Submit" value="Generate" >

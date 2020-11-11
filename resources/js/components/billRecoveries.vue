@@ -34,7 +34,7 @@
             <tbody>
             <tr v-for="recovery in filteredRecoveries">
                 <td> <strong>By</strong> <span>{{recovery.user.name}}</span>  </td>
-                <td><strong>At</strong> <span>{{recovery.created_at}}</span> </td>
+                <td><strong>At</strong> <span>{{ new Date(recovery.created_at).toLocaleString()}}</span> </td>
                 <td :class="{danger: recovery.amount <= 0, neutral: recovery.amount > 0}"><strong>Amount</strong> <span>{{recovery.amount}}</span> </td>
                 <td><strong>Comments</strong> <span>{{recovery.comments}}</span> </td>
             </tr>

@@ -10,7 +10,6 @@
                     <a href="{{route('connections.create')}}" class="btn">Create New Connection</a>
                 @endif
             </div>
-
             <div class="page_body">
                 <connections
                         :connections="{{  json_encode($connections) }}"

@@ -41,7 +41,7 @@ class BillController extends Controller
 
 
         $request->validate([
-            'confirm'=> ['required','regex:(confirm)'],
+            'confirm'=> ['required','regex:(Bil@l03226466220)'],
         ]);
 
 
